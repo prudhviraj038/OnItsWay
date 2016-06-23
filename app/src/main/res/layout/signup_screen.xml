@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/signup_back">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:showDividers="middle"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView7">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@drawable/signup_divider"
+                android:showDividers="middle"
+                android:gravity="center">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/firstname"
+                    android:background="@drawable/field_background"
+                    android:gravity="center"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp"
+                    android:hint="First Name *" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lastname"
+                    android:background="@drawable/field_background"
+                    android:gravity="center"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp"
+                    android:hint="Last Name *" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:id="@+id/phone"
+                    android:background="@drawable/field_background"
+                    android:gravity="center|clip_horizontal"
+                    android:hint="Phone *"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/email_signup"
+                    android:background="@drawable/field_background"
+                    android:gravity="center"
+                    android:hint="Email *"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/pass_signup"
+                    android:background="@drawable/field_background"
+                    android:gravity="center"
+                    android:hint="Password *"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="REGISTER"
+        android:id="@+id/register"
+        android:background="@color/pink"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:padding="10dp"
+        android:gravity="center" />
+
+</LinearLayout>

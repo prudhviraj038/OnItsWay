@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_background"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView4" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/company_details_screen_divider"
+            android:showDividers="middle">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FedEx Shipping Company"
+                android:id="@+id/tv_company_name"
+                android:background="@drawable/field_background"
+                android:gravity="center"
+                android:textColor="@color/company_details_text"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Established in 1990"
+                android:id="@+id/establish"
+                android:background="@drawable/field_background"
+                android:gravity="center"
+                android:textColor="@color/company_details_text"
+                android:textSize="15dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/field_half_background"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginRight="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status"
+                        android:id="@+id/statuss"
+                        android:textSize="15dp"
+                        android:textColor="@color/company_details_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Open"
+                        android:id="@+id/status"
+                        android:textColor="#972888"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/field_half_background"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageButton"
+                        android:src="@drawable/star"
+                        android:background="@color/white" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageButton2"
+                        android:src="@drawable/star"
+                        android:adjustViewBounds="false"
+                        android:background="@color/white" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageButton3"
+                        android:src="@drawable/star"
+                        android:background="@color/white" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageButton4"
+                        android:src="@drawable/star"
+                        android:adjustViewBounds="false"
+                        android:background="@color/white" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageButton5"
+                        android:src="@drawable/star"
+                        android:background="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FedEx Express invented express distribution and is the industry’s global leader, providing rapid, reliable, time-definite delivery to more than 220 countries and territories, connecting markets that comprise more than 90 percent of the world’s gross domestic product within one to three business days. Unmatched air route authorities and transportation infrastructure, combined with leading-edge information technologies, make FedEx Express the world’s largest express transportation company, providing fast and reliable services for more than 3.6 million shipments each business day  FedEx Express invented express distribution and remains the industry’s global leader, providing rapid, reliable, time-definite delivery to more than 220 countries and territories"
+                android:id="@+id/descri"
+                android:textColor="@color/company_details_text"
+                android:textSize="12dp"
+                android:background="@drawable/roundcorner_details_page"
+                android:gravity="center_vertical"
+                android:padding="15dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:divider="@drawable/wedont_deliver_divider"
+                android:showDividers="middle">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/places_not_del"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Place&apos;s We Don&apos;t Deliver"
+                        android:id="@+id/textView8"
+                        android:textColor="@color/white"
+                        android:background="@color/pink"
+                        android:padding="5dp"
+                        android:gravity="center" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:id="@+id/places_layout"
+                        android:layout_weight="1"
+                        android:padding="5dp"></LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Item&apos;s We Don&apos;t Deliver"
+                        android:id="@+id/textView9"
+                        android:textColor="@color/white"
+                        android:background="@color/pink"
+                        android:padding="5dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:id="@+id/items_layout"
+                        android:layout_weight="1"
+                        android:padding="5dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

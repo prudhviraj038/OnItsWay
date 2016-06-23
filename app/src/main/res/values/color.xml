@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="grey_background">#d4d4d4</color>
+    <color name="grey_textcolor">#a6a6ad</color>
+    <color name="pink">#b469aa</color>
+    <color name="white">#ffffff</color>
+    <color name="black_text">#58585a</color>
+    <color name="login_signup_back">#f4f4f4</color>
+    <color name="login_signup_text">#6e6e6e</color>
+    <color name="picup_drop_address">#b0b0b0</color>
+    <color name="picup_drop_address_back">#e4e3e4</color>
+    <color name="summary_text">#949494</color>
+    <color name="company_details_text">#656565</color>
+    <color name="order_status_text">#888888</color>
+
+</resources>

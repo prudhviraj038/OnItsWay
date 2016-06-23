@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_back"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:gravity="center"
+                android:divider="@drawable/signup_divider"
+                android:showDividers="middle">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pickup_fname"
+                    android:background="@drawable/field_background"
+                    android:gravity="center"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp"
+                    android:hint="Full Name *" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pickup_area"
+                    android:background="@drawable/field_background"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pickup_area_tv"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:textColor="@color/grey_textcolor"
+                        android:hint="Pick Up Area *" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/downarrow"
+                        android:src="@drawable/down_arrow"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginLeft="3dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pickup_block"
+                        android:background="@drawable/field_half_background"
+                        android:layout_weight="1"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:textSize="15dp"
+                        android:textColor="@color/grey_textcolor"
+                        android:hint="Block *" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pickup_building"
+                        android:background="@drawable/field_half_background"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:textColor="@color/grey_textcolor"
+                        android:hint="Building *"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pickup_streetname"
+                    android:background="@drawable/field_background"
+                    android:gravity="center"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp"
+                    android:hint="Street Name *" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pickup_house"
+                    android:background="@drawable/field_background"
+                    android:gravity="center"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp"
+                    android:hint="House / Flat / Apartment *" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:text="New Text"
+                android:id="@+id/textView"
+                android:background="#b1b1b1" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:gravity="center"
+                android:divider="@drawable/signup_divider"
+                android:showDividers="middle">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/item_type"
+                    android:background="@drawable/field_background"
+                    android:gravity="center" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/item_tv"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:textColor="@color/grey_textcolor"
+                        android:hint="Item Type*" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView18"
+                        android:src="@drawable/down_arrow"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginLeft="3dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pickup_time"
+                        android:background="@drawable/field_half_background"
+                        android:layout_weight="1"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:textSize="15dp"
+                        android:textColor="@color/grey_textcolor"
+                        android:hint="Time *" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pickup_date"
+                        android:background="@drawable/field_half_background"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:textColor="@color/grey_textcolor"
+                        android:hint="Date *" />
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pickup_weight"
+                    android:background="@drawable/field_background"
+                    android:gravity="center"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp"
+                    android:hint="Weight / Quantity *" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pink"
+        android:id="@+id/pickup_submit"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/picku_submit"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:text="GO TO DELIVERY DETAILS" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/farrow"
+            android:src="@drawable/forw_arrow" />
+    </LinearLayout>
+
+</LinearLayout>

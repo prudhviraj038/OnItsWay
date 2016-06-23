@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/signup_back"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView8"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:divider="@drawable/signup_divider"
+            android:showDividers="middle">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/drop_fname"
+                android:background="@drawable/field_background"
+                android:gravity="center"
+                android:textColor="@color/grey_textcolor"
+                android:textSize="15dp"
+                android:hint="Full Name *" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/drop_area"
+                android:background="@drawable/field_background"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/drop_area_tv"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:textColor="@color/grey_textcolor"
+                    android:hint="Drop Off Area *" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/drop_darrow"
+                    android:src="@drawable/down_arrow"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginLeft="3dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dropoff_block"
+                    android:background="@drawable/field_half_background"
+                    android:layout_weight="1"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:gravity="center"
+                    android:textSize="15dp"
+                    android:textColor="@color/grey_textcolor"
+                    android:hint="Block *" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dropoff_building"
+                    android:background="@drawable/field_half_background"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="center"
+                    android:textColor="@color/grey_textcolor"
+                    android:hint="Building *"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dropoff_street"
+                android:background="@drawable/field_background"
+                android:gravity="center"
+                android:textColor="@color/grey_textcolor"
+                android:textSize="15dp"
+                android:hint="Street Name *" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dropoff_house"
+                android:background="@drawable/field_background"
+                android:gravity="center"
+                android:textColor="@color/grey_textcolor"
+                android:textSize="15dp"
+                android:hint="House / Flat / Apartment *" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/dropoff_mobile"
+                android:background="@drawable/field_background"
+                android:gravity="center"
+                android:hint="Mobile Number *"
+                android:textColor="@color/grey_textcolor"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DONE"
+        android:id="@+id/done"
+        android:background="@color/pink"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:gravity="center" />
+
+</LinearLayout>
