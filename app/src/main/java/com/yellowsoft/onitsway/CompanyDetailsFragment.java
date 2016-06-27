@@ -6,6 +6,7 @@ package com.yellowsoft.onitsway;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,7 @@ public class CompanyDetailsFragment extends Fragment {
         TextView description = (TextView)view.findViewById(R.id.descri);
         name.setText(companyDetails.title1);
         mCallBack.com_details_bar(companyDetails.logo);
-        description.setText(companyDetails.description);
+        description.setText(Html.fromHtml(companyDetails.description));
         places_layout = (LinearLayout)view.findViewById(R.id.places_layout);
         items_layout = (LinearLayout) view.findViewById(R.id.items_layout);
         for(int i=0;i<companyDetails.places_not.size();i++){

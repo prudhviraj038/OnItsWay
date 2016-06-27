@@ -3,10 +3,10 @@ package com.yellowsoft.onitsway;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +37,24 @@ public class DropOffFragment extends Fragment {
     TextView area_tv,done;
     String area_name;
     AllApis allApis=new AllApis();
+    FragmentTouchListner mCallBack;
+    Context context;
+    public interface FragmentTouchListner {
+        public void from_drop_off();
+    }
+    public void onAttachFragment(Fragment fragment)
+    {
+        try
+        {
+            mCallBack = (PickupDropoffAddressFragment)fragment;
+
+        }
+        catch (ClassCastException e)
+        {
+            throw new ClassCastException(
+                    fragment.toString() + " must implement OnPlayerSelectionSetListener");
+        }
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.drop_off_screen, container, false);
@@ -45,6 +63,7 @@ public class DropOffFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View v = getView();
+        onAttachFragment(getParentFragment());
         pick_up_submit = (LinearLayout)v.findViewById(R.id.pickup_submit);
         area_id= new ArrayList<String>();
         area_title=new ArrayList<String>();
@@ -135,10 +154,8 @@ public class DropOffFragment extends Fragment {
                             street.setText(jsonObject.getString("drop_street"));
                             house.setText(jsonObject.getString("drop_house"));
                             mobile.setText(jsonObject.getString("drop_mobile"));
-                            Settings.set_order_json(getActivity(),jsonObject.toString());
-                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                            CompanieslistFragment companieslistFragment = new CompanieslistFragment();
-                            fragmentManager.beginTransaction().replace(R.id.container_main, companieslistFragment).addToBackStack(null).commit();
+                            Settings.set_order_json(getActivity(), jsonObject.toString());
+                            mCallBack.from_drop_off();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -162,7 +179,7 @@ public class DropOffFragment extends Fragment {
                     JSONArray jsonArray = jsonObject.getJSONArray("locations");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject sub = jsonArray.getJSONObject(i);
-                        String area_name = sub.getString("title"+Settings.get_lan(getActivity()));
+                        String area_name = sub.getString("title"+Settings.get_lan(context));
                         String ar_id = sub.getString("id");
                         area_id.add(ar_id);
                         area_title.add(area_name);

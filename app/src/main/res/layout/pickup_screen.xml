@@ -35,7 +35,8 @@
                     android:gravity="center"
                     android:textColor="@color/grey_textcolor"
                     android:textSize="15dp"
-                    android:hint="Full Name *" />
+                    android:hint="Full Name *"
+                    android:singleLine="true" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -79,7 +80,8 @@
                         android:gravity="center"
                         android:textSize="15dp"
                         android:textColor="@color/grey_textcolor"
-                        android:hint="Block *" />
+                        android:hint="Block *"
+                        android:singleLine="true" />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -92,7 +94,8 @@
                         android:gravity="center"
                         android:textColor="@color/grey_textcolor"
                         android:hint="Building *"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:singleLine="true" />
                 </LinearLayout>
 
                 <EditText
@@ -103,7 +106,8 @@
                     android:gravity="center"
                     android:textColor="@color/grey_textcolor"
                     android:textSize="15dp"
-                    android:hint="Street Name *" />
+                    android:hint="Street Name *"
+                    android:singleLine="true" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -113,7 +117,8 @@
                     android:gravity="center"
                     android:textColor="@color/grey_textcolor"
                     android:textSize="15dp"
-                    android:hint="House / Flat / Apartment *" />
+                    android:hint="House / Flat / Apartment *"
+                    android:singleLine="true" />
 
             </LinearLayout>
 
@@ -164,7 +169,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <EditText
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/pickup_time"
@@ -175,9 +180,10 @@
                         android:gravity="center"
                         android:textSize="15dp"
                         android:textColor="@color/grey_textcolor"
-                        android:hint="Time *" />
+                        android:hint="Time *"
+                        android:singleLine="true" />
 
-                    <EditText
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/pickup_date"
@@ -187,7 +193,8 @@
                         android:layout_marginRight="2dp"
                         android:gravity="center"
                         android:textColor="@color/grey_textcolor"
-                        android:hint="Date *" />
+                        android:hint="Date *"
+                        android:singleLine="true" />
                 </LinearLayout>
 
                 <EditText
@@ -198,7 +205,8 @@
                     android:gravity="center"
                     android:textColor="@color/grey_textcolor"
                     android:textSize="15dp"
-                    android:hint="Weight / Quantity *" />
+                    android:hint="Weight / Quantity *"
+                    android:singleLine="true" />
             </LinearLayout>
 
         </LinearLayout>

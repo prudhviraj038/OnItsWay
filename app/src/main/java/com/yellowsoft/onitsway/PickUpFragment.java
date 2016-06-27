@@ -4,7 +4,9 @@ package com.yellowsoft.onitsway;
  * Created by Chinni on 05-04-2016.
  */
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,9 +15,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,9 +32,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class PickUpFragment extends Fragment {
-    EditText fname,block,building,street,house,time,date,weight;
+    EditText fname,block,building,street,house,weight;
+    TextView time,date;
     LinearLayout area,item,pick_up_submit;
     String areas_id="0",items_id="0";
     ArrayList<String> area_id;
@@ -38,8 +44,9 @@ public class PickUpFragment extends Fragment {
     ArrayList<String> item_id;
     ArrayList<String> item_title;
     TextView area_tv,item_tv;
+    private int mYear, mMonth, mDay, mHour, mMinute;
     FragmentTouchListner mCallBack;
-    String area_name,item_name;
+    String area_name,item_name,time1,date1;
     public interface FragmentTouchListner {
         public void select_drop_off();
     }
@@ -76,13 +83,59 @@ public class PickUpFragment extends Fragment {
         building = (EditText) v.findViewById(R.id.pickup_building);
         street = (EditText) v.findViewById(R.id.pickup_streetname);
         house = (EditText) v.findViewById(R.id.pickup_house);
-        time = (EditText) v.findViewById(R.id.pickup_time);
-        date = (EditText) v.findViewById(R.id.pickup_date);
+        time = (TextView) v.findViewById(R.id.pickup_time);
+        date = (TextView) v.findViewById(R.id.pickup_date);
         weight = (EditText) v.findViewById(R.id.pickup_weight);
         item = (LinearLayout) v.findViewById(R.id.item_type);
         area = (LinearLayout) v.findViewById(R.id.pickup_area);
         area_tv = (TextView) v.findViewById(R.id.pickup_area_tv);
         item_tv = (TextView) v.findViewById(R.id.item_tv);
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar c = Calendar.getInstance();
+                mHour = c.get(Calendar.HOUR_OF_DAY);
+                mMinute = c.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        String temp=String.valueOf(hourOfDay);
+                        if(temp.length()<2)
+                            temp="0"+temp;
+                        String temp1=String.valueOf(minute);
+                        if(temp1.length()<2)
+                            temp1="0"+temp1;
+                        time1 = temp+":"+temp1;
+                        time.setText(time1);
+                    }
+                }, mHour, mMinute, false);
+                timePickerDialog.show();
+
+            }
+        });
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar c = Calendar.getInstance();
+                mYear = c.get(Calendar.YEAR);
+                mMonth = c.get(Calendar.MONTH);
+                mDay = c.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        String temp=String.valueOf(monthOfYear+1);
+                        if(temp.length()<2)
+                            temp="0"+temp;
+                        String temp1=String.valueOf(dayOfMonth);
+                        if(temp1.length()<2)
+                            temp1="0"+temp1;
+                        date1 = year + "-" + temp + "-" +temp1;
+                        date.setText(date1);
+                    }
+                }, mYear, mMonth, mDay);
+                datePickerDialog.show();
+            }
+        });
         if (!Settings.get_order_json(getActivity()).equals("-1")) {
             try {
                 JSONObject jsonObject = new JSONObject(Settings.get_order_json(getActivity()));
@@ -158,8 +211,6 @@ public class PickUpFragment extends Fragment {
                             String block1=block.getText().toString();
                             String build=building.getText().toString();
                             String streetname=street.getText().toString();
-                            String time1=time.getText().toString();
-                            String date1=date.getText().toString();
                             String weight1=weight.getText().toString();
                             String house1=house.getText().toString();
                 if (full_name.equals(""))

@@ -47,7 +47,7 @@ public class WhatWeDoFragment extends Fragment {
             head=String.valueOf(Html.fromHtml(jsonObject.getString("title" + Settings.get_lan(getActivity()))));
             mCallBack.text_back_butt(head);
             what_we_do_title.setText(jsonObject.getString("title"+Settings.get_lan(getActivity())));
-            what_we_do_descri.setText(jsonObject.getString("description" + Settings.get_lan(getActivity())));
+            what_we_do_descri.setText(Html.fromHtml(jsonObject.getString("description" + Settings.get_lan(getActivity()))));
         } catch (JSONException e) {
             e.printStackTrace();
         }

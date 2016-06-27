@@ -6,7 +6,6 @@ package com.yellowsoft.onitsway;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +26,7 @@ public class CompanieslistFragment extends Fragment {
     FragmentTouchListner mCallBack;
     public interface FragmentTouchListner {
         public void back_butt();
+        public void to_summery(CompanyDetails companyDetails);
     }
     @Override
     public void onAttach(Activity activity) {
@@ -65,12 +65,8 @@ public class CompanieslistFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                SummaryFragment summaryFragment = new SummaryFragment();
-                final Bundle bundle = new Bundle();
-                bundle.putSerializable("company", adapter.getItem(position));
-                summaryFragment.setArguments(bundle);
-                fragmentManager.beginTransaction().replace(R.id.container_main, summaryFragment).addToBackStack(null).commit();
+                mCallBack.to_summery(adapter.getItem(position));
+
 
             }
                     });

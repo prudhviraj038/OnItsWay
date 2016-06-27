@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/grey_background">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/company_details_screen_divider"
+        android:showDividers="middle"
+        android:gravity="center"
+        android:padding="30dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/field_background"
+            android:gravity="center"
+            android:id="@+id/my_acc_ord_ll">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orderrs"
+                android:id="@+id/my_acc_ord_tv"
+                android:textColor="@color/black_text"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/field_background"
+            android:gravity="center"
+            android:id="@+id/my_acc_lang_ll" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Language"
+                android:id="@+id/my_acc_lang_tv"
+                android:textColor="@color/black_text"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/field_background"
+            android:gravity="center"
+            android:id="@+id/my_acc_logout_ll" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:id="@+id/my_acc_logout_tv"
+                android:textColor="@color/black_text"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

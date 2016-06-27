@@ -2,10 +2,8 @@ package com.yellowsoft.onitsway;
 
 
 import android.app.Activity;
-import android.media.audiofx.BassBoost;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +13,8 @@ public class HomeFragment extends Fragment {
     FragmentTouchListner mCallBack;
     public interface FragmentTouchListner {
         public void setting_butt();
+        public void pick_drop(String type);
+        public void courier_order(String type);
     }
     @Override
     public void onAttach(Activity activity) {
@@ -45,69 +45,26 @@ public class HomeFragment extends Fragment {
         LinearLayout dropoff_deli_ll = (LinearLayout) view.findViewById(R.id.dropoff_delivery);
         courier_ll.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String abc= Settings.getUserid(getActivity());
-                if(abc.equals("-1")) {
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    LoginSignupFragment loginSignupFragment = new LoginSignupFragment();
-                    fragmentManager.beginTransaction().replace(R.id.container_main, loginSignupFragment).addToBackStack(null).commit();
-                }
-                else{
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    CompaniesGridFragment companiesGridFragment = new CompaniesGridFragment();
-                    fragmentManager.beginTransaction().replace(R.id.container_main, companiesGridFragment).addToBackStack(null).commit();
-                }
+            public void onClick(View v) {mCallBack.courier_order("courier");
             }
         });
         order_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String abc= Settings.getUserid(getActivity());
-                if(abc.equals("-1")) {
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    LoginSignupFragment loginSignupFragment = new LoginSignupFragment();
-                    fragmentManager.beginTransaction().replace(R.id.container_main, loginSignupFragment).addToBackStack(null).commit();
-                }
-                else{
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    OrderStatusFragment orderStatusFragment = new OrderStatusFragment();
-                    fragmentManager.beginTransaction().replace(R.id.container_main, orderStatusFragment).addToBackStack(null).commit();
-                }
+                mCallBack.courier_order("order");
             }
         });
         pickup_deliv_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Settings.set_order_json(getActivity(),"-1");
-                String abc= Settings.getUserid(getActivity());
-                if(abc.equals("-1")) {
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    LoginSignupFragment loginSignupFragment = new LoginSignupFragment();
-                    fragmentManager.beginTransaction().replace(R.id.container_main, loginSignupFragment).addToBackStack(null).commit();
-                }
-                else{
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    PickupDropoffAddressFragment pickupDropoffAddressFragment = new PickupDropoffAddressFragment();
-                    fragmentManager.beginTransaction().replace(R.id.container_main, pickupDropoffAddressFragment).addToBackStack(null).commit();
-                }
+                mCallBack.pick_drop("pick");
             }
         });
         dropoff_deli_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String abc= Settings.getUserid(getActivity());
-                if(abc.equals("-1")) {
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    LoginSignupFragment loginSignupFragment = new LoginSignupFragment();
-                    fragmentManager.beginTransaction().replace(R.id.container_main, loginSignupFragment).addToBackStack(null).commit();
-                }
-                else{
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    PickupDropoffAddressFragment pickupDropoffAddressFragment = new PickupDropoffAddressFragment();
-                    fragmentManager.beginTransaction().replace(R.id.container_main, pickupDropoffAddressFragment).addToBackStack(null).commit();
-                }
+                mCallBack.pick_drop("drop");
             }
         });
     }

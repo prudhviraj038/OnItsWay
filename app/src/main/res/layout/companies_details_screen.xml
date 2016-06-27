@@ -55,10 +55,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Status"
+                        android:text="Status:"
                         android:id="@+id/statuss"
                         android:textSize="15dp"
-                        android:textColor="@color/company_details_text" />
+                        android:textColor="@color/company_details_text"
+                        android:layout_margin="3dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -78,47 +79,16 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="2dp">
 
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageButton"
-                        android:src="@drawable/star"
-                        android:background="@color/white" />
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageButton2"
-                        android:src="@drawable/star"
-                        android:adjustViewBounds="false"
-                        android:background="@color/white" />
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageButton3"
-                        android:src="@drawable/star"
-                        android:background="@color/white" />
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageButton4"
-                        android:src="@drawable/star"
-                        android:adjustViewBounds="false"
-                        android:background="@color/white" />
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/imageButton5"
-                        android:src="@drawable/star"
-                        android:background="@color/white" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rating_details_page"></LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FedEx Express invented express distribution and is the industry’s global leader, providing rapid, reliable, time-definite delivery to more than 220 countries and territories, connecting markets that comprise more than 90 percent of the world’s gross domestic product within one to three business days. Unmatched air route authorities and transportation infrastructure, combined with leading-edge information technologies, make FedEx Express the world’s largest express transportation company, providing fast and reliable services for more than 3.6 million shipments each business day  FedEx Express invented express distribution and remains the industry’s global leader, providing rapid, reliable, time-definite delivery to more than 220 countries and territories"
                 android:id="@+id/descri"

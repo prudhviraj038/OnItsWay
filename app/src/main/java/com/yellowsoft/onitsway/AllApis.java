@@ -1,9 +1,7 @@
 package com.yellowsoft.onitsway;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -31,7 +29,7 @@ import java.util.Map;
 public class AllApis {
       String fname,lname,phone,email,password,name,message,drop_area_id;
       Context context;
-     public void signup(final Context context,final String fname,final String lname,final String phone,final String email,final String password,final SignUpFragment.FragmentTouchListner mcallback){
+     public void signup(final Context context,final String fname,final String lname,final String phone,final String email,final String password,final LoginSignupFragment.FragmentTouchListner mcallback){
          this.context=context;
          this.fname=fname;
          this.lname=lname;
@@ -91,7 +89,7 @@ public class AllApis {
         };
         AppController.getInstance().addToRequestQueue(stringRequest);
     }
-    public void login(final Context context,String email,String password, final LoginFragment.FragmentTouchListner mCallback){
+    public void login(final Context context,String email,String password, final LoginSignupFragment.FragmentTouchListner mCallback){
     this.context=context;
     this.email=email;
     this.password=password;

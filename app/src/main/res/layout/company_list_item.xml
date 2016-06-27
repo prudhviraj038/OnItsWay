@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/grey_textcolor">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -10,33 +9,32 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:background="@drawable/field_background_big"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_marginBottom="5dp">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:background="#ffffff">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:id="@+id/company_logo_list"
                 android:src="@drawable/company_logo"
-                android:background="@drawable/field_background"
-                android:adjustViewBounds="true" />
+                android:adjustViewBounds="false" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp">
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="wrap_content"

@@ -1,14 +1,11 @@
 package com.yellowsoft.onitsway;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -18,18 +15,15 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import static android.view.Gravity.END;
-
 /**
  * Created by Chinni on 13-04-2016.
  */
-public class NavigationActivity extends FragmentActivity implements LoginFragment.FragmentTouchListner, SignUpFragment.FragmentTouchListner,
-        ContactUsFragment.FragmentTouchListner, SummaryFragment.FragmentTouchListner,
-        CompaniesGridFragment.FragmentTouchListner, CompanieslistFragment.FragmentTouchListner,
-        OrderStatusFragment.FragmentTouchListner, CompanyDetailsFragment.FragmentTouchListner,
-        PickupDropoffAddressFragment.FragmentTouchListner, HomeFragment.FragmentTouchListner,
-        LoginSignupFragment.FragmentTouchListner, SettingsFragment.FragmentTouchListner,
-        SearchFragment.FragmentTouchListner, AboutUsfragment.FragmentTouchListner, WhatWeDoFragment.FragmentTouchListner {
+public class NavigationActivity extends FragmentActivity implements ContactUsFragment.FragmentTouchListner,
+        SummaryFragment.FragmentTouchListner, CompaniesGridFragment.FragmentTouchListner, CompanieslistFragment.FragmentTouchListner,
+        OrderStatusFragment.FragmentTouchListner, CompanyDetailsFragment.FragmentTouchListner, PickupDropoffAddressFragment.FragmentTouchListner,
+        HomeFragment.FragmentTouchListner, LoginSignupFragment.FragmentTouchListner, SettingsFragment.FragmentTouchListner,
+        SearchFragment.FragmentTouchListner, AboutUsfragment.FragmentTouchListner, WhatWeDoFragment.FragmentTouchListner,
+        MyAccountFragment.FragmentTouchListner {
     DrawerLayout drawerLayout;
     ImageView menu_img, settings,back_btn,logo_image;
     TextView header;
@@ -61,7 +55,7 @@ public class NavigationActivity extends FragmentActivity implements LoginFragmen
             @Override
             public void onClick(View v) {
                 SettingsFragment settingsFragment = new SettingsFragment();
-                fragmentManager.beginTransaction().replace(R.id.container_main, settingsFragment).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.container_main, settingsFragment).commit();
             }
         });
         menu_img.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +117,7 @@ public class NavigationActivity extends FragmentActivity implements LoginFragmen
     public void after_login() {
          FragmentManager fragmentManager =getSupportFragmentManager();
          PickUpFragment pickUpFragment = new PickUpFragment();
-         fragmentManager.beginTransaction().replace(R.id.container_main, pickUpFragment).addToBackStack(null).commit();
+         fragmentManager.beginTransaction().replace(R.id.container_main, pickUpFragment).commit();
        // onBackPressed();
     }
 
@@ -131,7 +125,7 @@ public class NavigationActivity extends FragmentActivity implements LoginFragmen
     public void signup_to_login() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         LoginSignupFragment loginSignupFragment = new LoginSignupFragment();
-        fragmentManager.beginTransaction().replace(R.id.container_main, loginSignupFragment).addToBackStack(null).commit();
+        fragmentManager.beginTransaction().replace(R.id.container_main, loginSignupFragment).commit();
 
     }
 
@@ -139,7 +133,18 @@ public class NavigationActivity extends FragmentActivity implements LoginFragmen
     public void display_text(String text) {
 
     }
-
+    @Override
+    public void lang() {
+        Intent mainIntent = new Intent(getApplicationContext(), LanguageActvity.class);
+        startActivity(mainIntent);
+        finish();
+    }
+    @Override
+    public void my_orders_page() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        OrderStatusFragment orderStatusFragment = new OrderStatusFragment();
+        fragmentManager.beginTransaction().replace(R.id.container_main, orderStatusFragment).commit();
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -152,7 +157,67 @@ public class NavigationActivity extends FragmentActivity implements LoginFragmen
         }
     }
 
-
+    @Override
+    public void pick_drop(String type){
+        String abc= Settings.getUserid(this);
+        if(abc.equals("-1")) {
+            FragmentManager fragmentManager = this.getSupportFragmentManager();
+            LoginSignupFragment loginSignupFragment = new LoginSignupFragment();
+            fragmentManager.beginTransaction().replace(R.id.container_main, loginSignupFragment).addToBackStack(null).commit();
+        }
+        else{
+            FragmentManager fragmentManager =this.getSupportFragmentManager();
+            PickupDropoffAddressFragment pickupDropoffAddressFragment = new PickupDropoffAddressFragment();
+            final Bundle bundle = new Bundle();
+            bundle.putSerializable("type",type);
+            pickupDropoffAddressFragment.setArguments(bundle);
+            fragmentManager.beginTransaction().replace(R.id.container_main, pickupDropoffAddressFragment).addToBackStack(null).commit();
+        }
+    }
+    @Override
+    public void courier_order(String type){
+        String abc= Settings.getUserid(this);
+        if(abc.equals("-1")) {
+            FragmentManager fragmentManager = this.getSupportFragmentManager();
+            LoginSignupFragment loginSignupFragment = new LoginSignupFragment();
+            fragmentManager.beginTransaction().replace(R.id.container_main, loginSignupFragment).addToBackStack(null).commit();
+        }
+        else{
+            if(type.equals("courier")){
+            FragmentManager fragmentManager =this.getSupportFragmentManager();
+            CompaniesGridFragment companiesGridFragment = new CompaniesGridFragment();
+            fragmentManager.beginTransaction().replace(R.id.container_main, companiesGridFragment).addToBackStack(null).commit();
+            }else{
+                FragmentManager fragmentManager = this.getSupportFragmentManager();
+                OrderStatusFragment orderStatusFragment = new OrderStatusFragment();
+                fragmentManager.beginTransaction().replace(R.id.container_main, orderStatusFragment).addToBackStack(null).commit();
+            }
+        }
+    }
+    @Override
+    public void goto_com_details(CompanyDetails companyDetails){
+        FragmentManager fragmentManager = this.getSupportFragmentManager();
+        CompanyDetailsFragment companyDetailsFragment = new CompanyDetailsFragment();
+        final Bundle bundle = new Bundle();
+        bundle.putSerializable("company", companyDetails);
+        companyDetailsFragment.setArguments(bundle);
+        fragmentManager.beginTransaction().replace(R.id.container_main, companyDetailsFragment).addToBackStack(null).commit();
+    }
+    @Override
+    public void to_summery(CompanyDetails companyDetails){
+        FragmentManager fragmentManager = this.getSupportFragmentManager();
+        SummaryFragment summaryFragment = new SummaryFragment();
+        final Bundle bundle = new Bundle();
+        bundle.putSerializable("company", companyDetails);
+        summaryFragment.setArguments(bundle);
+        fragmentManager.beginTransaction().replace(R.id.container_main, summaryFragment).addToBackStack(null).commit();
+    }
+    @Override
+    public void after_drop_off() {
+        FragmentManager fragmentManager = this.getSupportFragmentManager();
+        CompanieslistFragment companieslistFragment = new CompanieslistFragment();
+        fragmentManager.beginTransaction().replace(R.id.container_main, companieslistFragment).addToBackStack(null).commit();
+    }
     @Override
     public void to_payment(String user_id,String price) {
         Intent payment = new Intent(this,PaymentActivity.class);
@@ -192,6 +257,13 @@ public class NavigationActivity extends FragmentActivity implements LoginFragmen
     public void setting_butt() {
         settings.setVisibility(View.VISIBLE);
         back_btn.setVisibility(View.GONE);
+        logo_image.setVisibility(View.GONE);
+        header.setVisibility(View.GONE);
+    }
+    @Override
+    public void setting_page_back() {
+        settings.setVisibility(View.GONE);
+        back_btn.setVisibility(View.VISIBLE);
         logo_image.setVisibility(View.GONE);
         header.setVisibility(View.GONE);
     }

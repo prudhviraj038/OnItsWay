@@ -39,8 +39,187 @@
             android:gravity="center" />
     </LinearLayout>
 
-    <FrameLayout
+    <ViewFlipper
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/login_container"></FrameLayout>
+        android:id="@+id/viewFlipper" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/login_back"
+            android:gravity="center" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:layout_marginTop="50dp"
+                android:divider="@drawable/signup_divider"
+                android:showDividers="middle" >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/email_login"
+                    android:background="@drawable/field_background"
+                    android:gravity="center"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15dp"
+                    android:hint="Email ID *"
+                    android:inputType="textEmailAddress" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:background="@drawable/field_background"
+                    android:id="@+id/pass_login"
+                    android:hint="Password *"
+                    android:textColor="@color/grey_textcolor"
+                    android:textSize="15sp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:id="@+id/forgot_pass"
+                android:textColor="@color/black_text"
+                android:layout_weight="1"
+                android:gravity="center" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/pink"
+                android:id="@+id/login_ll">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LOGIN"
+                    android:id="@+id/login_tv"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:padding="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/signup_back"
+            android:gravity="center" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:showDividers="middle"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scrollView7" >
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:divider="@drawable/signup_divider"
+                        android:showDividers="middle"
+                        android:gravity="center" >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/firstname"
+                            android:background="@drawable/field_background"
+                            android:gravity="center"
+                            android:textColor="@color/grey_textcolor"
+                            android:textSize="15dp"
+                            android:hint="First Name *" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/lastname"
+                            android:background="@drawable/field_background"
+                            android:gravity="center"
+                            android:textColor="@color/grey_textcolor"
+                            android:textSize="15dp"
+                            android:hint="Last Name *" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:ems="10"
+                            android:id="@+id/phone"
+                            android:background="@drawable/field_background"
+                            android:gravity="center|clip_horizontal"
+                            android:hint="Phone *"
+                            android:textColor="@color/grey_textcolor"
+                            android:textSize="15dp" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:ems="10"
+                            android:id="@+id/email_signup"
+                            android:background="@drawable/field_background"
+                            android:gravity="center"
+                            android:hint="Email *"
+                            android:textColor="@color/grey_textcolor"
+                            android:textSize="15dp" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:ems="10"
+                            android:id="@+id/pass_signup"
+                            android:background="@drawable/field_background"
+                            android:gravity="center"
+                            android:hint="Password *"
+                            android:textColor="@color/grey_textcolor"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/pink"
+                android:id="@+id/register_ll">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="REGISTER"
+                    android:id="@+id/register_tv"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:padding="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ViewFlipper>
+
 </LinearLayout>
