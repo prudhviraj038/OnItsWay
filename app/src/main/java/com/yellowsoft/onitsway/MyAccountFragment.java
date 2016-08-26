@@ -4,21 +4,24 @@ package com.yellowsoft.onitsway;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class MyAccountFragment extends Fragment {
     String head;
     FragmentTouchListner mCallBack;
     LinearLayout logout,language,my_orders;
-    TextView logout_tv,lang_tv,my_orders_tv;
+    MyTextView logout_tv,lang_tv,my_orders_tv;
     public interface FragmentTouchListner {
         public void text_back_butt(String header);
         public void lang();
+        public void after_logout();
         public void my_orders_page();
+        public Animation get_animation(Boolean enter);
     }
     @Override
     public void onAttach(Activity activity) {
@@ -34,6 +37,10 @@ public class MyAccountFragment extends Fragment {
         }
     }
     @Override
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        return mCallBack.get_animation(enter);
+    }
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.myaccount_screen, container, false);
     }
@@ -46,13 +53,18 @@ public class MyAccountFragment extends Fragment {
         logout=(LinearLayout)v.findViewById(R.id.my_acc_logout_ll);
         language=(LinearLayout)v.findViewById(R.id.my_acc_lang_ll);
         my_orders=(LinearLayout)v.findViewById(R.id.my_acc_ord_ll);
-        lang_tv=(TextView)v.findViewById(R.id.my_acc_lang_tv);
-        logout_tv=(TextView)v.findViewById(R.id.my_acc_logout_tv);
-        my_orders_tv=(TextView)v.findViewById(R.id.my_acc_ord_tv);
+        lang_tv=(MyTextView)v.findViewById(R.id.my_acc_lang_tv);
+        lang_tv.setText(Settings.getword(getActivity(),"language"));
+        logout_tv=(MyTextView)v.findViewById(R.id.my_acc_logout_tv);
+        logout_tv.setText(Settings.getword(getActivity(),"logout"));
+        my_orders_tv=(MyTextView)v.findViewById(R.id.my_acc_ord_tv);
+        my_orders_tv.setText(Settings.getword(getActivity(),"my_orders"));
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Settings.setUserid(getActivity(),"-1","");
+                Settings.setUserid(getActivity(), "-1", "","");
+                Log.e("abc",Settings.getUserid(getActivity()));
+                mCallBack.after_logout();
             }
         });
         language.setOnClickListener(new View.OnClickListener() {

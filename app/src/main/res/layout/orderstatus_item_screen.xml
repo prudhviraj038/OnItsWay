@@ -2,159 +2,220 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/order_status_background"
-    android:gravity="center"
-    android:divider="@drawable/order_status_divider"
-    android:showDividers="middle"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:paddingTop="5dp"
-    android:paddingBottom="5dp">
+    android:gravity="center">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/order_status_background"
         android:gravity="center"
-        android:padding="5dp">
+        android:divider="@drawable/order_status_divider"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:showDividers="middle"
+        android:layout_marginTop="5dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Order ID"
-            android:id="@+id/order_id"
-            android:textSize="12dp"
-            android:textColor="@color/order_status_text"
-            android:layout_weight="1" />
+            android:gravity="center"
+            android:padding="5dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order ID"
+                android:id="@+id/order_id"
+                android:textSize="15sp"
+                android:textColor="@color/order_status_text"
+                android:layout_weight="1" />
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="101014"
+                android:id="@+id/order_number"
+                android:textColor="@color/order_status_text"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="101014"
-            android:id="@+id/order_number"
-            android:textColor="@color/order_status_text" />
+            android:gravity="center"
+            android:padding="5dp">
 
-    </LinearLayout>
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:id="@+id/status"
+                android:textSize="15sp"
+                android:textColor="@color/order_status_text"
+                android:layout_weight="1" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="5dp">
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="On Delivery"
+                android:id="@+id/order_status_dis"
+                android:textColor="#99508f"
+                android:textSize="15sp" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Status"
-            android:id="@+id/status"
-            android:textSize="12dp"
-            android:textColor="@color/order_status_text"
-            android:layout_weight="1" />
+            android:gravity="center"
+            android:padding="5dp" >
 
-        <TextView
-            android:layout_width="wrap_content"
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company"
+                android:id="@+id/sta_o_p_area"
+                android:textSize="15sp"
+                android:textColor="@color/order_status_text"
+                android:layout_weight="1"
+                android:singleLine="false" />
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TNT Express Couriers"
+                android:id="@+id/o_p_area"
+                android:textColor="@color/order_status_text"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="On Delivery"
-            android:id="@+id/order_status_dis"
-            android:textColor="#99508f" />
-    </LinearLayout>
+            android:gravity="center"
+            android:padding="5dp" >
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company"
+                android:id="@+id/sta_o_d_area"
+                android:textSize="15sp"
+                android:textColor="@color/order_status_text"
+                android:layout_weight="1"
+                android:singleLine="false" />
 
-        <TextView
-            android:layout_width="wrap_content"
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TNT Express Couriers"
+                android:id="@+id/o_d_area"
+                android:textColor="@color/order_status_text"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Time Of Pick Up"
-            android:id="@+id/time_pick"
-            android:textColor="@color/order_status_text"
-            android:textSize="12dp"
-            android:layout_weight="1" />
+            android:padding="5dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time Of Pick Up"
+                android:id="@+id/time_pick"
+                android:textColor="@color/order_status_text"
+                android:textSize="15sp"
+                android:layout_weight="1" />
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24/02/2016"
+                android:id="@+id/oeder_pickup_date"
+                android:textColor="@color/order_status_text"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="15sp" />
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:30 AM"
+                android:id="@+id/order_pickup_time"
+                android:textColor="@color/order_status_text"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="08:30 AM"
-            android:id="@+id/order_pickup_time"
-            android:textColor="@color/order_status_text"
-            android:textSize="12dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp" />
+            android:padding="5dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time Of Drop Off"
+                android:id="@+id/date_dropoff"
+                android:textColor="@color/order_status_text"
+                android:textSize="15sp"
+                android:layout_weight="1" />
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="26/02/2016"
+                android:id="@+id/order_dropoff_date"
+                android:textColor="@color/order_status_text"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="15sp" />
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="04:30 PM"
+                android:id="@+id/order_dropoff_time"
+                android:textColor="@color/order_status_text"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="24/02/2016"
-            android:id="@+id/oeder_pickup_date"
-            android:textColor="@color/order_status_text"
-            android:textSize="12dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
-    </LinearLayout>
+            android:gravity="center"
+            android:padding="5dp">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company"
+                android:id="@+id/company"
+                android:textSize="15sp"
+                android:textColor="@color/order_status_text"
+                android:layout_weight="1"
+                android:singleLine="false" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Time Of Drop Off"
-            android:id="@+id/date_dropoff"
-            android:textColor="@color/order_status_text"
-            android:textSize="12dp"
-            android:layout_weight="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="04:30 PM"
-            android:id="@+id/order_dropoff_time"
-            android:textColor="@color/order_status_text"
-            android:textSize="12dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="26/02/2016"
-            android:id="@+id/order_dropoff_date"
-            android:textColor="@color/order_status_text"
-            android:textSize="12sp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="5dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Company"
-            android:id="@+id/company"
-            android:textSize="12dp"
-            android:textColor="@color/order_status_text"
-            android:layout_weight="1"
-            android:singleLine="false" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TNT Express Couriers"
-            android:id="@+id/order_company_name"
-            android:textColor="@color/order_status_text" />
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TNT Express Couriers"
+                android:id="@+id/order_company_name"
+                android:textColor="@color/order_status_text"
+                android:textSize="15sp" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

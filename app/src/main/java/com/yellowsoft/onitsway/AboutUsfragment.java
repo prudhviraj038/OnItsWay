@@ -8,6 +8,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -18,6 +19,7 @@ public class AboutUsfragment extends Fragment {
     FragmentTouchListner mCallBack;
     public interface FragmentTouchListner {
         public void text_back_butt(String header);
+        public  Animation get_animation(Boolean enter);
     }
     @Override
     public void onAttach(Activity activity) {
@@ -33,6 +35,10 @@ public class AboutUsfragment extends Fragment {
         }
     }
     @Override
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        return mCallBack.get_animation(enter);
+    }
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.about_us_screen, container, false);
     }
@@ -40,14 +46,14 @@ public class AboutUsfragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View v = getView();
-        TextView about_us=(TextView)v.findViewById(R.id.aboutus_descri);
-        TextView title_about_us=(TextView)v.findViewById(R.id.tittle_aboutus);
+        MyTextView about_us=(MyTextView)v.findViewById(R.id.aboutus_descri);
+        MyTextView title_about_us=(MyTextView)v.findViewById(R.id.tittle_aboutus);
         try {
-            JSONObject jsonObject = new JSONObject(Settings.getAboutUs(getActivity()));
-            head=String.valueOf(Html.fromHtml(jsonObject.getString("title"+Settings.get_lan(getActivity()))));
+            JSONObject jsonObject = new JSONObject(Settings.getSettings(getActivity()));
+            head=String.valueOf(Html.fromHtml(jsonObject.getJSONObject("aboutus").getString("title" + Settings.get_lan(getActivity()))));
             mCallBack.text_back_butt(head);
-            title_about_us.setText(Html.fromHtml(jsonObject.getString("title"+Settings.get_lan(getActivity()))));
-            about_us.setText(Html.fromHtml(jsonObject.getString("description" + Settings.get_lan(getActivity()))));
+            title_about_us.setText(Html.fromHtml(jsonObject.getJSONObject("aboutus").getString("title" + Settings.get_lan(getActivity()))));
+            about_us.setText(Html.fromHtml(jsonObject.getJSONObject("aboutus").getString("description" + Settings.get_lan(getActivity()))));
         } catch (JSONException e) {
             e.printStackTrace();
         }

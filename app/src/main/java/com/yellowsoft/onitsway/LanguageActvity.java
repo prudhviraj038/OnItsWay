@@ -1,49 +1,39 @@
 package com.yellowsoft.onitsway;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-
-import org.json.JSONObject;
 
 
 public class LanguageActvity extends Activity {
- TextView english,arabic;
+ MyTextView english,arabic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.langage_screen);
-        english=(TextView)findViewById(R.id.lng_english);
-        arabic=(TextView)findViewById(R.id.lag_arb);
+        english=(MyTextView)findViewById(R.id.lng_english);
+        arabic=(MyTextView)findViewById(R.id.lag_arb);
         english.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                get_language_words();
                 Settings.set_user_language(LanguageActvity.this, "en");
-
+                Settings.set_isfirsttime(LanguageActvity.this, "en");
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
         arabic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                get_language_words();
                 Settings.set_user_language(LanguageActvity.this, "ar");
+                Settings.set_isfirsttime(LanguageActvity.this, "ar");
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 
@@ -70,40 +60,5 @@ public class LanguageActvity extends Activity {
         return super.onOptionsItemSelected(item);
 
     }
-    private void get_language_words(){
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(Settings.getword(this,"please_wait"));
-        progressDialog.setCancelable(false);
-        String url = Settings.SERVERURL+"words-json-android.php";
-        Log.e("url", url);
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject jsonObject) {
-                if(progressDialog!=null)
-                    progressDialog.dismiss();
-                Log.e("response is: ", jsonObject.toString());
-                Settings.set_user_language_words(LanguageActvity.this, jsonObject.toString());
-                Intent intent = new Intent(LanguageActvity.this,NavigationActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                if(progressDialog!=null)
-                    progressDialog.dismiss();
-                Log.e("error",error.toString());
-                Toast.makeText(LanguageActvity.this, "Cannot reach our servers, Check your connection", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
-
-// Access the RequestQueue through your singleton class.
-        AppController.getInstance().addToRequestQueue(jsObjRequest);
-
-
-    }
-
 }
 

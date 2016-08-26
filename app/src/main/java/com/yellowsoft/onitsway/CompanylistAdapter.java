@@ -1,15 +1,13 @@
 package com.yellowsoft.onitsway;
 
-import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 
@@ -51,8 +49,9 @@ public class CompanylistAdapter extends BaseAdapter{
 
     public class Holder
     {
-        TextView tv,tv1,tv2;
+        MyTextView tv,tv1,tv2;
         ImageView img;
+        LinearLayout rating;
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -60,14 +59,21 @@ public class CompanylistAdapter extends BaseAdapter{
         Holder holder=new Holder();
         View rowView;
         rowView = inflater.inflate(R.layout.company_list_item, null);
-        holder.tv=(TextView) rowView.findViewById(R.id.list_com_name);
-        holder.tv1=(TextView) rowView.findViewById(R.id.list_com_status);
-        holder.tv2=(TextView) rowView.findViewById(R.id.list_cost);
+        holder.tv=(MyTextView) rowView.findViewById(R.id.list_com_name);
+        holder.tv1=(MyTextView) rowView.findViewById(R.id.list_com_status);
+        holder.tv2=(MyTextView) rowView.findViewById(R.id.list_cost);
         holder.img=(ImageView) rowView.findViewById(R.id.company_logo_list);
          holder.tv.setText(companyDetailses.get(position).title1);
         holder.tv1.setText(companyDetailses.get(position).current_status);
-        price=Integer.parseInt(companyDetailses.get(position).price_pickup)+Integer.parseInt(companyDetailses.get(position).price_drop_off);
-        holder.tv2.setText(String.valueOf(price));
+        holder.rating=(LinearLayout)rowView.findViewById(R.id.list_rating_ll);
+        Settings.set_rating(context, companyDetailses.get(position).rating, holder.rating);
+        Log.e("price",companyDetailses.get(position).price_pickup+","+companyDetailses.get(position).price_drop_off);
+//        price=Integer.parseInt(companyDetailses.get(position).price_pickup)+Integer.parseInt(companyDetailses.get(position).price_drop_off);
+        if(Settings.get_type(context).equals("pick")){
+            holder.tv2.setText(companyDetailses.get(position).price_pickup+"  KD");
+        }else{
+            holder.tv2.setText(companyDetailses.get(position).price_drop_off+"  KD");
+        }
         // holder.img.setImageResource(imageId[position]);
         Picasso.with(context).load(companyDetailses.get(position).logo).into(holder.img);
 

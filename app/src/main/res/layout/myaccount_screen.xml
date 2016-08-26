@@ -21,13 +21,13 @@
             android:gravity="center"
             android:id="@+id/my_acc_ord_ll">
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="My Orderrs"
                 android:id="@+id/my_acc_ord_tv"
                 android:textColor="@color/black_text"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -36,9 +36,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/field_background"
             android:gravity="center"
-            android:id="@+id/my_acc_lang_ll" >
+            android:id="@+id/my_acc_lang_ll"
+            android:visibility="gone">
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Language"
@@ -55,13 +56,13 @@
             android:gravity="center"
             android:id="@+id/my_acc_logout_ll" >
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Logout"
                 android:id="@+id/my_acc_logout_tv"
                 android:textColor="@color/black_text"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

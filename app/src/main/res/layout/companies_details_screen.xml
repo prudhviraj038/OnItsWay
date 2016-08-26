@@ -17,7 +17,7 @@
             android:divider="@drawable/company_details_screen_divider"
             android:showDividers="middle">
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FedEx Shipping Company"
@@ -25,9 +25,11 @@
                 android:background="@drawable/field_background"
                 android:gravity="center"
                 android:textColor="@color/company_details_text"
-                android:textSize="15dp" />
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_margin="2dp" />
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Established in 1990"
@@ -35,7 +37,9 @@
                 android:background="@drawable/field_background"
                 android:gravity="center"
                 android:textColor="@color/company_details_text"
-                android:textSize="15dp" />
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_margin="2dp" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -50,24 +54,36 @@
                     android:background="@drawable/field_half_background"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:layout_marginRight="2dp">
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="2dp">
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Status:"
+                        android:text="Status"
                         android:id="@+id/statuss"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         android:textColor="@color/company_details_text"
-                        android:layout_margin="3dp" />
+                        android:layout_margin="3dp"
+                        android:textStyle="bold"
+                        android:textIsSelectable="false" />
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" : "
+                        android:id="@+id/textView2"
+                        android:textColor="@color/company_details_text"
+                        android:textSize="15dp" />
+
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Open"
-                        android:id="@+id/status"
+                        android:id="@+id/status_tv"
                         android:textColor="#972888"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -77,51 +93,55 @@
                     android:gravity="center"
                     android:background="@drawable/field_half_background"
                     android:layout_weight="1"
-                    android:layout_marginLeft="2dp">
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp">
 
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/rating_details_page"></LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rating_details_page_ll"
+                        android:gravity="center"></LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FedEx Express invented express distribution and is the industry’s global leader, providing rapid, reliable, time-definite delivery to more than 220 countries and territories, connecting markets that comprise more than 90 percent of the world’s gross domestic product within one to three business days. Unmatched air route authorities and transportation infrastructure, combined with leading-edge information technologies, make FedEx Express the world’s largest express transportation company, providing fast and reliable services for more than 3.6 million shipments each business day  FedEx Express invented express distribution and remains the industry’s global leader, providing rapid, reliable, time-definite delivery to more than 220 countries and territories"
                 android:id="@+id/descri"
                 android:textColor="@color/company_details_text"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 android:background="@drawable/roundcorner_details_page"
                 android:gravity="center_vertical"
-                android:padding="15dp" />
+                android:padding="15dp"
+                android:layout_margin="2dp" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:divider="@drawable/wedont_deliver_divider"
-                android:showDividers="middle">
+                android:gravity="center">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/places_not_del"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp">
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Place&apos;s We Don&apos;t Deliver"
-                        android:id="@+id/textView8"
+                        android:id="@+id/tv_places_not"
                         android:textColor="@color/white"
                         android:background="@color/pink"
                         android:padding="5dp"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textSize="15sp" />
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -139,16 +159,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/linearLayout"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp">
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Item&apos;s We Don&apos;t Deliver"
-                        android:id="@+id/textView9"
+                        android:id="@+id/tv_items_not"
                         android:textColor="@color/white"
                         android:background="@color/pink"
-                        android:padding="5dp" />
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:textSize="15sp" />
 
                     <LinearLayout
                         android:orientation="vertical"

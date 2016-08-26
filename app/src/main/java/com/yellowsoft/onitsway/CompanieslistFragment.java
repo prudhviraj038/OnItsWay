@@ -9,12 +9,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -26,7 +24,9 @@ public class CompanieslistFragment extends Fragment {
     FragmentTouchListner mCallBack;
     public interface FragmentTouchListner {
         public void back_butt();
-        public void to_summery(CompanyDetails companyDetails);
+        public void text_back_butt(String head);
+        public void to_pickup(CompanyDetails companyDetails);
+        public Animation get_animation(Boolean enter);
     }
     @Override
     public void onAttach(Activity activity) {
@@ -42,6 +42,10 @@ public class CompanieslistFragment extends Fragment {
         }
     }
     @Override
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        return mCallBack.get_animation(enter);
+    }
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View rootview=inflater.inflate(R.layout.companies_list_screen, container, false);
                return rootview;
@@ -50,25 +54,21 @@ public class CompanieslistFragment extends Fragment {
         super.onCreate(savedInstanceState);
         View view = getView();
         GridView gridView=(GridView) view.findViewById(R.id.companies_list);
+        String head=Settings.getword(getActivity(),"couriers");
+        mCallBack.text_back_butt(head);
         mCallBack.back_butt();
         no_service = (TextView) view.findViewById(R.id.no_service);
         no_service.setText(Settings.getword(getActivity(),"no_service"));
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject = new JSONObject(Settings.get_order_json(getActivity()));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        adapter=allApis.company_list(getActivity(),this,jsonObject);
+        adapter=allApis.company_list(getActivity(),this);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mCallBack.to_summery(adapter.getItem(position));
+                mCallBack.to_pickup(adapter.getItem(position));
 
 
             }
                     });
+        mCallBack.text_back_butt(head);
     }
 }

@@ -27,6 +27,7 @@ import java.util.Map;
  * Created by Chinni on 19-04-2016.
  */
 public class AllApis {
+    AlertDialogManager alert = new AlertDialogManager();
       String fname,lname,phone,email,password,name,message,drop_area_id;
       Context context;
      public void signup(final Context context,final String fname,final String lname,final String phone,final String email,final String password,final LoginSignupFragment.FragmentTouchListner mcallback){
@@ -37,7 +38,7 @@ public class AllApis {
          this.email=email;
          this.password=password;
         final ProgressDialog progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("please wait.. we are processing your order");
+        progressDialog.setMessage(Settings.getword(context,"please_wait"));
         progressDialog.show();
         progressDialog.setCancelable(false);
         String url = Settings.SERVERURL+"add-member.php?";
@@ -53,13 +54,18 @@ public class AllApis {
                             String reply=jsonObject.getString("status");
                             if(reply.equals("Failed")) {
                                 String msg = jsonObject.getString("message");
-                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                                alert.showAlertDialog(context, "Info", msg, false);
+
                             }
                             else {
                                 String mem_id=jsonObject.getString("member_id");
-                                String name=jsonObject.getString("name");
-                                Settings.setUserid(context, mem_id, name);
-                                Toast.makeText(context, name, Toast.LENGTH_SHORT).show();
+                                String msg = jsonObject.getString("message");
+//                                String name=jsonObject.getString("name");
+//                                Settings.setUserid(context, mem_id, name,msg);
+//                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                                alert.showAlertDialog(context, "Info", msg, false);
+                                update_gcm(mem_id, context);;
                                 mcallback.signup_to_login();
                             }
 
@@ -89,63 +95,67 @@ public class AllApis {
         };
         AppController.getInstance().addToRequestQueue(stringRequest);
     }
-    public void login(final Context context,String email,String password, final LoginSignupFragment.FragmentTouchListner mCallback){
-    this.context=context;
-    this.email=email;
-    this.password=password;
-    String url = Settings.SERVERURL+"login.php?";
-    try {
-        url = url + "email="+ URLEncoder.encode(email, "utf-8")+
-                "&password="+URLEncoder.encode(password,"utf-8");
-    } catch (UnsupportedEncodingException e) {
-        e.printStackTrace();
-    }
-    Log.e("url--->", url);
-    final ProgressDialog progressDialog = new ProgressDialog(context);
-    progressDialog.setMessage("Please wait....");
-    progressDialog.show();
-    progressDialog.setCancelable(false);
-    JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+    public void login(final Context context,String email,String password,final LoginSignupFragment.FragmentTouchListner mCallback){
+        this.context=context;
+        this.email=email;
+        this.password=password;
+        String url = Settings.SERVERURL+"login.php?";
+        try {
+            url = url +"type=member&email="+ URLEncoder.encode(email, "utf-8")+
+                    "&password="+URLEncoder.encode(password,"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        Log.e("url--->", url);
+        final ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage(Settings.getword(context,"please_wait"));
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
-        @Override
-        public void onResponse(JSONObject jsonObject) {
-            progressDialog.dismiss();
-            Log.e("response is: ", jsonObject.toString());
-            try {
-                String reply=jsonObject.getString("status");
-                if(reply.equals("Failure")) {
-                    String msg = jsonObject.getString("message");
-                    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    String mem_id=jsonObject.getString("member_id");
-                    String name=jsonObject.getString("name");
-                    Settings.setUserid(context, mem_id, name);
-                    Toast.makeText(context, name, Toast.LENGTH_SHORT).show();
-                    mCallback.after_login();
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                progressDialog.dismiss();
+                Log.e("response is: ", jsonObject.toString());
+                try {
+                    String reply=jsonObject.getString("status");
+                    if(reply.equals("Failure")) {
+                        String msg = jsonObject.getString("message");
+//                        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                        alert.showAlertDialog(context, "Info", msg, false);
+                    }
+                    else {
+                        String mem_id=jsonObject.getString("member_id");
+                        String name=jsonObject.getString("name");
+                        String phone=jsonObject.getString("phone");
+                        Settings.setUserid(context, mem_id, name, phone);
+                        Toast.makeText(context, name, Toast.LENGTH_SHORT).show();
+//                        alert.showAlertDialog(context, "Info", name, false);
+                        update_gcm(mem_id, context);
+                        mCallback.after_login();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
 
-            } catch (JSONException e) {
-                e.printStackTrace();
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO Auto-generated method stub
+                Log.e("response is:", error.toString());
+                Toast.makeText(context, "Server not connected", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
             }
 
-        }
-    }, new Response.ErrorListener() {
-
-        @Override
-        public void onErrorResponse(VolleyError error) {
-            // TODO Auto-generated method stub
-            Log.e("response is:", error.toString());
-            Toast.makeText(context, "Server not connected", Toast.LENGTH_SHORT).show();
-            progressDialog.dismiss();
-        }
-
-    });
+        });
 
 // Access the RequestQueue through your singleton class.
-    AppController.getInstance().addToRequestQueue(jsObjRequest);
+        AppController.getInstance().addToRequestQueue(jsObjRequest);
 
-}
+    }
     public void contact_us(final Context context,String name,String email,String phone,String message ){
         this.context=context;
         this.name=name;
@@ -180,11 +190,12 @@ public class AllApis {
                     String result = jsonObject1.getString("status");
                     if(result.equals("Success")) {
                         //finish();
-                        Toast.makeText(context, Settings.getword(context,"message_sent_successfully"), Toast.LENGTH_SHORT).show();
-
+//                        Toast.makeText(context, Settings.getword(context,"message_sent_successfully"), Toast.LENGTH_SHORT).show();
+                        alert.showAlertDialog(context, "Info", Settings.getword(context,"message_sent_successfully"), false);
                     }
                     else{
-                        Toast.makeText(context, Settings.getword(context,"please_try_again"), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, Settings.getword(context,"please_try_again"), Toast.LENGTH_SHORT).show();
+                        alert.showAlertDialog(context, "Info", Settings.getword(context,"please_try_again"), false);
                     }
 
                 } catch (JSONException e) {
@@ -199,7 +210,8 @@ public class AllApis {
                 Log.e("error response is:", error.toString());
                 if(progressDialog!=null)
                     progressDialog.dismiss();
-                Toast.makeText(context, Settings.getword(context,"please_try_again"), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, Settings.getword(context,"please_try_again"), Toast.LENGTH_SHORT).show();
+                alert.showAlertDialog(context, "Info", Settings.getword(context, "please_try_again"), false);
 
             }
         });
@@ -228,12 +240,15 @@ public class AllApis {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject sub = jsonArray.getJSONObject(i);
                         String company_id = sub.getString("id");
-                        String title = sub.getString("title"+Settings.get_lan(context));
+                        String title = sub.getString("title" + Settings.get_lan(context));
                         String description = sub.getString("description"+Settings.get_lan(context));
+                        String cur_status=sub.getString("current_status");
                         String image= sub.getString("image");
+                        String rating=sub.getString("rating");
+                        String established=sub.getString("established");
                         JSONArray places_not=sub.getJSONArray("places_not");
                         JSONArray items_not=sub.getJSONArray("items_not");
-                        CompanyDetails companyDetails = new CompanyDetails(company_id,title, description,places_not,items_not,image);
+                        CompanyDetails companyDetails = new CompanyDetails(company_id,title, description,cur_status,established,rating,places_not,items_not,image);
                         companies.add(companyDetails);
 
                     }
@@ -264,19 +279,20 @@ public class AllApis {
     }
 
     CompanylistAdapter adapter2;
-    public CompanylistAdapter company_list(final Context context, final CompanieslistFragment companieslistFragment,JSONObject jsonObject){
+    public CompanylistAdapter company_list(final Context context, final CompanieslistFragment companieslistFragment){
         this.context=context;
         final ArrayList<CompanyDetails> companies = new ArrayList<CompanyDetails>();
         adapter2= new CompanylistAdapter(context,companies);;
         String url = null;
         try {
-            url = Settings.SERVERURL + "prices-json.php?"+"&from="+ URLEncoder.encode(jsonObject.getString("from"), "utf-8")+
-                    "&to="+URLEncoder.encode(jsonObject.getString("to"), "utf-8")
-                    +"&item="+URLEncoder.encode(jsonObject.getString("pick_item"), "utf-8");
+            url = Settings.SERVERURL + "prices-json.php?"+"&from="+ URLEncoder.encode(Settings.get_pickup_area_id(context), "utf-8")+
+                    "&to="+URLEncoder.encode(Settings.get_drop_off_area_id(context), "utf-8")
+                    +"&item="+URLEncoder.encode(Settings.get_item_id(context), "utf-8");
+            Log.e("url--->", url);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Log.e("url--->", url);
+
         final ProgressDialog progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Please wait....");
         progressDialog.setCancelable(false);
@@ -334,30 +350,36 @@ public class AllApis {
         AppController.getInstance().addToRequestQueue(jsonArrayRequest);
         return adapter2;
     }
-    public  void place_order(final Context context){
+    public  void place_order(final Context context, final SummaryFragment.FragmentTouchListner mcallback){
 
         final ProgressDialog progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("please wait.. we are processing your order");
         progressDialog.show();
         progressDialog.setCancelable(false);
-        String url = Settings.SERVERURL+"checkout-json.php?";
+
+        String url = Settings.SERVERURL+"place-order.php";
+        Log.e("response is:", url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
+
                     @Override
                     public void onResponse(String response) {
                         if(progressDialog!=null)
                             progressDialog.dismiss();
+                        Log.e("response is:", response.toString());
                         try {
                             JSONObject jsonObject=new JSONObject(response);
                             String reply=jsonObject.getString("status");
                             if(reply.equals("Failure")) {
                                 String msg = jsonObject.getString("message");
-                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                                alert.showAlertDialog(context, "Info", msg, false);
                             }
                             else {
-                                Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
-                                //mcallback.signup_to_login();
+//                                Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                                alert.showAlertDialog(context, "Info", "Success", false);
+                                mcallback.my_orders_page();
                             }
 
                         } catch (JSONException e) {
@@ -407,18 +429,13 @@ public class AllApis {
                 Log.e("orders response is: ", jsonArray.toString());
                 try {
                     for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject sub = jsonArray.getJSONObject(i).getJSONObject("content");
                         String order_id = jsonArray.getJSONObject(i).getString("id");
+                        String order_time = jsonArray.getJSONObject(i).getString("order_placed");
+                        String payment = jsonArray.getJSONObject(i).getString("payment");
                         String status = jsonArray.getJSONObject(i).getString("delivery");
-                        String pick_time = sub.getString("pick_time");
-                        String pick_date= sub.getString("pick_date");
-                        String drop_time=sub.getString("pick_time");
-                        String drop_date=sub.getString("pick_date");
-                        String company_name=sub.getString("company_name");
-
-                        OrderDetails orderDetails = new OrderDetails(order_id,status,pick_time,pick_date,drop_time,drop_date,company_name);
+                        JSONObject sub = jsonArray.getJSONObject(i).getJSONObject("content");
+                        OrderDetails orderDetails = new OrderDetails(order_id,order_time,payment,status,sub);
                         orders.add(orderDetails);
-
                     }
                     adapter3.notifyDataSetChanged();
                     orderStatusFragment.adapter.notifyDataSetChanged();
@@ -448,6 +465,46 @@ public class AllApis {
 // Access the RequestQueue through your singleton class.
         AppController.getInstance().addToRequestQueue(jsonArrayRequest);
         return adapter3;
+    }
+    public void update_gcm(String memberid , final Context context) {
+        this.context = context;
+        String url = null;
+        url = CommonUtilities.SERVER_URL+"?member_id="+Settings.getUserid(context)+ "&device_token=" + Settings.get_gcmid(context);
+        Log.e("register url", url);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                Log.e("response is", jsonObject.toString());
+                try {
+                    Log.e("response is", jsonObject.getString("response"));
+                    JSONArray jsonArray = jsonObject.getJSONArray("response");
+                    JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+                    String result = jsonObject1.getString("status");
+                    if (result.equals("Success")) {
+                        //finish();
+                        //  Toast.makeText(context, Settings.getword(context, "contact_us_message_sent"), Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        //  Toast.makeText(context, Settings.getword(context, "please_try_again"), Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO Auto-generated method stub
+                Log.e("error response is:", error.toString());
+                //  Toast.makeText(context, Settings.getword(context, "please_try_again"), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        AppController.getInstance().addToRequestQueue(jsObjRequest);
     }
 }
 

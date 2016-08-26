@@ -6,62 +6,70 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
 
         <view
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             class="com.yellowsoft.onitsway.SquareImageview"
             android:id="@+id/views"
-            android:background="@drawable/language_rounded_corners" />
+            android:background="@drawable/language_rounded_corners"
+            android:adjustViewBounds="true"
+            android:visibility="gone" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="150dp"
             android:layout_alignTop="@+id/views"
             android:layout_alignBottom="@+id/views"
             android:layout_alignRight="@+id/views"
             android:layout_alignLeft="@+id/views"
-            android:gravity="center"
-            android:padding="5dp">
+            android:gravity="center|center_horizontal"
+            android:padding="5dp"
+            android:background="#ffffff">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:id="@+id/company_grid_logo"
                 android:src="@drawable/company_logo"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="3dp"
                 android:adjustViewBounds="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OPEN"
-                android:id="@+id/com_grid_status"
-                android:textColor="#99508f"
-                android:textSize="10dp" />
-
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TNT SHIPPING"
                 android:id="@+id/company_grid_name"
                 android:gravity="center"
                 android:textColor="#888888"
-                android:textSize="12dp" />
+                android:textSize="15sp"
+                android:lines="2"
+                android:maxLines="2" />
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/com_grid_status"
+                android:textColor="#99508f"
+                android:textSize="15sp"
+                android:layout_marginTop="2dp" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_height="20dp"
                 android:gravity="center"
-                android:id="@+id/rating_ll">
+                android:id="@+id/rating_ll"
+                android:divider="@drawable/rating_divider"
+                android:showDividers="middle">
 
             </LinearLayout>
 
         </LinearLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

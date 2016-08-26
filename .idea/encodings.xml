@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4" />
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/slide_down.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/anim/slide_up.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-ar/menu.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/down_arrow.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/home.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/logo.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/logo_big.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/menu.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/mobile_img.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/person_img.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/settings_icon.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/whatwe_img.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/logo_icon.png" charset="UTF-8" />
+  </component>
+</project>

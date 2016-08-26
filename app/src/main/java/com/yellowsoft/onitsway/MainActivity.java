@@ -1,15 +1,14 @@
 package com.yellowsoft.onitsway;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.os.Handler;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -29,13 +28,18 @@ public class MainActivity extends Activity {
         setContentView(R.layout.splash_screen);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
         ImageView imageView=(ImageView)findViewById(R.id.splash_img);
-        imageView.setAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation));
+//        imageView.setAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                get_language_words();
                 newone();
             }
-        }, 2000);
+        },1000);
+        Settings.set_pickup_area(this, "-1", "-1");
+        Settings.set_drop_off_area(this,"-1","-1");
+        Settings.set_item(this,"-1","-1");
+        Settings.set_weight(this, "-1");
 
     }
 
@@ -62,9 +66,10 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
     public  void newone(){
-        about_us();
-        contact_us();
-        what_we_do();
+        setting();
+//        about_us();
+//        contact_us();
+//        what_we_do();
         String abc= Settings.get_user_language(MainActivity.this);
         Log.e("lng", abc);
         if(abc.equals("-1")) {
@@ -73,12 +78,72 @@ public class MainActivity extends Activity {
             finish();
         }
         else {
-            Intent mainIntent = new Intent(getApplicationContext(), NavigationActivity.class);
+            Intent mainIntent = new Intent(getApplicationContext(), SplashScreen.class);
             startActivity(mainIntent);
             finish();
+
         }
     }
+    private void get_language_words(){
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(Settings.getword(this, "please_wait"));
+        progressDialog.setCancelable(false);
+        String url = Settings.SERVERURL+"words-json-android.php";
+        Log.e("url", url);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                if(progressDialog!=null)
+                    progressDialog.dismiss();
+                Log.e("response is: ", jsonObject.toString());
+                Settings.set_user_language_words(MainActivity.this, jsonObject.toString());
+//                Intent intent = new Intent(MainActivity.this,NavigationActivity.class);
+//                startActivity(intent);
+//                finish();
+            }
+        }, new Response.ErrorListener() {
 
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(progressDialog!=null)
+                    progressDialog.dismiss();
+                Log.e("error",error.toString());
+                Toast.makeText(MainActivity.this, "Cannot reach our servers, Check your connection", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+// Access the RequestQueue through your singleton class.
+        AppController.getInstance().addToRequestQueue(jsObjRequest);
+
+
+    }
+    private void setting() {
+        final String[] about = new String[1];
+        String url = Settings.SERVERURL + "settings.php";
+        Log.e("url", url);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+
+                Log.e("response is: ", jsonObject.toString());
+                Settings.setSettings(MainActivity.this, jsonObject.toString());
+
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("error", error.toString());
+                Toast.makeText(MainActivity.this, "Cannot reach our servers, Check your connection", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+// Access the RequestQueue through your singleton class.
+        AppController.getInstance().addToRequestQueue(jsObjRequest);
+    }
     private void about_us() {
         final String[] about = new String[1];
         String url = Settings.SERVERURL + "aboutus-json.php";

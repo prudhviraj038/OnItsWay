@@ -3,169 +3,334 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
+        android:animateLayoutChanges="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#f4f4f4">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView6"
-            android:src="@drawable/logo"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="     SEARCH DELIVARY COMPANIES"
-            android:id="@+id/tv_ser_dlr_comp"
-            android:padding="10dp"
-            android:textColor="@color/login_signup_text" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/search_back"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:background="#f4f4f4">
 
-            <ScrollView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/scrollView2" >
+                android:id="@+id/imageView6"
+                android:src="@drawable/logo"
+                android:layout_marginBottom="10dp" />
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     SEARCH DELIVARY COMPANIES"
+                android:id="@+id/tv_ser_dlr_comp"
+                android:padding="10dp"
+                android:textColor="@color/login_signup_text"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_back"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/scrollView2" >
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:divider="@drawable/signup_divider"
+                        android:showDividers="middle"
+                        android:gravity="center"
+                        android:baselineAligned="false">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/search_ll_pick"
+                            android:background="@drawable/field_background"
+                            android:gravity="center" >
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pick Up Area *"
+                                android:id="@+id/pickup_area_tv_search"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginRight="3dp"
+                                android:textColor="@color/grey_textcolor"
+                                android:textSize="15sp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColorHint="@color/black_text" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/imageView10"
+                                android:src="@drawable/down_arrow"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/search_ll_drop"
+                            android:background="@drawable/field_background"
+                            android:gravity="center" >
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Drop Off Area *"
+                                android:id="@+id/drop_area_tv_search"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginRight="3dp"
+                                android:textColor="@color/grey_textcolor"
+                                android:textSize="15sp"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:textColorHint="@color/black_text" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/imageView11"
+                                android:src="@drawable/down_arrow"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/search_ll_item"
+                            android:background="@drawable/field_background"
+                            android:gravity="center" >
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Select Items *"
+                                android:id="@+id/item_tv_search"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginRight="3dp"
+                                android:textColor="@color/grey_textcolor"
+                                android:textSize="15sp"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:textColorHint="@color/black_text" />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/imageView12"
+                                android:src="@drawable/down_arrow"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/search_ll_weight"
+                            android:background="@drawable/field_background"
+                            android:gravity="center" >
+
+                            <com.yellowsoft.onitsway.MyEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/search_weight"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginRight="3dp"
+                                android:textColor="@color/grey_textcolor"
+                                android:hint="Quantity /Weight *"
+                                android:background="#00000000"
+                                android:textIsSelectable="false"
+                                android:textSize="15sp"
+                                android:gravity="center"
+                                android:textColorHint="@color/grey_textcolor"
+                                android:layout_weight="1" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/imageView13"
+                                android:src="@drawable/down_arrow"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginLeft="8dp"
+                                android:visibility="invisible" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_ll">
+
+                <com.yellowsoft.onitsway.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SEARCH"
+                    android:id="@+id/search"
+                    android:background="@color/pink"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:padding="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/area_pop1"
+            android:focusableInTouchMode="false"
+            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:paddingTop="80dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="80dp"
+            android:background="#77b6b6b6"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/change_password_rounded_corners">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:divider="@drawable/signup_divider"
-                    android:showDividers="middle"
-                    android:gravity="center"
-                    android:baselineAligned="false">
+                    android:background="@drawable/pink_rounded_corners_half"
+                    android:gravity="center">
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
+                    <com.yellowsoft.onitsway.MyTextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/linearLayout4"
-                        android:background="@drawable/field_background"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pick Up Area *"
-                            android:id="@+id/textView2"
-                            android:layout_marginLeft="3dp"
-                            android:layout_marginRight="3dp"
-                            android:textColor="@color/grey_textcolor" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/imageView10"
-                            android:src="@drawable/down_arrow"
-                            android:layout_marginRight="3dp"
-                            android:layout_marginLeft="3dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/linearLayout5"
-                        android:background="@drawable/field_background"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Drop Off Area *"
-                            android:id="@+id/textView3"
-                            android:layout_marginLeft="3dp"
-                            android:layout_marginRight="3dp"
-                            android:textColor="@color/grey_textcolor" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/imageView11"
-                            android:src="@drawable/down_arrow"
-                            android:layout_marginRight="3dp"
-                            android:layout_marginLeft="3dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/linearLayout6"
-                        android:background="@drawable/field_background"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Select Items *"
-                            android:id="@+id/textView4"
-                            android:layout_marginLeft="3dp"
-                            android:layout_marginRight="3dp"
-                            android:textColor="@color/grey_textcolor" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/imageView12"
-                            android:src="@drawable/down_arrow"
-                            android:layout_marginRight="3dp"
-                            android:layout_marginLeft="3dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/linearLayout7"
-                        android:background="@drawable/field_background"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Quantity /Weight *"
-                            android:id="@+id/textView5"
-                            android:layout_marginLeft="3dp"
-                            android:layout_marginRight="3dp"
-                            android:textColor="@color/grey_textcolor" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/imageView13"
-                            android:src="@drawable/down_arrow"
-                            android:layout_marginRight="3dp"
-                            android:layout_marginLeft="3dp" />
-                    </LinearLayout>
-
+                        android:text="New Text"
+                        android:id="@+id/sta_area1"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:padding="5dp" />
                 </LinearLayout>
-            </ScrollView>
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/a_lv1"
+                    android:layout_margin="10dp" />
+            </LinearLayout>
         </LinearLayout>
-
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SEARCH"
-            android:id="@+id/search"
-            android:background="@color/pink"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:padding="10dp"
-            android:gravity="center" />
+            android:layout_height="match_parent"
+            android:id="@+id/area_pop2"
+            android:visibility="gone"
+            android:paddingLeft="40dp"
+            android:paddingTop="80dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="80dp"
+            android:gravity="center"
+            android:background="#77b6b6b6">
 
-    </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/change_password_rounded_corners">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pink_rounded_corners_half"
+                    android:gravity="center">
+
+                    <com.yellowsoft.onitsway.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Text"
+                        android:id="@+id/sta_area2"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:padding="5dp" />
+                </LinearLayout>
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/a_lv2"
+                    android:layout_margin="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/area_pop3"
+            android:visibility="gone"
+            android:paddingLeft="40dp"
+            android:paddingTop="80dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="80dp"
+            android:gravity="center"
+            android:background="#77b6b6b6">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/change_password_rounded_corners">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pink_rounded_corners_half"
+                    android:gravity="center">
+
+                    <com.yellowsoft.onitsway.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Text"
+                        android:id="@+id/sta_area3"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:padding="5dp" />
+                </LinearLayout>
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/a_lv3"
+                    android:layout_margin="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

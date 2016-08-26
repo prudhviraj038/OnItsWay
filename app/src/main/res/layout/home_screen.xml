@@ -2,8 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_bground"
-    android:id="@+id/dddd">
+    android:id="@+id/dddd"
+    android:background="@drawable/background_layer">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView21"
+        android:src="@drawable/background_layer"
+        android:scaleType="centerCrop" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -14,34 +21,35 @@
         android:showDividers="middle"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:background="#b469aa">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/orders_ll"
-            android:gravity="center"
-            android:padding="10dp">
+            android:layout_height="wrap_content"
+            android:id="@+id/orders_lll"
+            android:gravity="center">
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ORDERS"
                 android:id="@+id/orders"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:textSize="15sp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/imageView8"
                 android:src="@drawable/orders_img"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:adjustViewBounds="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,84 +57,124 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:id="@+id/courier_ll"
-            android:padding="10dp">
+            android:id="@+id/courier_lll">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/imageView9"
                 android:src="@drawable/courier_img"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:adjustViewBounds="true" />
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="COURIER"
                 android:id="@+id/courier"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:textSize="15sp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp" />
         </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pickup_delivery"
-        android:layout_marginLeft="75dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="220dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView14"
-            android:src="@drawable/pickup_delivery_img" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PICK UP DELIVERY"
-            android:id="@+id/textView10"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:gravity="center_horizontal" />
-    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView16"
+        android:src="@drawable/home_new"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true" />
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dropoff_delivery"
-        android:layout_marginRight="60dp"
-        android:layout_alignTop="@+id/pickup_delivery"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="60dp">
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical">
 
-        <ImageView
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView15"
-            android:src="@drawable/dropoff_delivery_img" />
+            android:gravity="center"
+            android:layout_weight="1">
 
-        <TextView
-            android:layout_width="match_parent"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pickup_deliveryy"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:id="@+id/imageView14"
+                    android:src="@drawable/pickup_delivery_img"
+                    android:adjustViewBounds="false"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+                <com.yellowsoft.onitsway.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PICK UP DELIVERY"
+                    android:id="@+id/pick_up_home"
+                    android:textColor="#444444"
+                    android:textSize="14sp"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:minLines="2" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DROP OFF DELIVERY"
-            android:id="@+id/textView11"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:gravity="center_horizontal" />
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dropoff_deliveryy"
+                android:layout_alignTop="@+id/pickup_deliveryy"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/imageView15"
+                    android:src="@drawable/dropoff_delivery_img"
+                    android:adjustViewBounds="false"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+
+                <com.yellowsoft.onitsway.MyTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DROP OFF DELIVERY"
+                    android:id="@+id/drop_off_home"
+                    android:textColor="#444444"
+                    android:textSize="14sp"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:minLines="2" />
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

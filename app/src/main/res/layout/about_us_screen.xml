@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-        <TextView
+        <com.yellowsoft.onitsway.MyTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="About Us"
@@ -19,7 +19,7 @@
             android:textColor="@color/black_text"
             android:autoText="true"
             android:background="#f8f8f8"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -31,7 +31,7 @@
             android:id="@+id/scrollView5"
             android:background="@color/white">
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="dddgvdgvfdfvdfvdfvgdfdfdfefdrhrggd"
@@ -39,7 +39,7 @@
                 android:gravity="center|center_horizontal"
                 android:padding="5dp"
                 android:textColor="@color/black_text"
-                android:textSize="12dp"
+                android:textSize="14sp"
                 android:background="@color/white" />
         </ScrollView>
     </LinearLayout>

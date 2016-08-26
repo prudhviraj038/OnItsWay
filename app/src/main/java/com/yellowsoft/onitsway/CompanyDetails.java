@@ -13,13 +13,16 @@ public class CompanyDetails  implements java.io.Serializable {
     ArrayList<Place> places_not;
      ArrayList<ItemNot> items_not;
 
-    CompanyDetails(String company_id, String title, String description, JSONArray places_not, JSONArray items_not, String logo) {
+    CompanyDetails(String company_id, String title, String description,String current_status,String established,String rating, JSONArray places_not, JSONArray items_not, String logo) {
         this.logo = logo;
         this.title1 = title;
         this.description = description;
+        this.current_status=current_status;
         this.places_not = new ArrayList<>();
         this.items_not = new ArrayList<>();
         this.company_id = company_id;
+        this.established=established;
+        this.rating=rating;
         for (int i = 0; i < places_not.length(); i++) {
             try {
                 this.places_not.add(new Place(places_not.getJSONObject(i).getString("title"),

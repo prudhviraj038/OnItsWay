@@ -13,14 +13,15 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="35dp"
                     android:layout_height="match_parent"
                     android:id="@+id/settings"
-                    android:src="@drawable/settings_icon" />
+                    android:src="@drawable/settings_icon"
+                    android:adjustViewBounds="false" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -42,7 +43,7 @@
                         android:id="@+id/logo_img"
                         android:src="@drawable/logo_big" />
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="New Text"
@@ -55,11 +56,13 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="25dp"
                     android:layout_height="match_parent"
                     android:id="@+id/menu_image"
                     android:src="@drawable/menu"
-                    android:adjustViewBounds="false" />
+                    android:adjustViewBounds="false"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp" />
 
             </LinearLayout>
 
@@ -88,7 +91,8 @@
                 android:layout_height="150dp"
                 android:id="@+id/imageView2"
                 android:src="@drawable/logo_big"
-                android:adjustViewBounds="false" />
+                android:adjustViewBounds="false"
+                android:padding="10dp" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -99,13 +103,19 @@
                 android:layout_weight="1"
                 android:layout_marginTop="30dp">
 
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/mdrawerlist1" />
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:id="@+id/nav_hpme_ll"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="30dp"
@@ -117,7 +127,7 @@
                         android:layout_marginRight="10dp"
                         android:adjustViewBounds="true" />
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="HOME"
@@ -136,11 +146,12 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:id="@+id/nav_myaccount_ll"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
                         android:id="@+id/imageView23"
                         android:src="@drawable/person_img"
                         android:layout_gravity="center"
@@ -148,7 +159,7 @@
                         android:layout_marginRight="10dp"
                         android:adjustViewBounds="true" />
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="My Account"
@@ -167,7 +178,8 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:id="@+id/nav_aboutus_ll"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="30dp"
@@ -179,7 +191,7 @@
                         android:layout_marginRight="10dp"
                         android:adjustViewBounds="true" />
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="About Us"
@@ -198,7 +210,8 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:id="@+id/nav_whatwedo_ll"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="30dp"
@@ -210,7 +223,7 @@
                         android:layout_marginRight="10dp"
                         android:adjustViewBounds="true" />
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="What we do"
@@ -229,7 +242,8 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:id="@+id/nav_contactus_ll"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="30dp"
@@ -241,7 +255,7 @@
                         android:layout_marginRight="10dp"
                         android:adjustViewBounds="true" />
 
-                    <TextView
+                    <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Contact Us"
@@ -253,9 +267,41 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:id="@+id/nav_tc_ll"
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/imageView7"
+                        android:src="@drawable/book"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:adjustViewBounds="true" />
+
+                    <com.yellowsoft.onitsway.MyTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="What we do"
+                        android:id="@+id/nav_tc"
+                        android:textColor="@color/black_text"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical" />
+                </LinearLayout>
             </LinearLayout>
 
-            <TextView
+            <com.yellowsoft.onitsway.MyTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Copyrights On its Way 2016"

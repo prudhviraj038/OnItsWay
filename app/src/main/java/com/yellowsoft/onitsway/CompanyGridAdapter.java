@@ -1,15 +1,13 @@
 package com.yellowsoft.onitsway;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -50,8 +48,9 @@ public class CompanyGridAdapter extends BaseAdapter{
 
     public class Holder
     {
-        TextView tv,tv1;
+        TextView tv,status;
         ImageView img;
+        LinearLayout rating;
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -60,8 +59,11 @@ public class CompanyGridAdapter extends BaseAdapter{
         View rowView;
         rowView = inflater.inflate(R.layout.companies_grid_item, null);
         holder.tv=(TextView) rowView.findViewById(R.id.company_grid_name);
-        holder.tv1=(TextView) rowView.findViewById(R.id.com_grid_status);
+        holder.status=(TextView) rowView.findViewById(R.id.com_grid_status);
+        holder.status.setText(companyDetailses.get(position).current_status);
         holder.img=(ImageView) rowView.findViewById(R.id.company_grid_logo);
+        holder.rating=(LinearLayout)rowView.findViewById(R.id.rating_ll);
+        Settings.set_grid_rating(context, companyDetailses.get(position).rating, holder.rating);
           holder.tv.setText(companyDetailses.get(position).title1);
 //         holder.img.setImageResource(imageId[position]);
         Picasso.with(context).load(companyDetailses.get(position).logo).into(holder.img);
