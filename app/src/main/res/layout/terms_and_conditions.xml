@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_background"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <com.yellowsoft.onitsway.MyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:id="@+id/tittle_tc"
+            android:textColor="@color/black_text"
+            android:autoText="true"
+            android:background="#f8f8f8"
+            android:textSize="18sp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="10dp"
+            android:gravity="center" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView5"
+            android:background="@color/white">
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="dddgvdgvfdfvdfvdfvgdfdfdfefdrhrggd"
+                android:id="@+id/tc_descri"
+                android:gravity="center|center_horizontal"
+                android:padding="5dp"
+                android:textColor="@color/black_text"
+                android:textSize="14sp"
+                android:background="@color/white" />
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
