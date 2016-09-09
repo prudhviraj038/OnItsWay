@@ -101,1239 +101,96 @@
                     android:numColumns="1" />
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:id="@+id/scrollView10"
-                    android:layout_weight="1"
-                    android:fillViewport="true">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/linearLayout5" >
+                    <ScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:id="@+id/scrollView10"
+                        android:layout_weight="1"
+                        android:fillViewport="true">
 
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginTop="5dp"
-                            android:visibility="gone">
+                            android:padding="10dp"
+                            android:id="@+id/linearLayout5" >
 
                             <LinearLayout
                                 android:orientation="vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/field_background_small"
-                                android:gravity="center_vertical"
-                                android:padding="10sp"
-                                android:id="@+id/ghhj">
-
-                                <com.yellowsoft.onitsway.MyTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Order Summary"
-                                    android:id="@+id/c_sta_order_summary"
-                                    android:autoText="false"
-                                    android:textColor="#000"
-                                    android:textSize="15sp"
-                                    android:gravity="center" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:background="@drawable/white_background"
-                                android:divider="@drawable/order_status_divider"
-                                android:showDividers="middle" >
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/linearLayout3" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_sta_o_id_or"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_oo_id"
-                                            android:textSize="15sp"
-                                            android:textColor="#949494" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_sta_o_time_or"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView20"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_oo_time"
-                                            android:textSize="15sp"
-                                            android:textColor="#949494" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/linearLayout6" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_sta_item_or"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView15"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_item_or"
-                                            android:textSize="15sp"
-                                            android:textColor="#949494" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_sta_status_or"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView24"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_status_order"
-                                            android:textSize="15sp"
-                                            android:textColor="#949494" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_sta_o_p_time_or"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView27"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_oo_p_time"
-                                            android:textSize="15sp"
-                                            android:textColor="#949494" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_sta_o_d_time_or"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView30"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_oo_d_time"
-                                            android:textSize="15sp"
-                                            android:textColor="#949494" />
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginTop="5dp">
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/field_background_small"
-                                android:gravity="center_vertical"
-                                android:padding="10sp"
-                                android:id="@+id/linearLayout8" >
-
-                                <com.yellowsoft.onitsway.MyTextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="User Details"
-                                    android:id="@+id/sta_person_details"
-                                    android:autoText="false"
-                                    android:textColor="#000"
-                                    android:textSize="15sp"
-                                    android:gravity="center" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:background="@drawable/white_background"
-                                android:divider="@drawable/order_status_divider"
-                                android:showDividers="middle" >
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/linearLayout9" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/sta_user_name"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView22"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/user_name"
-                                            android:textSize="15sp"
-                                            android:textColor="#949494" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/sta_user_email"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView28"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/user_email"
-                                            android:textSize="15sp"
-                                            android:textColor="#949494" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/linearLayout10" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/sta_user_phone"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView32"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/user_phone"
-                                            android:textSize="15sp"
-                                            android:textColor="#949494" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:visibility="gone">
-
-                            <com.yellowsoft.onitsway.MyTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Company Details"
-                                android:id="@+id/c_sta_com_details"
-                                android:autoText="false"
-                                android:background="@drawable/field_background_small"
-                                android:gravity="center"
-                                android:textColor="#000"
-                                android:textSize="15dp" />
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:background="@drawable/white_background" >
-
-                                <com.yellowsoft.onitsway.MyTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="New Text"
-                                    android:id="@+id/c_com_name_or"
-                                    android:textSize="15dp"
-                                    android:textColor="#b469aa" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="80dp"
-                                    android:id="@+id/c_com_logo_or"
-                                    android:src="@drawable/company_logo"
-                                    android:layout_marginBottom="5dp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp">
-
-                            <com.yellowsoft.onitsway.MyTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Pick Up Address"
-                                android:id="@+id/c_sta_p_add_or"
-                                android:autoText="false"
-                                android:background="@drawable/field_background_small"
-                                android:gravity="center"
-                                android:textColor="#000"
-                                android:textSize="15sp" />
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="20dp"
-                                android:background="@drawable/white_background"
-                                android:gravity="center|center_vertical" >
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp">
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_p_add_or1_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_p_add_or1"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp">
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh2" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_p_add_or2_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_p_add_or2"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh3" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_p_add_or3_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_p_add_or3"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh4" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_p_add_or4_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_p_add_or4"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh5" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_p_add_or5_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_p_add_or5"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp">
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh6" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_p_add_or6_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_p_add_or6"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp" >
-
-                            <com.yellowsoft.onitsway.MyTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Drop Off Address"
-                                android:id="@+id/c_sta_d_add_or"
-                                android:autoText="false"
-                                android:background="@drawable/field_background_small"
-                                android:gravity="center"
-                                android:textColor="#000"
-                                android:textSize="15sp" />
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="20dp"
-                                android:background="@drawable/white_background"
-                                android:gravity="center|center_vertical" >
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp">
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_d_add_or1_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_d_add_or1"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh2" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_d_add_or2_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_d_add_or2"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh3" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_d_add_or3_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_d_add_or3"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh4" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_d_add_or4_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_d_add_or4"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh5" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_d_add_or5_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_d_add_or5"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp"
-                                            android:textIsSelectable="false" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:orientation="horizontal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginBottom="5dp" >
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:id="@+id/gh6" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="New Text"
-                                            android:id="@+id/c_d_add_or6_sta"
-                                            android:textColor="#656565"
-                                            android:textSize="15sp"
-                                            android:singleLine="true" />
-                                    </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="  :  "
-                                        android:id="@+id/textView16"
-                                        android:textColor="#656565"
-                                        android:textSize="15dp" />
-
-                                    <LinearLayout
-                                        android:orientation="vertical"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1" >
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:id="@+id/c_d_add_or6"
-                                            android:singleLine="true"
-                                            android:textColor="#949494"
-                                            android:textSize="15sp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="100dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp" >
-
-                            <com.yellowsoft.onitsway.MyTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Total Cost"
-                                android:id="@+id/c_sta_total_cost_or"
-                                android:autoText="false"
-                                android:background="@drawable/field_background_small"
-                                android:gravity="center"
-                                android:textColor="#000"
-                                android:textSize="15sp" />
-
-                            <LinearLayout
-                                android:orientation="vertical"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/white_background"
-                                android:gravity="center" >
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginTop="5dp"
+                                android:visibility="gone">
 
                                 <LinearLayout
                                     android:orientation="vertical"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:paddingLeft="20dp"
-                                    android:paddingRight="20dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/field_background_small"
+                                    android:gravity="center_vertical"
+                                    android:padding="10sp"
+                                    android:id="@+id/ghhj">
+
+                                    <com.yellowsoft.onitsway.MyTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Order Summary"
+                                        android:id="@+id/c_sta_order_summary"
+                                        android:autoText="false"
+                                        android:textColor="#000"
+                                        android:textSize="15sp"
+                                        android:gravity="center" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
                                     android:padding="10dp"
-                                    android:paddingTop="10dp"
-                                    android:id="@+id/linearLayout4"
-                                    android:visibility="gone" >
+                                    android:background="@drawable/white_background"
+                                    android:divider="@drawable/order_status_divider"
+                                    android:showDividers="middle" >
 
                                     <LinearLayout
                                         android:orientation="horizontal"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent" >
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/linearLayout3" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_sta_o_id_or"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
 
                                         <LinearLayout
                                             android:orientation="vertical"
@@ -1344,25 +201,19 @@
                                             <com.yellowsoft.onitsway.MyTextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="Pick up Cost:"
-                                                android:id="@+id/textView43"
-                                                android:singleLine="true"
-                                                android:textColor="@color/summary_text"
-                                                android:textSize="12dp" />
+                                                android:text="New Text"
+                                                android:id="@+id/c_oo_id"
+                                                android:textSize="15sp"
+                                                android:textColor="#949494" />
                                         </LinearLayout>
-
-                                        <com.yellowsoft.onitsway.MyTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="20KD"
-                                            android:id="@+id/textView44"
-                                            android:textColor="@color/summary_text" />
                                     </LinearLayout>
 
                                     <LinearLayout
                                         android:orientation="horizontal"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent" >
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
 
                                         <LinearLayout
                                             android:orientation="vertical"
@@ -1373,125 +224,1350 @@
                                             <com.yellowsoft.onitsway.MyTextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="Delivery Cost:"
-                                                android:id="@+id/textView45"
-                                                android:singleLine="true"
-                                                android:textColor="@color/summary_text"
-                                                android:textSize="12dp" />
+                                                android:text="New Text"
+                                                android:id="@+id/c_sta_o_time_or"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
                                         </LinearLayout>
 
                                         <com.yellowsoft.onitsway.MyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="40KD"
-                                            android:id="@+id/textView46"
-                                            android:textColor="@color/summary_text" />
+                                            android:text="  :  "
+                                            android:id="@+id/textView20"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_oo_time"
+                                                android:textSize="15sp"
+                                                android:textColor="#949494" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/linearLayout6" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_sta_item_or"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView15"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_item_or"
+                                                android:textSize="15sp"
+                                                android:textColor="#949494" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_sta_status_or"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView24"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_status_order"
+                                                android:textSize="15sp"
+                                                android:textColor="#949494" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_sta_o_p_time_or"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView27"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_oo_p_time"
+                                                android:textSize="15sp"
+                                                android:textColor="#949494" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_sta_o_d_time_or"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView30"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_oo_d_time"
+                                                android:textSize="15sp"
+                                                android:textColor="#949494" />
+                                        </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginTop="5dp">
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/field_background_small"
+                                    android:gravity="center_vertical"
+                                    android:padding="10sp"
+                                    android:id="@+id/linearLayout8" >
+
+                                    <com.yellowsoft.onitsway.MyTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="User Details"
+                                        android:id="@+id/sta_person_details"
+                                        android:autoText="false"
+                                        android:textColor="#000"
+                                        android:textSize="15sp"
+                                        android:gravity="center" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:background="@drawable/white_background"
+                                    android:divider="@drawable/order_status_divider"
+                                    android:showDividers="middle" >
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/linearLayout9" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/sta_user_name"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView22"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/user_name"
+                                                android:textSize="15sp"
+                                                android:textColor="#949494" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/sta_user_email"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView28"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/user_email"
+                                                android:textSize="15sp"
+                                                android:textColor="#949494" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/linearLayout10" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/sta_user_phone"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView32"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/user_phone"
+                                                android:textSize="15sp"
+                                                android:textColor="#949494" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:visibility="gone">
 
                                 <com.yellowsoft.onitsway.MyTextView
                                     android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:text="New Text"
-                                    android:id="@+id/textView47"
-                                    android:background="@color/grey_background"
-                                    android:visibility="gone" />
+                                    android:layout_height="wrap_content"
+                                    android:text="Company Details"
+                                    android:id="@+id/c_sta_com_details"
+                                    android:autoText="false"
+                                    android:background="@drawable/field_background_small"
+                                    android:gravity="center"
+                                    android:textColor="#000"
+                                    android:textSize="15dp" />
 
                                 <LinearLayout
-                                    android:orientation="horizontal"
+                                    android:orientation="vertical"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:padding="10dp" >
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="10dp"
+                                    android:background="@drawable/white_background" >
+
+                                    <com.yellowsoft.onitsway.MyTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="New Text"
+                                        android:id="@+id/c_com_name_or"
+                                        android:textSize="15dp"
+                                        android:textColor="#b469aa" />
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="80dp"
+                                        android:id="@+id/c_com_logo_or"
+                                        android:src="@drawable/company_logo"
+                                        android:layout_marginBottom="5dp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp">
+
+                                <com.yellowsoft.onitsway.MyTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pick Up Address"
+                                    android:id="@+id/c_sta_p_add_or"
+                                    android:autoText="false"
+                                    android:background="@drawable/field_background_small"
+                                    android:gravity="center"
+                                    android:textColor="#000"
+                                    android:textSize="15sp" />
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="20dp"
+                                    android:background="@drawable/white_background"
+                                    android:gravity="center|center_vertical" >
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp">
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_p_add_or1_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_p_add_or1"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp">
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh2" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_p_add_or2_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_p_add_or2"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh3" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_p_add_or3_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_p_add_or3"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh4" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_p_add_or4_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_p_add_or4"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh5" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_p_add_or5_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_p_add_or5"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp">
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh6" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_p_add_or6_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_p_add_or6"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp" >
+
+                                <com.yellowsoft.onitsway.MyTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Drop Off Address"
+                                    android:id="@+id/c_sta_d_add_or"
+                                    android:autoText="false"
+                                    android:background="@drawable/field_background_small"
+                                    android:gravity="center"
+                                    android:textColor="#000"
+                                    android:textSize="15sp" />
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="20dp"
+                                    android:background="@drawable/white_background"
+                                    android:gravity="center|center_vertical" >
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp">
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_d_add_or1_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_d_add_or1"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh2" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_d_add_or2_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_d_add_or2"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh3" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_d_add_or3_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_d_add_or3"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh4" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_d_add_or4_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_d_add_or4"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh5" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_d_add_or5_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_d_add_or5"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp"
+                                                android:textIsSelectable="false" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:id="@+id/gh6" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="New Text"
+                                                android:id="@+id/c_d_add_or6_sta"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp"
+                                                android:singleLine="true" />
+                                        </LinearLayout>
+
+                                        <com.yellowsoft.onitsway.MyTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="  :  "
+                                            android:id="@+id/textView16"
+                                            android:textColor="#656565"
+                                            android:textSize="15dp" />
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/c_d_add_or6"
+                                                android:singleLine="true"
+                                                android:textColor="#949494"
+                                                android:textSize="15sp" />
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp" >
+
+                                <com.yellowsoft.onitsway.MyTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Cost"
+                                    android:id="@+id/c_sta_total_cost_or"
+                                    android:autoText="false"
+                                    android:background="@drawable/field_background_small"
+                                    android:gravity="center"
+                                    android:textColor="#000"
+                                    android:textSize="15sp" />
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/white_background"
+                                    android:gravity="center" >
 
                                     <LinearLayout
                                         android:orientation="vertical"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:layout_weight="1" >
+                                        android:paddingLeft="20dp"
+                                        android:paddingRight="20dp"
+                                        android:padding="10dp"
+                                        android:paddingTop="10dp"
+                                        android:id="@+id/linearLayout4"
+                                        android:visibility="gone" >
+
+                                        <LinearLayout
+                                            android:orientation="horizontal"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent" >
+
+                                            <LinearLayout
+                                                android:orientation="vertical"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1" >
+
+                                                <com.yellowsoft.onitsway.MyTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Pick up Cost:"
+                                                    android:id="@+id/textView43"
+                                                    android:singleLine="true"
+                                                    android:textColor="@color/summary_text"
+                                                    android:textSize="12dp" />
+                                            </LinearLayout>
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="20KD"
+                                                android:id="@+id/textView44"
+                                                android:textColor="@color/summary_text" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:orientation="horizontal"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent" >
+
+                                            <LinearLayout
+                                                android:orientation="vertical"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1" >
+
+                                                <com.yellowsoft.onitsway.MyTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Delivery Cost:"
+                                                    android:id="@+id/textView45"
+                                                    android:singleLine="true"
+                                                    android:textColor="@color/summary_text"
+                                                    android:textSize="12dp" />
+                                            </LinearLayout>
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="40KD"
+                                                android:id="@+id/textView46"
+                                                android:textColor="@color/summary_text" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <com.yellowsoft.onitsway.MyTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:text="New Text"
+                                        android:id="@+id/textView47"
+                                        android:background="@color/grey_background"
+                                        android:visibility="gone" />
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:padding="10dp" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1" >
+
+                                            <com.yellowsoft.onitsway.MyTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Total:"
+                                                android:id="@+id/c_sta_total_or"
+                                                android:singleLine="true"
+                                                android:textColor="#656565"
+                                                android:textSize="15sp" />
+                                        </LinearLayout>
 
                                         <com.yellowsoft.onitsway.MyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="Total:"
-                                            android:id="@+id/c_sta_total_or"
-                                            android:singleLine="true"
-                                            android:textColor="#656565"
+                                            android:text="60KD"
+                                            android:id="@+id/c_total_order"
+                                            android:textColor="#972888"
                                             android:textSize="15sp" />
                                     </LinearLayout>
-
-                                    <com.yellowsoft.onitsway.MyTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="60KD"
-                                        android:id="@+id/c_total_order"
-                                        android:textColor="#972888"
-                                        android:textSize="15sp" />
                                 </LinearLayout>
                             </LinearLayout>
+
+                        </LinearLayout>
+                    </ScrollView>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/pink"
+                            android:id="@+id/order_change_ll"
+                            android:layout_weight="1">
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Cancel"
+                                android:id="@+id/order_change_tv"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:padding="10dp"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <com.yellowsoft.onitsway.MyTextView
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/textView19"
+                            android:background="#ffffff" />
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:id="@+id/resheduled_ll"
+                            android:background="@color/pink">
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="New Text"
+                                android:id="@+id/resheduled_tv"
+                                android:padding="10dp"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#55000000"
+                    android:gravity="bottom"
+                    android:id="@+id/pd_res_pop"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:layout_gravity="bottom|right"
+                        android:layout_marginBottom="40dp"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="10dp">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:id="@+id/pick_res_ll">
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="New Text"
+                                android:id="@+id/pick_res_tv"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:textColor="@color/black_text"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:id="@+id/drop_res_ll"
+                            android:layout_marginTop="10dp">
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="New Text"
+                                android:id="@+id/drop_res_tv"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginBottom="5dp"
+                                android:textColor="@color/black_text"
+                                android:textSize="15sp" />
                         </LinearLayout>
 
                     </LinearLayout>
-                </ScrollView>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/pink"
-                        android:id="@+id/order_change_ll"
-                        android:layout_weight="1">
-
-                        <com.yellowsoft.onitsway.MyTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Cancel"
-                            android:id="@+id/order_change_tv"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:padding="10dp"
-                            android:gravity="center" />
-                    </LinearLayout>
-
-                    <com.yellowsoft.onitsway.MyTextView
-                        android:layout_width="2dp"
-                        android:layout_height="match_parent"
-                        android:id="@+id/textView19"
-                        android:background="#ffffff" />
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:id="@+id/resheduled_ll"
-                        android:background="@color/pink">
-
-                        <com.yellowsoft.onitsway.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="New Text"
-                            android:id="@+id/resheduled_tv"
-                            android:padding="10dp"
-                            android:textColor="@color/white"
-                            android:textSize="15sp" />
-                    </LinearLayout>
                 </LinearLayout>
-
-            </LinearLayout>
+            </RelativeLayout>
 
         </ViewFlipper>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"></LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/res_pop"
+            android:background="#55000000"
             android:visibility="gone">
 
             <LinearLayout

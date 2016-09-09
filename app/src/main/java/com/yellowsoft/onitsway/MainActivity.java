@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
             finish();
         }
         else {
-            Intent mainIntent = new Intent(getApplicationContext(), SplashScreen.class);
+            Intent mainIntent = new Intent(getApplicationContext(), AdvertisementActivity.class);
             startActivity(mainIntent);
             finish();
 

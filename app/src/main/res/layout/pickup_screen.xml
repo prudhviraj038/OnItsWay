@@ -2,334 +2,546 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/search_back"
     android:gravity="center">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        android:layout_weight="1"
-        android:layout_marginTop="20dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:background="@drawable/search_back">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:gravity="center"
-                android:divider="@drawable/signup_divider"
-                android:showDividers="middle">
-
-                <com.yellowsoft.onitsway.MyEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/pickup_fname"
-                    android:background="@drawable/field_background"
-                    android:gravity="center"
-                    android:textColor="@color/black_text"
-                    android:textSize="15sp"
-                    android:hint="Full Name *"
-                    android:singleLine="true" />
+                android:layout_marginTop="5dp"
+                android:gravity="end"
+                android:id="@+id/p_ll">
 
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/pickup_area"
-                    android:background="@drawable/field_background"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:id="@+id/p_addr_list_ll"
+                    android:background="@drawable/pink_rounded_corners"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
 
                     <com.yellowsoft.onitsway.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/pickup_area_tv"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginRight="3dp"
-                        android:textColor="@color/black_text"
-                        android:hint="Pick Up Area *"
+                        android:text="My Addresses"
+                        android:id="@+id/p_addr_list_tv"
+                        android:textColor="#ffffff"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
                         android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/downarrow"
-                        android:src="@drawable/down_arrow"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginLeft="3dp"
-                        android:visibility="gone" />
                 </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.yellowsoft.onitsway.MyEditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/pickup_block"
-                        android:background="@drawable/field_half_background"
-                        android:layout_weight="1"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:gravity="center"
-                        android:textSize="15sp"
-                        android:textColor="@color/grey_textcolor"
-                        android:hint="Block *"
-                        android:singleLine="true"
-                        android:padding="5dp"
-                        android:textColorHint="@color/grey_textcolor" />
-
-                    <com.yellowsoft.onitsway.MyEditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/pickup_building"
-                        android:background="@drawable/field_half_background"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:gravity="center"
-                        android:textColor="@color/grey_textcolor"
-                        android:hint="Building *"
-                        android:textSize="15sp"
-                        android:singleLine="true"
-                        android:padding="5dp"
-                        android:textColorHint="@color/grey_textcolor" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <com.yellowsoft.onitsway.MyEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/pickup_streetname"
-                        android:background="@drawable/field_background"
-                        android:gravity="center"
-                        android:textColor="@color/grey_textcolor"
-                        android:textSize="15sp"
-                        android:hint="Street Name *"
-                        android:singleLine="true"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:padding="5dp"
-                        android:textColorHint="@color/grey_textcolor" />
-
-                    <com.yellowsoft.onitsway.MyEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/pickup_house"
-                        android:background="@drawable/field_background"
-                        android:gravity="center"
-                        android:textColor="@color/grey_textcolor"
-                        android:textSize="15sp"
-                        android:hint="House / Flat / Apartment *"
-                        android:singleLine="true"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:padding="5dp"
-                        android:textColorHint="@color/grey_textcolor" />
-                </LinearLayout>
-
             </LinearLayout>
 
-            <com.yellowsoft.onitsway.MyTextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:text="New Text"
-                android:id="@+id/textView"
-                android:background="#b1b1b1" />
-
-            <LinearLayout
-                android:orientation="vertical"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:gravity="center"
-                android:divider="@drawable/signup_divider"
-                android:showDividers="middle">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <com.yellowsoft.onitsway.MyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/pickup_date"
-                        android:background="@drawable/field_half_background"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:gravity="center"
-                        android:textColor="@color/black_text"
-                        android:hint="Date *"
-                        android:singleLine="true"
-                        android:textSize="15sp" />
-
-                    <com.yellowsoft.onitsway.MyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/pickup_time"
-                        android:background="@drawable/field_half_background"
-                        android:layout_weight="1"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:gravity="center"
-                        android:textSize="15sp"
-                        android:textColor="@color/black_text"
-                        android:hint="Time *"
-                        android:singleLine="true" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/item_type"
-                        android:background="@drawable/field_background"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginLeft="2dp">
-
-                        <com.yellowsoft.onitsway.MyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/item_tv"
-                            android:layout_marginLeft="3dp"
-                            android:layout_marginRight="3dp"
-                            android:textColor="@color/black_text"
-                            android:hint="Item Type*"
-                            android:textSize="15sp" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/imageView18"
-                            android:src="@drawable/down_arrow"
-                            android:layout_marginRight="3dp"
-                            android:layout_marginLeft="3dp"
-                            android:visibility="gone" />
-                    </LinearLayout>
-
-                    <com.yellowsoft.onitsway.MyEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/pickup_weight"
-                        android:background="@drawable/field_background"
-                        android:gravity="center"
-                        android:textColor="@color/grey_textcolor"
-                        android:textSize="15sp"
-                        android:hint="Weight / Quantity *"
-                        android:singleLine="true"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:textColorHint="@color/grey_textcolor" />
-                </LinearLayout>
-
-                <com.yellowsoft.onitsway.MyEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    android:id="@+id/pick_mobile"
-                    android:background="@drawable/field_background"
-                    android:gravity="center"
-                    android:hint="Mobile Number *"
-                    android:textColor="@color/grey_textcolor"
-                    android:textSize="15sp"
-                    android:singleLine="true"
-                    android:maxLength="8"
-                    android:textColorHint="@color/grey_textcolor" />
+                android:id="@+id/scrollView"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <com.yellowsoft.onitsway.MyTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Comments"
-                        android:id="@+id/title_comments"
-                        android:autoText="false"
-                        android:background="@drawable/field_background_small"
-                        android:gravity="center"
-                        android:textColor="@color/grey_textcolor"
-                        android:textSize="15dp"
-                        android:visibility="gone" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/field_background"
-                        android:paddingLeft="15dp"
-                        android:paddingTop="10dp"
-                        android:paddingRight="15dp"
-                        android:paddingBottom="10dp">
+                        android:padding="15dp"
+                        android:gravity="center"
+                        android:divider="@drawable/signup_divider"
+                        android:showDividers="middle">
 
                         <com.yellowsoft.onitsway.MyEditText
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/pick_comments"
-                            android:background="#00000000"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pickup_fname"
+                            android:background="@drawable/field_background"
+                            android:gravity="center"
+                            android:textColor="@color/black_text"
+                            android:textSize="15sp"
+                            android:hint="Full Name *"
+                            android:singleLine="true" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pickup_area"
+                            android:background="@drawable/field_background"
+                            android:gravity="center">
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/pickup_area_tv"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginRight="3dp"
+                                android:textColor="@color/black_text"
+                                android:hint="Pick Up Area *"
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/downarrow"
+                                android:src="@drawable/down_arrow"
+                                android:layout_marginRight="3dp"
+                                android:layout_marginLeft="3dp"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.yellowsoft.onitsway.MyEditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/pickup_block"
+                                android:background="@drawable/field_half_background"
+                                android:layout_weight="1"
+                                android:layout_marginRight="2dp"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textSize="15sp"
+                                android:textColor="@color/grey_textcolor"
+                                android:hint="Block *"
+                                android:singleLine="true"
+                                android:padding="5dp"
+                                android:textColorHint="@color/grey_textcolor" />
+
+                            <com.yellowsoft.onitsway.MyEditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/pickup_building"
+                                android:background="@drawable/field_half_background"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
+                                android:textColor="@color/grey_textcolor"
+                                android:hint="Building *"
+                                android:textSize="15sp"
+                                android:singleLine="true"
+                                android:padding="5dp"
+                                android:textColorHint="@color/grey_textcolor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.yellowsoft.onitsway.MyEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/pickup_streetname"
+                                android:background="@drawable/field_background"
+                                android:gravity="center"
+                                android:textColor="@color/grey_textcolor"
+                                android:textSize="15sp"
+                                android:hint="Street Name *"
+                                android:singleLine="true"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginRight="2dp"
+                                android:padding="5dp"
+                                android:textColorHint="@color/grey_textcolor" />
+
+                            <com.yellowsoft.onitsway.MyEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/pickup_house"
+                                android:background="@drawable/field_background"
+                                android:gravity="center"
+                                android:textColor="@color/grey_textcolor"
+                                android:textSize="15sp"
+                                android:hint="House / Flat / Apartment *"
+                                android:singleLine="true"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginRight="2dp"
+                                android:padding="5dp"
+                                android:textColorHint="@color/grey_textcolor" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <com.yellowsoft.onitsway.MyTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:text="New Text"
+                        android:id="@+id/textView"
+                        android:background="#b1b1b1" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:gravity="center"
+                        android:divider="@drawable/signup_divider"
+                        android:showDividers="middle">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/pickup_date"
+                                android:background="@drawable/field_half_background"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
+                                android:textColor="@color/black_text"
+                                android:hint="Date *"
+                                android:singleLine="true"
+                                android:textSize="15sp" />
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/pickup_time"
+                                android:background="@drawable/field_half_background"
+                                android:layout_weight="1"
+                                android:layout_marginRight="2dp"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textSize="15sp"
+                                android:textColor="@color/black_text"
+                                android:hint="Time *"
+                                android:singleLine="true" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/item_type"
+                                android:background="@drawable/field_background"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_marginRight="2dp"
+                                android:layout_marginLeft="2dp">
+
+                                <com.yellowsoft.onitsway.MyTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/item_tv"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    android:textColor="@color/black_text"
+                                    android:hint="Item Type*"
+                                    android:textSize="15sp" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/imageView18"
+                                    android:src="@drawable/down_arrow"
+                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="3dp"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+
+                            <com.yellowsoft.onitsway.MyEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/pickup_weight"
+                                android:background="@drawable/field_background"
+                                android:gravity="center"
+                                android:textColor="@color/grey_textcolor"
+                                android:textSize="15sp"
+                                android:hint="Weight / Quantity *"
+                                android:singleLine="true"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginRight="2dp"
+                                android:textColorHint="@color/grey_textcolor" />
+                        </LinearLayout>
+
+                        <com.yellowsoft.onitsway.MyEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:id="@+id/pick_mobile"
+                            android:background="@drawable/field_background"
+                            android:gravity="center"
+                            android:hint="Mobile Number *"
                             android:textColor="@color/grey_textcolor"
                             android:textSize="15sp"
-                            android:minLines="5"
-                            android:textColorHint="@color/grey_textcolor"
-                            android:gravity="top" />
+                            android:singleLine="true"
+                            android:maxLength="8"
+                            android:textColorHint="@color/grey_textcolor" />
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Comments"
+                                android:id="@+id/title_comments"
+                                android:autoText="false"
+                                android:background="@drawable/field_background_small"
+                                android:gravity="center"
+                                android:textColor="@color/grey_textcolor"
+                                android:textSize="15dp"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/field_background"
+                                android:paddingLeft="15dp"
+                                android:paddingTop="10dp"
+                                android:paddingRight="15dp"
+                                android:paddingBottom="10dp">
+
+                                <com.yellowsoft.onitsway.MyEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/pick_comments"
+                                    android:background="#00000000"
+                                    android:textColor="@color/grey_textcolor"
+                                    android:textSize="15sp"
+                                    android:minLines="5"
+                                    android:textColorHint="@color/grey_textcolor"
+                                    android:gravity="top" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/pink"
+                android:id="@+id/pickup_submit"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center">
+
+                <com.yellowsoft.onitsway.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/picku_submit"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="GO TO DELIVERY DETAILS" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/farrow"
+                    android:src="@drawable/forw_arrow" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/p_my_address_pop"
+            android:focusableInTouchMode="false"
+            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:paddingTop="80dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="80dp"
+            android:background="#77b6b6b6"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/change_password_rounded_corners">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pink_rounded_corners_half"
+                    android:gravity="center"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/imageView28"
+                        android:src="@drawable/close"
+                        android:visibility="invisible" />
+
+                    <com.yellowsoft.onitsway.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="New Text"
+                        android:id="@+id/p_sta_my_addre"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:padding="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/close_p"
+                        android:src="@drawable/close" />
+                </LinearLayout>
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/p_a_lv"
+                    android:layout_margin="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:background="#55000000"
+            android:id="@+id/p_save_pop"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/change_password_rounded_corners"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="5dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/change_password_rounded_corners">
+
+                     <com.yellowsoft.onitsway.MyEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/p_address_title"
+                        android:textColor="@color/black_text"
+                        android:textColorHint="@color/black_text"
+                        android:hint="Enter Address title"
+                         android:background="#00000000"
+                         android:layout_margin="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/p_save_ll"
+                            android:background="@drawable/pink_rounded_corners">
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Save"
+                                android:id="@+id/p_save_tv"
+                                android:textColor="#ffffff"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/p_dnt_save_ll"
+                            android:background="@drawable/pink_rounded_corners">
+
+                            <com.yellowsoft.onitsway.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dont Save"
+                                android:id="@+id/p_dnt_save_tv"
+                                android:textColor="#ffffff"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginBottom="5dp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/pink"
-        android:id="@+id/pickup_submit"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:gravity="center">
-
-        <com.yellowsoft.onitsway.MyTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/picku_submit"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:gravity="center"
-            android:text="GO TO DELIVERY DETAILS" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/farrow"
-            android:src="@drawable/forw_arrow" />
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

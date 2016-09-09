@@ -11,16 +11,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,14 +32,21 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DropOffFragment extends Fragment {
-    MyEditText fname,block,building,street,house,mobile,comments;
-    LinearLayout area,pick_up_submit;
+    MyEditText fname,block,building,street,house,mobile,comments,add_title_et;
+    LinearLayout area,pick_up_submit,address_ll,address_pop,save_pop,save_ll,dntsave_ll,d_ll;
     String areas_id="0";
+    ImageView close;
+    String addr_id="0",addr_title="0";
     ArrayList<String> area_id;
     ArrayList<String> area_title;
-    TextView area_tv,done,time,date,title_comments;
+    ArrayList<String> address_id;
+    ArrayList<String> address_title;
+    ArrayList<Area> address;
+    MyTextView area_tv,done,time,date,title_comments,address_tv,sta_address_tv,save_tv,dntsave_tv;
     String full_name,block1,build,streetname,house1,mobile1,comment;
     String area_name,time1="0",date1="0",th="0",tm="0",dy="0",dm="0",dd="0";
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -43,6 +54,8 @@ public class DropOffFragment extends Fragment {
     FragmentTouchListner mCallBack;
     AlertDialogManager alert = new AlertDialogManager();
     Context context;
+    ListView address_list;
+    AreaAdapter ad;
     int hour,minutes;
     public interface FragmentTouchListner {
         public void from_drop_off();
@@ -72,9 +85,15 @@ public class DropOffFragment extends Fragment {
         String head=Settings.getword(getActivity(), "drop_address");
 //        mCallBack.text(head);
         onAttachFragment(getParentFragment());
+        get_address();
         pick_up_submit = (LinearLayout)v.findViewById(R.id.pickup_submit);
         area_id= new ArrayList<String>();
         area_title=new ArrayList<String>();
+        address_id=new ArrayList<>();
+        address=new ArrayList<>();
+        address_title=new ArrayList<>();
+        add_title_et = (MyEditText) v.findViewById(R.id.d_address_title);
+        add_title_et.setHint(Settings.getword(getActivity(), "empty_address_title"));
         fname=(MyEditText)v.findViewById(R.id.drop_fname);
         fname.setHint(Settings.getword(getActivity(),"full_name"));
         block=(MyEditText)v.findViewById(R.id.dropoff_block);
@@ -87,19 +106,72 @@ public class DropOffFragment extends Fragment {
         house.setHint(Settings.getword(getActivity(),"house"));
         mobile=(MyEditText)v.findViewById(R.id.dropoff_mobile);
         mobile.setHint(Settings.getword(getActivity(),"mobile_number"));
-        time = (TextView) v.findViewById(R.id.drop_time);
+        time = (MyTextView) v.findViewById(R.id.drop_time);
         time.setText(Settings.getword(getActivity(), "time"));
-        date = (TextView) v.findViewById(R.id.drop_date);
+        date = (MyTextView) v.findViewById(R.id.drop_date);
         date.setText(Settings.getword(getActivity(), "date"));
-        title_comments = (TextView) v.findViewById(R.id.title_drop_comments);
+        title_comments = (MyTextView) v.findViewById(R.id.title_drop_comments);
         title_comments.setText(Settings.getword(getActivity(), "comments"));
         comments = (MyEditText) v.findViewById(R.id.drop_comments);
         comments.setHint(Settings.getword(getActivity(), "comments"));
         area=(LinearLayout)v.findViewById(R.id.drop_area);
-        area_tv=(TextView)v.findViewById(R.id.drop_area_tv);
+        area_tv=(MyTextView)v.findViewById(R.id.drop_area_tv);
         area_tv.setText("Area :  "+Settings.get_drop_off_area_name(getActivity()));
-        done=(TextView)v.findViewById(R.id.done);
+        done=(MyTextView)v.findViewById(R.id.done);
         done.setText(Settings.getword(getActivity(), "done"));
+
+        address_tv = (MyTextView) v.findViewById(R.id.d_addr_list_tv);
+        address_tv.setText(Settings.getword(getActivity(),"my_addresses"));
+        sta_address_tv = (MyTextView) v.findViewById(R.id.d_sta_my_addre);
+        sta_address_tv.setText(Settings.getword(getActivity(),"my_addresses"));
+        save_tv = (MyTextView) v.findViewById(R.id.d_save_tv);
+        save_tv.setText(Settings.getword(getActivity(),"save"));
+        dntsave_tv = (MyTextView) v.findViewById(R.id.d_dnt_save_tv);
+        dntsave_tv.setText(Settings.getword(getActivity(),"dont_save"));
+        close=(ImageView)v.findViewById(R.id.close_d);
+        save_pop=(LinearLayout)v.findViewById(R.id.d_save_pop);
+        save_ll=(LinearLayout)v.findViewById(R.id.d_save_ll);
+        dntsave_ll=(LinearLayout)v.findViewById(R.id.d_dnt_save_ll);
+        d_ll=(LinearLayout)v.findViewById(R.id.d_ll);
+        address_ll=(LinearLayout)v.findViewById(R.id.d_addr_list_ll);
+        address_pop=(LinearLayout)v.findViewById(R.id.d_my_address_pop);
+        address_list=(ListView)v.findViewById(R.id.d_a_lv);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                address_pop.setVisibility(View.GONE);
+            }
+        });
+        address_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                address_pop.setVisibility(View.VISIBLE);
+                ad = new AreaAdapter(getActivity(), address_title);
+                address_list.setAdapter(ad);
+            }
+        });
+        address_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                address_pop.setVisibility(View.GONE);
+                addr_id=address.get(position).id;
+                add_title_et.setText(address.get(position).title);
+                addr_title=address.get(position).title;
+                fname.setText(address.get(position).name);
+                area_tv.setText("Area :  "+address.get(position).get_area_title(getActivity()));
+//                item_tv.setText(Settings.get_item_name(getActivity()));
+                block.setText(address.get(position).block);
+                building.setText(address.get(position).building);
+                street.setText(address.get(position).street);
+                house.setText(address.get(position).flat);
+//                time.setText(jsonObject.getString("pick_time"));
+//                date.setText(jsonObject.getString("pick_date"));
+                mobile.setText(address.get(position).phone);
+//                weight.setText(Settings.get_weight(getActivity()));
+            }
+        });
+
+
         if (!Settings.get_order_json(getActivity()).equals("-1")) {
         try {
             JSONObject jsonObject=new JSONObject(Settings.get_order_json(getActivity()));
@@ -255,38 +327,149 @@ public class DropOffFragment extends Fragment {
 ////                        Toast.makeText(getActivity(), Settings.getword(getActivity(),"empty_comment"), Toast.LENGTH_SHORT).show();
 //                         alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(), "empty_comment"), false);
                     else {
-                        if(Integer.parseInt(Settings.get_dy(getActivity()))==Integer.parseInt(dy)){
-                            if(Integer.parseInt(Settings.get_dm(getActivity()))==Integer.parseInt(dm)) {
-                                if(Integer.parseInt(Settings.get_dd(getActivity()))==Integer.parseInt(dd)){
-                                    if(Integer.parseInt(Settings.get_th(getActivity()))==Integer.parseInt(th)) {
-                                        if((Integer.parseInt(Settings.get_tm(getActivity()))-Integer.parseInt(th))>30){
-                                            next();
-                                        }else{
-                                            alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
-                                        }
-                                    }else if(Integer.parseInt(Settings.get_th(getActivity()))>Integer.parseInt(th)){
-                                        alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
-                                    }else{
-                                        next();
-                                    }
-                                }else if(Integer.parseInt(Settings.get_dd(getActivity()))>Integer.parseInt(dd)){
-                                    alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
-                                }else{
+                        save_pop.setVisibility(View.VISIBLE);
+
+                    }
+            }
+        });
+        save_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (add_title_et.getText().toString().equals("")) {
+//                    Toast.makeText(getActivity(),Settings.getword(getActivity(),"empty_name"), Toast.LENGTH_SHORT).show();
+                    alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(), "empty_name"), false);
+                }else {
+                    save();
+                }
+            }
+        });
+        dntsave_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                save_pop.setVisibility(View.GONE);
+                if(Integer.parseInt(Settings.get_dy(getActivity()))==Integer.parseInt(dy)){
+                    if(Integer.parseInt(Settings.get_dm(getActivity()))==Integer.parseInt(dm)) {
+                        if(Integer.parseInt(Settings.get_dd(getActivity()))==Integer.parseInt(dd)){
+                            if(Integer.parseInt(Settings.get_th(getActivity()))==Integer.parseInt(th)) {
+                                if((Integer.parseInt(Settings.get_tm(getActivity()))-Integer.parseInt(th))>30){
                                     next();
+                                }else{
+                                    alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
                                 }
-                            }else if(Integer.parseInt(Settings.get_dm(getActivity()))>Integer.parseInt(dm)){
+                            }else if(Integer.parseInt(Settings.get_th(getActivity()))>Integer.parseInt(th)){
                                 alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
                             }else{
                                 next();
                             }
-                        }else if(Integer.parseInt(Settings.get_dy(getActivity()))>Integer.parseInt(dy)){
+                        }else if(Integer.parseInt(Settings.get_dd(getActivity()))>Integer.parseInt(dd)){
                             alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
                         }else{
                             next();
                         }
+                    }else if(Integer.parseInt(Settings.get_dm(getActivity()))>Integer.parseInt(dm)){
+                        alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
+                    }else{
+                        next();
                     }
+                }else if(Integer.parseInt(Settings.get_dy(getActivity()))>Integer.parseInt(dy)){
+                    alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
+                }else{
+                    next();
+                }
             }
         });
+
+    }
+
+    private void save(){
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage(Settings.getword(getActivity(),"please_wait"));
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+        String url = Settings.SERVERURL+"add-address.php?";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if(progressDialog!=null)
+                            progressDialog.dismiss();
+                        try {
+                            JSONObject jsonObject1=new JSONObject(response);
+                            String reply=jsonObject1.getString("status");
+                            if(reply.equals("Failed")) {
+                                String msg = jsonObject1.getString("message");
+//                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                                alert.showAlertDialog(getActivity(), "Info", msg, false);
+
+                            }
+                            else {
+//                                String msg = jsonObject1.getString("message");
+//                                alert.showAlertDialog(getActivity(), "Info", msg, false);
+                                save_pop.setVisibility(View.GONE);
+                                if(Integer.parseInt(Settings.get_dy(getActivity()))==Integer.parseInt(dy)){
+                                    if(Integer.parseInt(Settings.get_dm(getActivity()))==Integer.parseInt(dm)) {
+                                        if(Integer.parseInt(Settings.get_dd(getActivity()))==Integer.parseInt(dd)){
+                                            if(Integer.parseInt(Settings.get_th(getActivity()))==Integer.parseInt(th)) {
+                                                if((Integer.parseInt(Settings.get_tm(getActivity()))-Integer.parseInt(th))>30){
+                                                    next();
+                                                }else{
+                                                    alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
+                                                }
+                                            }else if(Integer.parseInt(Settings.get_th(getActivity()))>Integer.parseInt(th)){
+                                                alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
+                                            }else{
+                                                next();
+                                            }
+                                        }else if(Integer.parseInt(Settings.get_dd(getActivity()))>Integer.parseInt(dd)){
+                                            alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
+                                        }else{
+                                            next();
+                                        }
+                                    }else if(Integer.parseInt(Settings.get_dm(getActivity()))>Integer.parseInt(dm)){
+                                        alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
+                                    }else{
+                                        next();
+                                    }
+                                }else if(Integer.parseInt(Settings.get_dy(getActivity()))>Integer.parseInt(dy)){
+                                    alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"error_drop_time"), false);
+                                }else{
+                                    next();
+                                }
+
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if(progressDialog!=null)
+                            progressDialog.dismiss();
+                        Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("member_id",Settings.getUserid(getActivity()));
+                params.put("address_id",addr_id);
+                params.put("title",add_title_et.getText().toString());
+                params.put("name",full_name);
+                params.put("area",Settings.get_drop_off_area_id(getActivity()));
+                params.put("block",block1);
+                params.put("building",build);
+                params.put("street",streetname);
+                params.put("house",house1);
+                params.put("phone",mobile1);
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(stringRequest);
     }
     public void next() {
         try {
@@ -317,7 +500,53 @@ public class DropOffFragment extends Fragment {
             e.printStackTrace();
         }
     }
+    private void get_address(){
+        String url=Settings.SERVERURL+"addresses.php?member_id="+Settings.getUserid(getActivity())+
+                "&area="+Settings.get_drop_off_area_id(getActivity());
+        Log.e("url--->", url);
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage(Settings.getword(getActivity(),"please_wait"));
+        progressDialog.setCancelable(false);
+        JsonArrayRequest jsObjRequest = new JsonArrayRequest(url,new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray jsonArray) {
+                progressDialog.dismiss();
+                Log.e("response is: ", jsonArray.toString());
+                try {
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject sub = jsonArray.getJSONObject(i);
+                        String area_name = sub.getString("title");
+                        String ar_id = sub.getString("id");
+                        address_id.add(ar_id);
+                        address_title.add(area_name);
+                        Area area=new Area(sub);
+                        address.add(area);
+                    }
+                    if(address.size()==0){
+                        d_ll.setVisibility(View.GONE);
+                    }else{
+                        d_ll.setVisibility(View.VISIBLE);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
 
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO Auto-generated method stub
+                Log.e("response is:", error.toString());
+                Toast.makeText(getActivity(), Settings.getword(getActivity(),"server_not_connected"), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+
+        });
+
+// Access the RequestQueue through your singleton class.
+        AppController.getInstance().addToRequestQueue(jsObjRequest);
+
+    }
     private void get_area(){
         String url=Settings.SERVERURL+"locations-json.php";
         Log.e("url--->", url);

@@ -14,13 +14,14 @@ import android.widget.LinearLayout;
 public class MyAccountFragment extends Fragment {
     String head;
     FragmentTouchListner mCallBack;
-    LinearLayout logout,language,my_orders;
-    MyTextView logout_tv,lang_tv,my_orders_tv;
+    LinearLayout logout,language,my_orders,my_address;
+    MyTextView logout_tv,lang_tv,my_orders_tv,my_address_tv;
     public interface FragmentTouchListner {
         public void text_back_butt(String header);
         public void lang();
         public void after_logout();
         public void my_orders_page();
+        public void my_address_page();
         public Animation get_animation(Boolean enter);
     }
     @Override
@@ -51,10 +52,13 @@ public class MyAccountFragment extends Fragment {
         head=String.valueOf("My Account");
         mCallBack.text_back_butt(head);
         logout=(LinearLayout)v.findViewById(R.id.my_acc_logout_ll);
+        my_address=(LinearLayout)v.findViewById(R.id.my_acc_address_ll);
         language=(LinearLayout)v.findViewById(R.id.my_acc_lang_ll);
         my_orders=(LinearLayout)v.findViewById(R.id.my_acc_ord_ll);
         lang_tv=(MyTextView)v.findViewById(R.id.my_acc_lang_tv);
         lang_tv.setText(Settings.getword(getActivity(),"language"));
+        my_address_tv=(MyTextView)v.findViewById(R.id.my_acc_address_tv);
+        my_address_tv.setText(Settings.getword(getActivity(),"my_addresses"));
         logout_tv=(MyTextView)v.findViewById(R.id.my_acc_logout_tv);
         logout_tv.setText(Settings.getword(getActivity(),"logout"));
         my_orders_tv=(MyTextView)v.findViewById(R.id.my_acc_ord_tv);
@@ -62,8 +66,8 @@ public class MyAccountFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Settings.setUserid(getActivity(), "-1", "","");
-                Log.e("abc",Settings.getUserid(getActivity()));
+                Settings.setUserid(getActivity(), "-1", "", "");
+                Log.e("abc", Settings.getUserid(getActivity()));
                 mCallBack.after_logout();
             }
         });
@@ -77,6 +81,12 @@ public class MyAccountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 mCallBack.my_orders_page();
+            }
+        });
+        my_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCallBack.my_address_page();
             }
         });
     }

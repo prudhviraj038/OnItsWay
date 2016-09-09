@@ -29,7 +29,22 @@
                 android:textColor="@color/black_text"
                 android:textSize="15sp" />
         </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/field_background"
+            android:gravity="center"
+            android:id="@+id/my_acc_address_ll">
 
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orderrs"
+                android:id="@+id/my_acc_address_tv"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+        </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"

@@ -147,7 +147,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="5dp"
-                                        android:layout_marginBottom="5dp" >
+                                        android:layout_marginBottom="5dp"
+                                        android:gravity="center">
 
                                         <LinearLayout
                                             android:orientation="vertical"
@@ -184,7 +185,9 @@
                                                 android:text="New Text"
                                                 android:id="@+id/oo_time"
                                                 android:textSize="15sp"
-                                                android:textColor="#949494" />
+                                                android:textColor="#949494"
+                                                android:gravity="center_vertical"
+                                                android:minLines="2" />
                                         </LinearLayout>
                                     </LinearLayout>
 
@@ -277,7 +280,7 @@
                                                 android:text="New Text"
                                                 android:id="@+id/status_order"
                                                 android:textSize="15sp"
-                                                android:textColor="#949494" />
+                                                android:textColor="@color/pink" />
                                         </LinearLayout>
                                     </LinearLayout>
 
@@ -286,7 +289,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="5dp"
-                                        android:layout_marginBottom="5dp" >
+                                        android:layout_marginBottom="5dp"
+                                        android:gravity="center">
 
                                         <LinearLayout
                                             android:orientation="vertical"
@@ -315,7 +319,7 @@
                                             android:orientation="vertical"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_weight="1" >
+                                            android:layout_weight="1">
 
                                             <com.yellowsoft.onitsway.MyTextView
                                                 android:layout_width="wrap_content"
@@ -323,7 +327,9 @@
                                                 android:text="New Text"
                                                 android:id="@+id/oo_p_time"
                                                 android:textSize="15sp"
-                                                android:textColor="#949494" />
+                                                android:textColor="#949494"
+                                                android:minLines="2"
+                                                android:gravity="center_vertical" />
                                         </LinearLayout>
                                     </LinearLayout>
 
@@ -332,7 +338,8 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_marginTop="5dp"
-                                        android:layout_marginBottom="5dp" >
+                                        android:layout_marginBottom="5dp"
+                                        android:gravity="center">
 
                                         <LinearLayout
                                             android:orientation="vertical"
@@ -369,7 +376,9 @@
                                                 android:text="New Text"
                                                 android:id="@+id/oo_d_time"
                                                 android:textSize="15sp"
-                                                android:textColor="#949494" />
+                                                android:textColor="#949494"
+                                                android:minLines="2"
+                                                android:gravity="center_vertical" />
                                         </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>

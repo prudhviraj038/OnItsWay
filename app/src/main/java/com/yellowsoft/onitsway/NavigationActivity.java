@@ -28,7 +28,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         OrderStatusFragment.FragmentTouchListner, CompanyDetailsFragment.FragmentTouchListner, PickupDropoffAddressFragment.FragmentTouchListner,
         HomeFragment.FragmentTouchListner, LoginSignupFragment.FragmentTouchListner, SettingsFragment.FragmentTouchListner,
         SearchFragment.FragmentTouchListner, AboutUsfragment.FragmentTouchListner, WhatWeDoFragment.FragmentTouchListner,
-        MyAccountFragment.FragmentTouchListner, NotificationFragment.FragmentTouchListner, Invoicefragment.FragmentTouchListner, TermsAndConditions.FragmentTouchListner, CompanyLoginFragment.FragmentTouchListner {
+        MyAccountFragment.FragmentTouchListner, NotificationFragment.FragmentTouchListner, Invoicefragment.FragmentTouchListner, TermsAndConditions.FragmentTouchListner, CompanyLoginFragment.FragmentTouchListner, MyAddressfragment.FragmentTouchListner {
     DrawerLayout drawerLayout;
     ImageView menu_img, settings,back_btn,logo_image;
     MyTextView header,home_tv,my_acc_tv,about_tv,what_tv,contact_tv,tc_tv;
@@ -55,14 +55,14 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         prgmImages.add(R.drawable.aboutus_img);
         prgmImages.add(R.drawable.whatwe_img);
         prgmImages.add(R.drawable.mobile_img);
-//        prgmImages.add(R.drawable.book);
         prgmImages.add(R.drawable.book);
+//        prgmImages.add(R.drawable.book);
         prgmTitles.add(Settings.getword(this, "home"));
         prgmTitles.add(Settings.getword(this, "my_account"));
         prgmTitles.add(Settings.getword(this, "about_us"));
         prgmTitles.add(Settings.getword(this, "what_we_do"));
         prgmTitles.add(Settings.getword(this, "contact_us"));
-//        prgmTitles.add(Settings.getword(this, "title_tc"));
+//        prgmTitles.add(Settings.getword(this, "promotions"));
         String abcd=Settings.getcomUserid(NavigationActivity.this);
         if (abcd.equals("-1")){
             prgmTitles.add(Settings.getword(this, "company"));
@@ -267,7 +267,13 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         OrderStatusFragment orderStatusFragment = new OrderStatusFragment();
         fragmentManager.beginTransaction().replace(R.id.container_main, orderStatusFragment).addToBackStack(null).commit();
     }
-
+    @Override
+    public void my_address_page() {
+        animation_direction=true;
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+        MyAddressfragment myAddressfragment = new MyAddressfragment();
+        fragmentManager.beginTransaction().replace(R.id.container_main, myAddressfragment).addToBackStack(null).commit();
+    }
 
     @Override
     public void pick_drop(String type){
@@ -427,4 +433,6 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         NotificationFragment notificationFragment = new NotificationFragment();
         fragmentManager.beginTransaction().replace(R.id.container_main, notificationFragment).addToBackStack(null).commit();
     }
+
+
 }

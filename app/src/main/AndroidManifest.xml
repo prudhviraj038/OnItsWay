@@ -68,38 +68,13 @@
 
         </activity>
         <activity
-            android:name=".SplashScreen"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
-        <activity
             android:name=".CompanyActvity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
 
         </activity>
-        <receiver
-            android:name="com.google.android.gcm.GCMBroadcastReceiver"
-            android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
 
-                <!-- Receives the actual messages. -->
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <!-- Receives the registration id. -->
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="com.yellowsoft.onitsway"/>
-            </intent-filter>
-        </receiver>
-        <service android:name=".GCMIntentService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </service>
     </application>
 
 </manifest>

@@ -53,14 +53,14 @@ public class CompanyActvity extends Activity {
     String area_name,time1="0",date1="0",th="0",tm="0",dy="0",dm="0",dd="0";
     private int mYear, mMonth, mDay, mHour, mMinute;
     CompanyStatusAdapter orderStatusAdapter;
-    LinearLayout cancel_ll,logout,status_ll,res_ll,res_pop,res_time,res_date,res_title_ll;
-    String ord_id,sta,wt_status;
+    LinearLayout cancel_ll,logout,status_ll,res_ll,res_pop,res_time,res_date,res_title_ll,pick_res_ll,pd_res_pop,drop_res_ll;
+    String ord_id,sta,wt_status,res="pick";
     ArrayList<String> status_list;
     MyTextView sta_o_summary, sta_o_id, sta_o_time, sta_p_time, sta_d_time, sta_o_status, sta_com_details, sta_p_add, sta_d_add, sta_total, sta_total_cost,
             o_id, o_time, o_status, o_p_time, o_d_time, p_add4, p_add5, p_add6,p_add1, p_add2, p_add3, d_add4, d_add5, d_add6,d_add1, d_add2, d_add3, com_name, cost, o_item, sta_o_item, cancel_tv
             ,sta_user_details,sta_user_name,sta_user_phone,sta_user_email,user_name,user_email,user_phone,logout_tv,title_orders,res_tv,res_sta,res_time_tv,res_date_tv,res_pop_tv;
     MyTextView sta_o_p_name,sta_o_p_area,sta_o_p_house,sta_o_p_block,sta_o_p_building,sta_o_p_street,
-            sta_o_d_name,sta_o_d_area,sta_o_d_house,sta_o_d_block,sta_o_d_building,sta_o_d_street;
+            sta_o_d_name,sta_o_d_area,sta_o_d_house,sta_o_d_block,sta_o_d_building,sta_o_d_street,pick_res_tv,drp_res_pop;
     ImageView logoo;
     AlertDialogManager alert = new AlertDialogManager();
 
@@ -227,8 +227,15 @@ public class CompanyActvity extends Activity {
         res_time = (LinearLayout) findViewById(R.id.res_time);
         res_date= (LinearLayout) findViewById(R.id.res_date);
         res_title_ll = (LinearLayout) findViewById(R.id.res_title_pop_ll);
+        pick_res_ll = (LinearLayout) findViewById(R.id.pick_res_ll);
+        pd_res_pop = (LinearLayout) findViewById(R.id.pd_res_pop);
+        drop_res_ll = (LinearLayout) findViewById(R.id.drop_res_ll);
         res_tv = (MyTextView) findViewById(R.id.resheduled_tv);
         res_tv.setText(Settings.getword(CompanyActvity.this, "reschedule"));
+        pick_res_tv = (MyTextView) findViewById(R.id.pick_res_tv);
+        pick_res_tv.setText(Settings.getword(CompanyActvity.this, "pick_reschedule"));
+        drp_res_pop = (MyTextView) findViewById(R.id.drop_res_tv);
+        drp_res_pop.setText(Settings.getword(CompanyActvity.this, "drop_reschedule"));
         res_sta = (MyTextView) findViewById(R.id.sta_res);
         res_sta.setText(Settings.getword(CompanyActvity.this, "select_res_time"));
         res_time_tv = (MyTextView) findViewById(R.id.res_time_tv);
@@ -236,15 +243,33 @@ public class CompanyActvity extends Activity {
         res_date_tv = (MyTextView) findViewById(R.id.res_date_tv);
         res_date_tv.setText(Settings.getword(CompanyActvity.this, "date"));
         res_pop_tv = (MyTextView) findViewById(R.id.res_title_pop_tv);
-        res_pop_tv.setText(Settings.getword(CompanyActvity.this, "reschedule"));
         res_ll = (LinearLayout) findViewById(R.id.resheduled_ll);
         res_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                res_pop.setVisibility(View.VISIBLE);
+                pd_res_pop.setVisibility(View.VISIBLE);
             }
         });
-
+        pick_res_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                res="pick";
+                res_pop.setVisibility(View.VISIBLE);
+                pd_res_pop.setVisibility(View.GONE);
+                res_pop_tv.setText(Settings.getword(CompanyActvity.this, "pick_reschedule"));
+                res_sta.setText(Settings.getword(CompanyActvity.this, "select_res_time"));
+            }
+        });
+        drop_res_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                res="drop";
+                res_pop.setVisibility(View.VISIBLE);
+                pd_res_pop.setVisibility(View.GONE);
+                res_pop_tv.setText(Settings.getword(CompanyActvity.this, "drop_reschedule"));
+                res_sta.setText(Settings.getword(CompanyActvity.this, "select_drop_res_time"));
+            }
+        });
         res_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -328,7 +353,11 @@ public class CompanyActvity extends Activity {
 //                        Toast.makeText(getActivity(), Settings.getword(getActivity(),"empty_date"), Toast.LENGTH_SHORT).show();
                     alert.showAlertDialog(CompanyActvity.this, "Info", Settings.getword(CompanyActvity.this, "empty_date"), false);
                 else{
-                 get_cancel(ord_id,"7");
+                   if(res.equals("pick")){
+                       get_cancel(ord_id,"10");
+                   }else{
+                       get_cancel(ord_id,"7");
+                   }
                }
             }
         });
@@ -504,9 +533,10 @@ public class CompanyActvity extends Activity {
     public void get_cancel(String id, final String sta_id){
         String url = null;
         try {
-            if(sta_id.equals("7")){
+            if(sta_id.equals("7")||sta_id.equals("10")){
                 url = Settings.SERVERURL + "order-status.php?"+"invoice_id="+ URLEncoder.encode(id,"utf-8")+"&status="+ URLEncoder.encode(sta_id,"utf-8")
                         +"&drop_time="+ URLEncoder.encode(res_time_tv.getText().toString(),"utf-8")+"&drop_date="+ URLEncoder.encode(res_date_tv.getText().toString(),"utf-8");
+                Log.e("url",url);
             }else {
                 url = Settings.SERVERURL + "order-status.php?" + "invoice_id=" + URLEncoder.encode(id, "utf-8") + "&status=" + URLEncoder.encode(sta_id, "utf-8");
             }
@@ -536,7 +566,7 @@ public class CompanyActvity extends Activity {
                         String msg = jsonObject.getString("message");
 //                        Toast.makeText(CompanyActvity.this, msg, Toast.LENGTH_SHORT).show();
                         alert.showAlertDialog(CompanyActvity.this, "Info", msg, false);
-                        if(sta_id.equals("7")){
+                        if(sta_id.equals("7")||sta_id.equals("10")){
                             res_pop.setVisibility(View.GONE);
                             viewFlipper.setDisplayedChild(0);
                             filter.setVisibility(View.VISIBLE);

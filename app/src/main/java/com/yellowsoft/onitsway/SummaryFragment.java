@@ -33,17 +33,17 @@ import org.json.JSONObject;
 public class SummaryFragment extends Fragment {
     AllApis allApis=new AllApis();
     int price,cnt1=1,cnt2=1;
-    String pay_type="0", temp="0";
+    String pay_type="0", temp="0",cash_pay="pick";
     AlertDialogManager alert = new AlertDialogManager();
-    LinearLayout rating,cash_ll,knet_ll,submit_ll,free_status_ll;
+    LinearLayout rating,cash_ll,knet_ll,submit_ll,free_status_ll,pay_pop,pick_ll,drop_ll;
     CompanyDetails companyDetails;
     TextView p_add1,p_add2,p_add3,p_add4, p_add5, p_add6,d_add1,d_add2,d_add3, d_add4, d_add5, d_add6,pick_price,drop_price,
             total_price,pay,order_summary,pick_up_address,drop_off_address,tot_cost,pick_cost,drop_cost,total_cost,cash,
             knet,title_tc,title_descrp,submit,free_tv;
-    ImageView image,cash_img,knet_img;
+    ImageView image,cash_img,knet_img,pick_img,drop_img;
     ViewFlipper viewFlipper;
     MyTextView sta_o_p_name,sta_o_p_area,sta_o_p_house,sta_o_p_block,sta_o_p_building,sta_o_p_street,
-            sta_o_d_name,sta_o_d_area,sta_o_d_house,sta_o_d_block,sta_o_d_building,sta_o_d_street;
+            sta_o_d_name,sta_o_d_area,sta_o_d_house,sta_o_d_block,sta_o_d_building,sta_o_d_street,pick_tv,drop_tv;
     FragmentTouchListner mCallBack;
     public interface FragmentTouchListner {
         public void to_payment(String user_id,String price);
@@ -148,6 +148,39 @@ public class SummaryFragment extends Fragment {
         d_add5 = (MyTextView)v.findViewById(R.id.tv_drop_add5);
         d_add6 = (MyTextView)v.findViewById(R.id.tv_drop_add6);
 
+        pick_tv = (MyTextView)v.findViewById(R.id.pick_fin_tv);
+        pick_tv.setText(Settings.getword(getActivity(), "pick_up"));
+        drop_tv = (MyTextView)v.findViewById(R.id.drop_fin_tv);
+        drop_tv.setText(Settings.getword(getActivity(), "drop_off"));
+        pick_img=(ImageView)v.findViewById(R.id.pick_img);
+        drop_img=(ImageView)v.findViewById(R.id.drop_img);
+        pay_pop=(LinearLayout)v.findViewById(R.id.pay_pop);
+        pick_ll=(LinearLayout)v.findViewById(R.id.pick_fin_ll);
+        pick_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pick_img.setImageResource(R.drawable.pay_selected);
+                drop_img.setImageResource(R.drawable.pay_selection);
+                cash_pay="pick";
+                cash.setText(Settings.getword(getActivity(),"cash")+"("+Settings.getword(getActivity(), "pick_up")+")");
+                pay_pop.setVisibility(View.GONE);
+                pick_tv.setTextColor(getResources().getColor(R.color.pink));
+                drop_tv.setTextColor(getResources().getColor(R.color.login_signup_text));
+            }
+        });
+        drop_ll=(LinearLayout)v.findViewById(R.id.drop_fin_ll);
+        drop_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pick_img.setImageResource(R.drawable.pay_selection);
+                drop_img.setImageResource(R.drawable.pay_selected);
+                cash_pay="drop";
+                cash.setText(Settings.getword(getActivity(),"cash")+"("+Settings.getword(getActivity(), "drop_off")+")");
+                pay_pop.setVisibility(View.GONE);
+                drop_tv.setTextColor(getResources().getColor(R.color.pink));
+                pick_tv.setTextColor(getResources().getColor(R.color.login_signup_text));
+            }
+        });
         free_status_ll=(LinearLayout)v.findViewById(R.id.free_status_ll);
         cash_img=(ImageView)v.findViewById(R.id.cash_img);
         knet_img=(ImageView)v.findViewById(R.id.knet_img);
@@ -158,6 +191,7 @@ public class SummaryFragment extends Fragment {
             public void onClick(View view) {
                 Log.e("type", pay_type);
                 pay_type = "Cash";
+                pay_pop.setVisibility(View.VISIBLE);
                 cash_img.setImageResource(R.drawable.pay_selected);
                 knet_img.setImageResource(R.drawable.pay_selection);
                 cash.setTextColor(getResources().getColor(R.color.pink));
@@ -168,6 +202,8 @@ public class SummaryFragment extends Fragment {
         knet_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                drop_img.setImageResource(R.drawable.pay_selection);
+                pick_img.setImageResource(R.drawable.pay_selection);
                 Log.e("type", pay_type);
                 pay_type = "K-net";
                 cash_img.setImageResource(R.drawable.pay_selection);
@@ -244,7 +280,11 @@ public class SummaryFragment extends Fragment {
             jsonObject.put("company_name", companyDetails.title1);
             jsonObject.put("pick_price",companyDetails.price_pickup);
             jsonObject.put("payment_method",pay_type);
-//            jsonObject.put("pick_price",companyDetails.price_drop_off);
+            if(pay_type.equals("Cash"))
+            {
+                jsonObject.put("cash_collect",cash_pay);
+            //            jsonObject.put("pick_price",companyDetails.price_drop_off);
+            }
 
             Settings.set_order_json(getActivity(),jsonObject.toString());
 //            total_price.setText();

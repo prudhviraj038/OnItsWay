@@ -31,7 +31,7 @@
             android:padding="12dp"
             android:layout_weight="1"
             android:layout_margin="1dp"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <com.yellowsoft.onitsway.MyTextView
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:padding="12dp"
             android:layout_weight="1"
             android:layout_margin="1dp"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
 </RelativeLayout>

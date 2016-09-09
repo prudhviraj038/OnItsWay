@@ -65,7 +65,7 @@ public class AllApis {
 //                                Settings.setUserid(context, mem_id, name,msg);
 //                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                                 alert.showAlertDialog(context, "Info", msg, false);
-                                update_gcm(mem_id, context);;
+//                                update_gcm(mem_id, context);;
                                 mcallback.signup_to_login();
                             }
 
@@ -131,7 +131,7 @@ public class AllApis {
                         Settings.setUserid(context, mem_id, name, phone);
                         Toast.makeText(context, name, Toast.LENGTH_SHORT).show();
 //                        alert.showAlertDialog(context, "Info", name, false);
-                        update_gcm(mem_id, context);
+//                        update_gcm(mem_id, context);
                         mCallback.after_login();
                     }
 
@@ -469,7 +469,7 @@ public class AllApis {
     public void update_gcm(String memberid , final Context context) {
         this.context = context;
         String url = null;
-        url = CommonUtilities.SERVER_URL+"?member_id="+Settings.getUserid(context)+ "&device_token=" + Settings.get_gcmid(context);
+//        url = CommonUtilities.SERVER_URL+"?member_id="+Settings.getUserid(context)+ "&device_token=" + Settings.get_gcmid(context);
         Log.e("register url", url);
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
