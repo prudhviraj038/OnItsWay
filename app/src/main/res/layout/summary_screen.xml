@@ -959,20 +959,28 @@
                 android:layout_height="match_parent"
                 android:id="@+id/pay_pop"
                 android:background="#77000000"
-                android:gravity="center|bottom"
-                android:visibility="gone">
+                android:visibility="gone"
+                android:gravity="center_vertical">
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/change_password_rounded_corners"
-                    android:layout_marginBottom="60dp"
                     android:gravity="center"
                     android:paddingTop="20dp"
                     android:paddingBottom="20dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp">
+
+                    <com.yellowsoft.onitsway.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="When would you like to pay?"
+                        android:id="@+id/cod_pop_heading"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="18sp" />
 
                     <LinearLayout
                         android:orientation="horizontal"

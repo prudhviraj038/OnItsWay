@@ -20,7 +20,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="end"
-                android:id="@+id/p_ll">
+                android:id="@+id/p_ll"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -439,19 +440,18 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom"
             android:background="#55000000"
             android:id="@+id/p_save_pop"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:visibility="gone">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginBottom="50dp"
                 android:background="@drawable/change_password_rounded_corners"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:padding="5dp"
                 android:gravity="center">
 

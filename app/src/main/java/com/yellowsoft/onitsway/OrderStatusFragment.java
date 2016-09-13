@@ -318,6 +318,17 @@ public class OrderStatusFragment extends Fragment {
             }
         });
     }
+
+    public boolean cangoback(){
+
+        if (viewFlipper.getDisplayedChild() == 1) {
+            String head=Settings.getword(getActivity(), "my_orders");
+            mCallBack.text_back_butt(head);
+            viewFlipper.setDisplayedChild(0);
+            return true;
+        }
+        return false;
+    }
     String rating_user;
     public  void set_rating(final Context context,String value, final LinearLayout rating_ll){
 

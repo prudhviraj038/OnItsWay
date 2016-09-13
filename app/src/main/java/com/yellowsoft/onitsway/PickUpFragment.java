@@ -37,6 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PickUpFragment extends Fragment {
+    boolean from_saved = false;
     MyEditText fname,block,building,street,house,mobile,weight,comments,add_title_et;
     MyTextView time,date,pick_submit,title_comments,address_tv,sta_address_tv,save_tv,dntsave_tv;
     LinearLayout area,item,pick_up_submit,address_ll,address_pop,save_pop,save_ll,dntsave_ll,p_ll;
@@ -169,6 +170,7 @@ public class PickUpFragment extends Fragment {
 //                date.setText(jsonObject.getString("pick_date"));
                 mobile.setText(address.get(position).phone);
 //                weight.setText(Settings.get_weight(getActivity()));
+                from_saved=true;
             }
         });
         weight = (MyEditText) v.findViewById(R.id.pickup_weight);
@@ -268,6 +270,9 @@ public class PickUpFragment extends Fragment {
                 date.setText(jsonObject.getString("pick_date"));
                 mobile.setText(jsonObject.getString("pick_phone"));
                 weight.setText(Settings.get_weight(getActivity()));
+                time1 = jsonObject.getString("pick_time");
+                date1 = jsonObject.getString("pick_date");
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -335,6 +340,8 @@ public class PickUpFragment extends Fragment {
                              house1=house.getText().toString();
                              mobile1=mobile.getText().toString();
                              comment=comments.getText().toString();
+
+
                             Settings.set_weight(getActivity(), weight.getText().toString());
                 if (full_name.equals(""))
 //                    Toast.makeText(getActivity(),Settings.getword(getActivity(),"empty_name"), Toast.LENGTH_SHORT).show();
@@ -372,7 +379,13 @@ public class PickUpFragment extends Fragment {
 ////                    Toast.makeText(getActivity(), Settings.getword(getActivity(),"empty_comment"), Toast.LENGTH_SHORT).show();
 //                            alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(), "empty_comment"), false);
                 else {
+                    if(!from_saved)
                     save_pop.setVisibility(View.VISIBLE);
+                    else {
+                        save_pop.setVisibility(View.GONE);
+                        dntsave_ll.performClick();
+                    }
+
                 }
                         }
         });
@@ -427,7 +440,12 @@ public class PickUpFragment extends Fragment {
 //                    Settings.set_check(getActivity(),"-1");
         }
     });
+        save_pop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
 
 
 }
@@ -457,42 +475,44 @@ public class PickUpFragment extends Fragment {
 //                                String msg = jsonObject1.getString("message");
 //                                alert.showAlertDialog(getActivity(), "Info", msg, false);
                                 save_pop.setVisibility(View.GONE);
-                                Settings.set_p_date(getActivity(), th, tm, dy, dm, dd);
-                                mCallBack.select_drop_off();
-                                JSONObject jsonObject = new JSONObject();
-                                try {
-                                    jsonObject.put("pick_fname", full_name);
+
+                                {
+                                    Settings.set_p_date(getActivity(), th, tm, dy, dm, dd);
+                                    mCallBack.select_drop_off();
+                                    JSONObject jsonObject = new JSONObject();
+                                    try {
+                                        jsonObject.put("pick_fname", full_name);
 //                        jsonObject.put("pick_area_name",Settings.get_pickup_area_name(getActivity()));
-                                    jsonObject.put("from", Settings.get_pickup_area_id(getActivity()));
-                                    jsonObject.put("pick_block", block1);
-                                    jsonObject.put("pick_build", build);
-                                    jsonObject.put("pick_street", streetname);
-                                    jsonObject.put("pick_house", house1);
+                                        jsonObject.put("from", Settings.get_pickup_area_id(getActivity()));
+                                        jsonObject.put("pick_block", block1);
+                                        jsonObject.put("pick_build", build);
+                                        jsonObject.put("pick_street", streetname);
+                                        jsonObject.put("pick_house", house1);
 //                        jsonObject.put("pick_item_name",Settings.get_item_name(getActivity()));
-                                    jsonObject.put("pick_item", Settings.get_item_id(getActivity()));
-                                    jsonObject.put("pick_time", time1);
-                                    jsonObject.put("pick_date", date1);
-                                    jsonObject.put("pick_weight", Settings.get_weight(getActivity()));
-                                    jsonObject.put("pick_phone", mobile1);
-                                    jsonObject.put("pick_comments", comment);
-                                    fname.setText(jsonObject.getString("pick_fname"));
-                                    area_tv.setText("Area :  " + Settings.get_pickup_area_name(getActivity()));
-                                    item_tv.setText(Settings.get_item_name(getActivity()));
-                                    block.setText(jsonObject.getString("pick_block"));
-                                    building.setText(jsonObject.getString("pick_build"));
-                                    street.setText(jsonObject.getString("pick_street"));
-                                    house.setText(jsonObject.getString("pick_house"));
-                                    time.setText(jsonObject.getString("pick_time"));
-                                    date.setText(jsonObject.getString("pick_date"));
-                                    mobile.setText(jsonObject.getString("pickup_mobile"));
-                                    weight.setText(Settings.get_weight(getActivity()));
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                                Settings.set_order_json(getActivity(), jsonObject.toString());
+                                        jsonObject.put("pick_item", Settings.get_item_id(getActivity()));
+                                        jsonObject.put("pick_time", time1);
+                                        jsonObject.put("pick_date", date1);
+                                        jsonObject.put("pick_weight", Settings.get_weight(getActivity()));
+                                        jsonObject.put("pick_phone", mobile1);
+                                        jsonObject.put("pick_comments", comment);
+                                        fname.setText(jsonObject.getString("pick_fname"));
+                                        area_tv.setText("Area :  " + Settings.get_pickup_area_name(getActivity()));
+                                        item_tv.setText(Settings.get_item_name(getActivity()));
+                                        block.setText(jsonObject.getString("pick_block"));
+                                        building.setText(jsonObject.getString("pick_build"));
+                                        street.setText(jsonObject.getString("pick_street"));
+                                        house.setText(jsonObject.getString("pick_house"));
+                                        time.setText(jsonObject.getString("pick_time"));
+                                        date.setText(jsonObject.getString("pick_date"));
+                                        mobile.setText(jsonObject.getString("pickup_mobile"));
+                                        weight.setText(Settings.get_weight(getActivity()));
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    Settings.set_order_json(getActivity(), jsonObject.toString());
 //                    Settings.set_check(getActivity(),"-1");
 
-
+                                }
                             }
 
                         } catch (JSONException e) {
@@ -526,6 +546,8 @@ public class PickUpFragment extends Fragment {
         };
         AppController.getInstance().addToRequestQueue(stringRequest);
     }
+
+
     private void get_address(){
         String url=Settings.SERVERURL+"addresses.php?member_id="+Settings.getUserid(getActivity())+
                 "&area="+Settings.get_pickup_area_id(getActivity());
@@ -539,6 +561,9 @@ public class PickUpFragment extends Fragment {
                 progressDialog.dismiss();
                 Log.e("response is: ", jsonArray.toString());
                 try {
+                    address_id.clear();
+                    address_title.clear();
+                    address.clear();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject sub = jsonArray.getJSONObject(i);
                         String area_name = sub.getString("title");
@@ -573,6 +598,8 @@ public class PickUpFragment extends Fragment {
         AppController.getInstance().addToRequestQueue(jsObjRequest);
 
     }
+
+
     private void get_item(){
         String url=Settings.SERVERURL+"items-json.php";
         Log.e("url--->", url);

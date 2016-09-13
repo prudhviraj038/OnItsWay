@@ -14,10 +14,11 @@
         android:padding="10dp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:id="@+id/c_back"
-            android:src="@drawable/back_arrow" />
+            android:src="@drawable/back_arrow"
+            android:adjustViewBounds="true" />
 
         <ImageView
             android:layout_width="30dp"
@@ -26,7 +27,8 @@
             android:src="@drawable/filter_icon"
             android:adjustViewBounds="true"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginRight="5dp"
+            android:padding="2dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -472,15 +474,17 @@
                                     android:orientation="vertical"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
                                     android:background="@drawable/white_background"
                                     android:divider="@drawable/order_status_divider"
-                                    android:showDividers="middle" >
+                                    android:showDividers="middle"
+                                    android:nestedScrollingEnabled="false"
+                                    android:paddingLeft="10dp"
+                                    android:paddingRight="10dp">
 
                                     <LinearLayout
                                         android:orientation="horizontal"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
+                                        android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
                                         android:layout_marginBottom="5dp" >
 
@@ -520,14 +524,15 @@
                                                 android:text="New Text"
                                                 android:id="@+id/user_name"
                                                 android:textSize="15sp"
-                                                android:textColor="#949494" />
+                                                android:textColor="#949494"
+                                                android:singleLine="true" />
                                         </LinearLayout>
                                     </LinearLayout>
 
                                     <LinearLayout
                                         android:orientation="horizontal"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
+                                        android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
                                         android:layout_marginBottom="5dp" >
 
@@ -566,14 +571,15 @@
                                                 android:text="New Text"
                                                 android:id="@+id/user_email"
                                                 android:textSize="15sp"
-                                                android:textColor="#949494" />
+                                                android:textColor="#949494"
+                                                android:singleLine="true" />
                                         </LinearLayout>
                                     </LinearLayout>
 
                                     <LinearLayout
                                         android:orientation="horizontal"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
+                                        android:layout_height="wrap_content"
                                         android:layout_marginTop="5dp"
                                         android:layout_marginBottom="5dp" >
 
@@ -613,7 +619,8 @@
                                                 android:text="New Text"
                                                 android:id="@+id/user_phone"
                                                 android:textSize="15sp"
-                                                android:textColor="#949494" />
+                                                android:textColor="#949494"
+                                                android:singleLine="true" />
                                         </LinearLayout>
                                     </LinearLayout>
 
@@ -1556,11 +1563,6 @@
             </RelativeLayout>
 
         </ViewFlipper>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"

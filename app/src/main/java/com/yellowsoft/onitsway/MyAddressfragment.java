@@ -52,6 +52,7 @@ public class MyAddressfragment extends Fragment {
     ArrayList<Area> address_list;
     ArrayList<String> address_id;
     ArrayList<String> address_title;
+
     ArrayList<String> area_id;
     ArrayList<String> area_title;
     AreaAdapter ad;
@@ -298,7 +299,7 @@ public class MyAddressfragment extends Fragment {
         });
     }
     private void get_address_list(){
-        String url=Settings.SERVERURL+"addresses.php?"+"member_id="+Settings.getUserid(getActivity())+ "&area=1";
+        String url=Settings.SERVERURL+"addresses.php?"+"member_id="+Settings.getUserid(getActivity());
         Log.e("url--->", url);
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage(Settings.getword(getActivity(),"please_wait"));
@@ -311,6 +312,9 @@ public class MyAddressfragment extends Fragment {
                 progressDialog.dismiss();
                 progressBar.setVisibility(View.GONE);
                 Log.e("response is: ", jsonArray.toString());
+                address_id.clear();
+                address_title.clear();
+                address_list.clear();
                 try {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject sub = jsonArray.getJSONObject(i);
@@ -385,7 +389,7 @@ public class MyAddressfragment extends Fragment {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("member_id", Settings.getUserid(getActivity()));
-                params.put("address_id", adds_id);
+                params.put("address_id", id);
                 params.put("title", et_my_alias.getText().toString());
                 params.put("name", et_my_name.getText().toString());
                 params.put("area", a_id);
@@ -401,7 +405,7 @@ public class MyAddressfragment extends Fragment {
         AppController.getInstance().addToRequestQueue(stringRequest);
     }
     public void  delete_address(){
-        String url = Settings.SERVERURL+"del-address.php?address_id="+adds_id+"&member_id="+Settings.getUserid(getActivity());
+        String url = Settings.SERVERURL+"delete-address.php?address_id="+adds_id+"&member_id="+Settings.getUserid(getActivity());
         Log.e("url--->", url);
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage(Settings.getword(getActivity(),"please_wait"));
@@ -467,6 +471,7 @@ public class MyAddressfragment extends Fragment {
                         area_id.add(ar_id);
                         area_title.add(area_name);
                     }
+                    ad.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

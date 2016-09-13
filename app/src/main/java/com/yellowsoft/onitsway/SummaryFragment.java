@@ -43,7 +43,7 @@ public class SummaryFragment extends Fragment {
     ImageView image,cash_img,knet_img,pick_img,drop_img;
     ViewFlipper viewFlipper;
     MyTextView sta_o_p_name,sta_o_p_area,sta_o_p_house,sta_o_p_block,sta_o_p_building,sta_o_p_street,
-            sta_o_d_name,sta_o_d_area,sta_o_d_house,sta_o_d_block,sta_o_d_building,sta_o_d_street,pick_tv,drop_tv;
+            sta_o_d_name,sta_o_d_area,sta_o_d_house,sta_o_d_block,sta_o_d_building,sta_o_d_street,pick_tv,drop_tv,cash_pop_heading;
     FragmentTouchListner mCallBack;
     public interface FragmentTouchListner {
         public void to_payment(String user_id,String price);
@@ -152,9 +152,19 @@ public class SummaryFragment extends Fragment {
         pick_tv.setText(Settings.getword(getActivity(), "pick_up"));
         drop_tv = (MyTextView)v.findViewById(R.id.drop_fin_tv);
         drop_tv.setText(Settings.getword(getActivity(), "drop_off"));
+
+        cash_pop_heading = (MyTextView) v.findViewById(R.id.cod_pop_heading);
+        cash_pop_heading.setText(Settings.getword(getActivity(),"when_will_you_pay?"));
+
         pick_img=(ImageView)v.findViewById(R.id.pick_img);
         drop_img=(ImageView)v.findViewById(R.id.drop_img);
         pay_pop=(LinearLayout)v.findViewById(R.id.pay_pop);
+        pay_pop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         pick_ll=(LinearLayout)v.findViewById(R.id.pick_fin_ll);
         pick_ll.setOnClickListener(new View.OnClickListener() {
             @Override

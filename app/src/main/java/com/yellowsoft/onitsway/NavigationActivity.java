@@ -199,6 +199,15 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
     @Override
     public void onBackPressed() {
         animation_direction=false;
+
+        if(orderStatusFragment!=null){
+            if(orderStatusFragment.cangoback()){
+                //back_btn_press_used_by_fragment;
+            }
+            else
+                super.onBackPressed();
+        }
+        else
         super.onBackPressed();
     }
     @Override
@@ -290,6 +299,9 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
             fragmentManager.beginTransaction().replace(R.id.container_main, searchFragment).addToBackStack(null).commit();
         }
     }
+
+
+
     @Override
     public void to_companies_list(String p_area,String d_area,String item,String weight){
         animation_direction=true;
@@ -320,11 +332,13 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
             fragmentManager.beginTransaction().replace(R.id.container_main, companiesGridFragment).addToBackStack(null).commit();
             }else{
 //                FragmentManager fragmentManager = this.getSupportFragmentManager();
-                OrderStatusFragment orderStatusFragment = new OrderStatusFragment();
+                orderStatusFragment = new OrderStatusFragment();
                 fragmentManager.beginTransaction().replace(R.id.container_main, orderStatusFragment).addToBackStack(null).commit();
             }
         }
     }
+    OrderStatusFragment orderStatusFragment;
+
     @Override
     public void goto_com_details(CompanyDetails companyDetails){
         animation_direction=true;

@@ -108,11 +108,18 @@ public class SearchFragment extends Fragment {
             drop_area_tv.setText(Settings.getword(getActivity(), "drop_area"));
             item_tv.setText(Settings.getword(getActivity(), "select_items"));
             weight.setHint(Settings.getword(getActivity(), "weight"));
+
+
+
         }else{
             pick_area_tv .setText(Settings.get_pickup_area_name(getActivity()));
             drop_area_tv .setText(Settings.get_drop_off_area_name(getActivity()));
             item_tv .setText(Settings.get_item_name(getActivity()));
             weight.setText(Settings.get_weight(getActivity()));
+            pick_areas_id = Settings.get_pickup_area_id(getActivity());
+            drop_areas_id = Settings.get_drop_off_area_id(getActivity());
+            items_id = Settings.get_item_id(getActivity());
+
         }
         search=(MyTextView)v.findViewById(R.id.search);
         search.setText(Settings.getword(getActivity(), "search"));

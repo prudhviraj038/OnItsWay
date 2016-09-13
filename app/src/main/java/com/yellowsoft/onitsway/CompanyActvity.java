@@ -208,11 +208,18 @@ public class CompanyActvity extends Activity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(getApplicationContext(), NavigationActivity.class);
-                startActivity(mainIntent);
-                finish();
+                onBackPressed();
+                /*if(viewFlipper.getDisplayedChild()==1){
+                    viewFlipper.setDisplayedChild(0);
+                }
+                else {
+                    Intent mainIntent = new Intent(getApplicationContext(), NavigationActivity.class);
+                    startActivity(mainIntent);
+                    finish();
+                }*/
             }
         });
+
         logout = (LinearLayout) findViewById(R.id.c_logout_ll);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

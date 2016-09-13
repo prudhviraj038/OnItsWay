@@ -36,6 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DropOffFragment extends Fragment {
+    boolean from_saved = false;
     MyEditText fname,block,building,street,house,mobile,comments,add_title_et;
     LinearLayout area,pick_up_submit,address_ll,address_pop,save_pop,save_ll,dntsave_ll,d_ll;
     String areas_id="0";
@@ -168,6 +169,7 @@ public class DropOffFragment extends Fragment {
 //                date.setText(jsonObject.getString("pick_date"));
                 mobile.setText(address.get(position).phone);
 //                weight.setText(Settings.get_weight(getActivity()));
+                from_saved=true;
             }
         });
 
@@ -182,8 +184,11 @@ public class DropOffFragment extends Fragment {
             street.setText(jsonObject.getString("drop_street"));
             house.setText(jsonObject.getString("drop_house"));
             mobile.setText(jsonObject.getString("drop_mobile"));
-//            time.setText(jsonObject.getString("drop_time"));
-//            date.setText(jsonObject.getString("drop_date"));
+            time.setText(jsonObject.getString("drop_time"));
+            date.setText(jsonObject.getString("drop_date"));
+            time1 = jsonObject.getString("pick_time");
+            date1 = jsonObject.getString("pick_date");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }}
@@ -327,8 +332,12 @@ public class DropOffFragment extends Fragment {
 ////                        Toast.makeText(getActivity(), Settings.getword(getActivity(),"empty_comment"), Toast.LENGTH_SHORT).show();
 //                         alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(), "empty_comment"), false);
                     else {
-                        save_pop.setVisibility(View.VISIBLE);
-
+                        if(!from_saved)
+                            save_pop.setVisibility(View.VISIBLE);
+                        else {
+                            save_pop.setVisibility(View.GONE);
+                            dntsave_ll.performClick();
+                        }
                     }
             }
         });
@@ -500,6 +509,7 @@ public class DropOffFragment extends Fragment {
             e.printStackTrace();
         }
     }
+
     private void get_address(){
         String url=Settings.SERVERURL+"addresses.php?member_id="+Settings.getUserid(getActivity())+
                 "&area="+Settings.get_drop_off_area_id(getActivity());
@@ -513,6 +523,10 @@ public class DropOffFragment extends Fragment {
                 progressDialog.dismiss();
                 Log.e("response is: ", jsonArray.toString());
                 try {
+                    address_id.clear();
+                    address_title.clear();
+                    address.clear();
+
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject sub = jsonArray.getJSONObject(i);
                         String area_name = sub.getString("title");
@@ -547,6 +561,8 @@ public class DropOffFragment extends Fragment {
         AppController.getInstance().addToRequestQueue(jsObjRequest);
 
     }
+
+
     private void get_area(){
         String url=Settings.SERVERURL+"locations-json.php";
         Log.e("url--->", url);
