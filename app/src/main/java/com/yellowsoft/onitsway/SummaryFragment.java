@@ -49,7 +49,7 @@ public class SummaryFragment extends Fragment {
         public void to_payment(String user_id,String price);
         public void setting_butt();
         public void text_back_butt(String head);
-        public void my_orders_page();
+        public void invoice();
         public Animation get_animation(Boolean enter);
     }
     @Override

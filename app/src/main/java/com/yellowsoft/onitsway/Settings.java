@@ -23,6 +23,7 @@ public class Settings {
     public static final String PAYMENT_URL    = "http://onitsway.net/Tap2.php?";
 //    public static final String PAYMENT_URL    = "http://onitsway.net/Tap2-check.php?";
     public static final String USERID = "education_id";
+    public static final String ORDERID = "ord_id";
     public static final String NAME = "education_name";
     public static final String PHONE = "education_phone";
     public static final String Com_USERID = "com_id";
@@ -30,6 +31,17 @@ public class Settings {
     static String words_key = "danden_words";
     static String lan_key = "radio_lan";
 
+    public static void setOrderid(Context context, String member_id) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(ORDERID, member_id);
+        editor.commit();
+    }
+    public static String getOrderid(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPreferences.getString(ORDERID, "-1");
+
+    }
     public static void setUserid(Context context, String member_id, String type, String mobile) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -324,8 +336,8 @@ public class Settings {
         rating_ll.removeAllViews();
         for(float i=1;i<=5;i++) {
             ImageView star = new ImageView(context);
-            star.setMaxWidth(35);
-            star.setMaxHeight(35);
+            star.setMaxWidth(45);
+            star.setMaxHeight(45);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(2,0,2,0);
             star.setLayoutParams(lp);

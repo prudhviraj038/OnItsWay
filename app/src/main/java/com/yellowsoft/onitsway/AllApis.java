@@ -377,9 +377,12 @@ public class AllApis {
                                 alert.showAlertDialog(context, "Info", msg, false);
                             }
                             else {
+                                String msg = jsonObject.getString("message");
+                                String id = jsonObject.getString("order_id");
+                                Settings.setOrderid(context,id);
 //                                Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
-                                alert.showAlertDialog(context, "Info", "Success", false);
-                                mcallback.my_orders_page();
+                                alert.showAlertDialog(context, "Info",msg, false);
+                                mcallback.invoice();
                             }
 
                         } catch (JSONException e) {

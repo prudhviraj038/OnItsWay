@@ -70,12 +70,13 @@ public class CompanylistAdapter extends BaseAdapter{
         Log.e("price",companyDetailses.get(position).price_pickup+","+companyDetailses.get(position).price_drop_off);
 //        price=Integer.parseInt(companyDetailses.get(position).price_pickup)+Integer.parseInt(companyDetailses.get(position).price_drop_off);
         if(Settings.get_type(context).equals("pick")){
-            holder.tv2.setText(companyDetailses.get(position).price_pickup+"  KD");
+            holder.tv2.setText(companyDetailses.get(position).price_pickup+" KD");
         }else{
-            holder.tv2.setText(companyDetailses.get(position).price_drop_off+"  KD");
+            holder.tv2.setText(companyDetailses.get(position).price_drop_off+" KD");
         }
         // holder.img.setImageResource(imageId[position]);
         Picasso.with(context).load(companyDetailses.get(position).logo).into(holder.img);
+
 
         return rowView;
     }

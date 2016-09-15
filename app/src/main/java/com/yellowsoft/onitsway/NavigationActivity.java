@@ -277,6 +277,13 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         fragmentManager.beginTransaction().replace(R.id.container_main, orderStatusFragment).addToBackStack(null).commit();
     }
     @Override
+    public void invoice() {
+        animation_direction=true;
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+        Invoicefragment invoicefragment = new Invoicefragment();
+        fragmentManager.beginTransaction().replace(R.id.container_main, invoicefragment).commit();
+    }
+    @Override
     public void my_address_page() {
         animation_direction=true;
 //        FragmentManager fragmentManager = getSupportFragmentManager();
@@ -381,6 +388,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         logo_image.setVisibility(View.GONE);
         Picasso.with(this).load(R.drawable.logo).into(logo_image);
         header.setVisibility(View.GONE);
+        menu_img.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -390,6 +398,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         logo_image.setVisibility(View.VISIBLE);
         Picasso.with(this).load(logo).into(logo_image);
         header.setVisibility(View.GONE);
+        menu_img.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -398,6 +407,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         back_btn.setVisibility(View.VISIBLE);
         logo_image.setVisibility(View.VISIBLE);
         header.setVisibility(View.GONE);
+        menu_img.setVisibility(View.VISIBLE);
 
     }@Override
      public void home() {
@@ -405,6 +415,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         back_btn.setVisibility(View.GONE);
         logo_image.setVisibility(View.GONE);
         header.setVisibility(View.GONE);
+        menu_img.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -413,6 +424,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         back_btn.setVisibility(View.GONE);
         logo_image.setVisibility(View.GONE);
         header.setVisibility(View.GONE);
+        menu_img.setVisibility(View.VISIBLE);
     }
     @Override
     public void setting_page_back() {
@@ -420,6 +432,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         back_btn.setVisibility(View.VISIBLE);
         logo_image.setVisibility(View.GONE);
 //        header.setVisibility(View.GONE);
+        menu_img.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -429,6 +442,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         logo_image.setVisibility(View.GONE);
         header.setVisibility(View.VISIBLE);
         header.setText(head);
+        menu_img.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -438,6 +452,16 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         logo_image.setVisibility(View.GONE);
         header.setVisibility(View.VISIBLE);
         header.setText(header1);
+        menu_img.setVisibility(View.VISIBLE);
+    }
+    @Override
+    public void text_back_invoice(String header1) {
+        settings.setVisibility(View.GONE);
+        back_btn.setVisibility(View.GONE);
+        logo_image.setVisibility(View.GONE);
+        header.setVisibility(View.VISIBLE);
+        header.setText(header1);
+        menu_img.setVisibility(View.GONE);
     }
 
     @Override
@@ -447,6 +471,12 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         NotificationFragment notificationFragment = new NotificationFragment();
         fragmentManager.beginTransaction().replace(R.id.container_main, notificationFragment).addToBackStack(null).commit();
     }
-
+    @Override
+    public void back_home() {
+        animation_direction=true;
+//        FragmentManager fragmentManager = this.getSupportFragmentManager();
+        HomeFragment homeFragment = new HomeFragment();
+        fragmentManager.beginTransaction().replace(R.id.container_main, homeFragment).addToBackStack(null).commit();
+    }
 
 }

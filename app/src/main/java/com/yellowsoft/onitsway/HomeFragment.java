@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment {
         View view = getView();
         mCallBack.home();
         get_promo();
+        Settings.set_order_json(getActivity(), "-1");
         pro_pop=(LinearLayout)view.findViewById(R.id.pro_pop);
         ok=(LinearLayout)view.findViewById(R.id.ok_ll);
         pro_tv=(MyTextView)view.findViewById(R.id.pro_tv_home);
@@ -137,7 +138,7 @@ public class HomeFragment extends Fragment {
                     if(sta.equals("Free")) {
                         String msg = jsonObject.getString("message");
 //                            Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
-                        alert.showAlertDialog(getActivity(), "Info",msg, false);
+//                        alert.showAlertDialog(getActivity(), "Info",msg, false);
 //                        pay_type=sta;
 //                        free_status_ll.setVisibility(View.GONE);
                         pro_pop.setVisibility(View.VISIBLE);

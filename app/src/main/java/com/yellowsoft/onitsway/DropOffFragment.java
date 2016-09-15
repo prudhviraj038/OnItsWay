@@ -86,7 +86,7 @@ public class DropOffFragment extends Fragment {
         String head=Settings.getword(getActivity(), "drop_address");
 //        mCallBack.text(head);
         onAttachFragment(getParentFragment());
-        get_address();
+//        get_address();
         pick_up_submit = (LinearLayout)v.findViewById(R.id.pickup_submit);
         area_id= new ArrayList<String>();
         area_title=new ArrayList<String>();
@@ -146,9 +146,15 @@ public class DropOffFragment extends Fragment {
         address_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                address_pop.setVisibility(View.VISIBLE);
-                ad = new AreaAdapter(getActivity(), address_title);
-                address_list.setAdapter(ad);
+                get_address();
+
+            }
+        });
+        save_pop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
             }
         });
         address_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -413,8 +419,8 @@ public class DropOffFragment extends Fragment {
 
                             }
                             else {
-//                                String msg = jsonObject1.getString("message");
-//                                alert.showAlertDialog(getActivity(), "Info", msg, false);
+                                String msg = jsonObject1.getString("message");
+                                alert.showAlertDialog(getActivity(), "Info", msg, false);
                                 save_pop.setVisibility(View.GONE);
                                 if(Integer.parseInt(Settings.get_dy(getActivity()))==Integer.parseInt(dy)){
                                     if(Integer.parseInt(Settings.get_dm(getActivity()))==Integer.parseInt(dm)) {
@@ -517,9 +523,11 @@ public class DropOffFragment extends Fragment {
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage(Settings.getword(getActivity(),"please_wait"));
         progressDialog.setCancelable(false);
+        progressDialog.show();
         JsonArrayRequest jsObjRequest = new JsonArrayRequest(url,new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jsonArray) {
+                if(progressDialog!=null)
                 progressDialog.dismiss();
                 Log.e("response is: ", jsonArray.toString());
                 try {
@@ -537,9 +545,13 @@ public class DropOffFragment extends Fragment {
                         address.add(area);
                     }
                     if(address.size()==0){
-                        d_ll.setVisibility(View.GONE);
+//                        d_ll.setVisibility(View.GONE);
+                        alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(),"empty_address"), false);
                     }else{
-                        d_ll.setVisibility(View.VISIBLE);
+//                        d_ll.setVisibility(View.VISIBLE);
+                        address_pop.setVisibility(View.VISIBLE);
+                        ad = new AreaAdapter(getActivity(), address_title);
+                        address_list.setAdapter(ad);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -552,7 +564,8 @@ public class DropOffFragment extends Fragment {
                 // TODO Auto-generated method stub
                 Log.e("response is:", error.toString());
                 Toast.makeText(getActivity(), Settings.getword(getActivity(),"server_not_connected"), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
+                if(progressDialog!=null)
+                    progressDialog.dismiss();
             }
 
         });

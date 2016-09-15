@@ -10,11 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 
 public class PickupDropoffAddressFragment extends Fragment implements PickUpFragment.FragmentTouchListner,
         DropOffFragment.FragmentTouchListner {
     MyTextView d_address,p_address;
+    ImageView p_img,d_img;
     CompanyDetails companyDetails;
     FragmentTouchListner mCallBack;
     String type;
@@ -55,6 +57,8 @@ public class PickupDropoffAddressFragment extends Fragment implements PickUpFrag
         Bundle args = getArguments();
         companyDetails = (CompanyDetails)args.getSerializable("company");
         mCallBack.pick_drop_bar();
+        p_img = (ImageView) view.findViewById(R.id.p_img);
+        d_img = (ImageView) view.findViewById(R.id.d_img);
          p_address = (MyTextView) view.findViewById(R.id.pickup);
         p_address.setText(Settings.getword(getActivity(),"pick_up"));
          d_address = (MyTextView) view.findViewById(R.id.dropoff);
@@ -66,6 +70,8 @@ public class PickupDropoffAddressFragment extends Fragment implements PickUpFrag
             public void onClick(View v) {
                 String head=Settings.getword(getActivity(), "pickup_address");
                 mCallBack.text_back_butt(head);
+                p_img.setVisibility(View.VISIBLE);
+                d_img.setVisibility(View.GONE);
                 p_address.setBackgroundColor(Color.parseColor("#b469aa"));
                 p_address.setTextColor(Color.parseColor("#ffffff"));
                 d_address.setBackgroundColor(Color.parseColor("#e4e3e4"));
@@ -77,11 +83,14 @@ public class PickupDropoffAddressFragment extends Fragment implements PickUpFrag
         p_address.performClick();
         p_address.setBackgroundColor(Color.parseColor("#b469aa"));
         p_address.setTextColor(Color.parseColor("#ffffff"));
+        p_img.setVisibility(View.VISIBLE);
         d_address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String head=Settings.getword(getActivity(), "drop_address");
                 mCallBack.text_back_butt(head);
+                d_img.setVisibility(View.VISIBLE);
+                p_img.setVisibility(View.GONE);
                 p_address.setBackgroundColor(Color.parseColor("#e4e3e4"));
                 p_address.setTextColor(Color.parseColor("#b0b0b0"));
                 d_address.setBackgroundColor(Color.parseColor("#b469aa"));

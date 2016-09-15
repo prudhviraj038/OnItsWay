@@ -22,6 +22,7 @@ public class CompanieslistFragment extends Fragment {
     AllApis allApis = new AllApis();
     TextView no_service;
     FragmentTouchListner mCallBack;
+    AlertDialogManager alert = new AlertDialogManager();
     public interface FragmentTouchListner {
         public void back_butt();
         public void text_back_butt(String head);
@@ -64,11 +65,13 @@ public class CompanieslistFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mCallBack.to_pickup(adapter.getItem(position));
-
-
+                if (adapter.companyDetailses.get(position).current_status.equals("Closed")) {
+                    alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(), "closed_shop"), false);
+                } else {
+                    mCallBack.to_pickup(adapter.getItem(position));
+                }
             }
-                    });
+        });
         mCallBack.text_back_butt(head);
     }
 }

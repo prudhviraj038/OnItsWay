@@ -1,37 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/plain_back">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/picup_drop_address_back">
+        android:layout_height="wrap_content">
 
-        <com.yellowsoft.onitsway.MyTextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Pick Up Address"
-            android:id="@+id/pickup"
-            android:textColor="@color/picup_drop_address"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:padding="20dp"
-            android:textSize="15sp" />
+            android:gravity="center_horizontal">
 
-        <com.yellowsoft.onitsway.MyTextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Drop Off Address"
-            android:id="@+id/dropoff"
-            android:textColor="@color/picup_drop_address"
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pick Up Address"
+                android:id="@+id/pickup"
+                android:textColor="@color/picup_drop_address"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:background="@color/picup_drop_address_back"
+                android:padding="20dp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/p_img"
+                android:src="@drawable/pink_down_arrow"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="-2dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:padding="20dp"
-            android:textSize="15sp" />
+            android:gravity="center_horizontal">
+
+            <com.yellowsoft.onitsway.MyTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Drop Off Address"
+                android:id="@+id/dropoff"
+                android:textColor="@color/picup_drop_address"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:background="@color/picup_drop_address_back" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/d_img"
+                android:src="@drawable/pink_down_arrow"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="-2dp"
+                android:visibility="gone" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <FrameLayout

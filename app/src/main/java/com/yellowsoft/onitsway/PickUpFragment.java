@@ -89,7 +89,7 @@ public class PickUpFragment extends Fragment {
 //        mCallBack.text(head);
         onAttachFragment(getParentFragment());
         pick_up_submit = (LinearLayout) v.findViewById(R.id.pickup_submit);
-        get_address();
+//        get_address();
         area_id = new ArrayList<String>();
         area_title = new ArrayList<String>();
         item_id = new ArrayList<String>();
@@ -147,20 +147,21 @@ public class PickUpFragment extends Fragment {
         address_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                address_pop.setVisibility(View.VISIBLE);
-                ad = new AreaAdapter(getActivity(), address_title);
-                address_list.setAdapter(ad);
+                get_address();
+//                address_pop.setVisibility(View.VISIBLE);
+//                ad = new AreaAdapter(getActivity(), address_title);
+//                address_list.setAdapter(ad);
             }
         });
         address_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 address_pop.setVisibility(View.GONE);
-                addr_id=address.get(position).id;
+                addr_id = address.get(position).id;
                 add_title_et.setText(address.get(position).title);
-                addr_title=address.get(position).title;
+                addr_title = address.get(position).title;
                 fname.setText(address.get(position).name);
-                area_tv.setText("Area :  "+address.get(position).get_area_title(getActivity()));
+                area_tv.setText("Area :  " + address.get(position).get_area_title(getActivity()));
 //                item_tv.setText(Settings.get_item_name(getActivity()));
                 block.setText(address.get(position).block);
                 building.setText(address.get(position).building);
@@ -170,12 +171,13 @@ public class PickUpFragment extends Fragment {
 //                date.setText(jsonObject.getString("pick_date"));
                 mobile.setText(address.get(position).phone);
 //                weight.setText(Settings.get_weight(getActivity()));
-                from_saved=true;
+                from_saved = true;
             }
         });
         weight = (MyEditText) v.findViewById(R.id.pickup_weight);
+        weight.setText(Settings.getword(getActivity(),"weight"));
         Log.e("weight", Settings.get_weight(getActivity()));
-        weight.setText(Settings.get_weight(getActivity()));
+//        weight.setText(Settings.get_weight(getActivity()));
         item = (LinearLayout) v.findViewById(R.id.item_type);
         area = (LinearLayout) v.findViewById(R.id.pickup_area);
         area_tv = (MyTextView) v.findViewById(R.id.pickup_area_tv);
@@ -472,8 +474,8 @@ public class PickUpFragment extends Fragment {
 
                             }
                             else {
-//                                String msg = jsonObject1.getString("message");
-//                                alert.showAlertDialog(getActivity(), "Info", msg, false);
+                                String msg = jsonObject1.getString("message");
+                                alert.showAlertDialog(getActivity(), "Info", msg, false);
                                 save_pop.setVisibility(View.GONE);
 
                                 {
@@ -555,9 +557,11 @@ public class PickUpFragment extends Fragment {
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage(Settings.getword(getActivity(),"please_wait"));
         progressDialog.setCancelable(false);
+        progressDialog.show();
         JsonArrayRequest jsObjRequest = new JsonArrayRequest(url,new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jsonArray) {
+
                 progressDialog.dismiss();
                 Log.e("response is: ", jsonArray.toString());
                 try {
@@ -574,9 +578,13 @@ public class PickUpFragment extends Fragment {
                         address.add(area);
                     }
                     if(address.size()==0){
-                        p_ll.setVisibility(View.GONE);
+//                        p_ll.setVisibility(View.GONE);
+                        alert.showAlertDialog(getActivity(), "Info", Settings.getword(getActivity(), "empty_address"), false);
                     }else{
-                        p_ll.setVisibility(View.VISIBLE);
+//                        p_ll.setVisibility(View.VISIBLE);
+                        address_pop.setVisibility(View.VISIBLE);
+                        ad = new AreaAdapter(getActivity(), address_title);
+                        address_list.setAdapter(ad);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -589,6 +597,7 @@ public class PickUpFragment extends Fragment {
                 // TODO Auto-generated method stub
                 Log.e("response is:", error.toString());
                 Toast.makeText(getActivity(), Settings.getword(getActivity(),"server_not_connected"), Toast.LENGTH_SHORT).show();
+                if(progressDialog!=null)
                 progressDialog.dismiss();
             }
 

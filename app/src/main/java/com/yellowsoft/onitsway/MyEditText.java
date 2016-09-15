@@ -22,13 +22,16 @@ public class MyEditText extends android.widget.EditText {
     }
 
     private void init(Context context) {
+
         if (!isInEditMode()) {
+                if (Settings.get_user_language(context).equals("ar")) {
+                    Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GE_Flow_Regular.otf");
+                    setTypeface(tf);
+                } else {
+                    Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Lato-Regular.ttf");
+                    setTypeface(tf);
+                }
 
-            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Lato-Regular.ttf");
-            setTypeface(tf);
         }
-
     }
-
-
 }
