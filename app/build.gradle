@@ -25,6 +25,8 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.google.code.gson:gson:2.3'
     compile files('libs/volley.jar')
+    compile 'com.google.firebase:firebase-messaging:9.4.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.labo.kaji:fragmentanimations:0.1.0'
 }
+apply plugin: 'com.google.gms.google-services'

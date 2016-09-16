@@ -171,7 +171,7 @@ public class SummaryFragment extends Fragment {
             public void onClick(View v) {
                 pick_img.setImageResource(R.drawable.pay_selected);
                 drop_img.setImageResource(R.drawable.pay_selection);
-                cash_pay="pick";
+                cash_pay="Pick up";
                 cash.setText(Settings.getword(getActivity(),"cash")+"("+Settings.getword(getActivity(), "pick_up")+")");
                 pay_pop.setVisibility(View.GONE);
                 pick_tv.setTextColor(getResources().getColor(R.color.pink));
@@ -184,7 +184,7 @@ public class SummaryFragment extends Fragment {
             public void onClick(View v) {
                 pick_img.setImageResource(R.drawable.pay_selection);
                 drop_img.setImageResource(R.drawable.pay_selected);
-                cash_pay="drop";
+                cash_pay="Drop off";
                 cash.setText(Settings.getword(getActivity(),"cash")+"("+Settings.getword(getActivity(), "drop_off")+")");
                 pay_pop.setVisibility(View.GONE);
                 drop_tv.setTextColor(getResources().getColor(R.color.pink));
@@ -292,7 +292,7 @@ public class SummaryFragment extends Fragment {
             jsonObject.put("payment_method",pay_type);
             if(pay_type.equals("Cash"))
             {
-                jsonObject.put("cash_collect",cash_pay);
+                jsonObject.put("cash_at",cash_pay);
             //            jsonObject.put("pick_price",companyDetails.price_drop_off);
             }
 

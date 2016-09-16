@@ -31,7 +31,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         MyAccountFragment.FragmentTouchListner, NotificationFragment.FragmentTouchListner, Invoicefragment.FragmentTouchListner, TermsAndConditions.FragmentTouchListner, CompanyLoginFragment.FragmentTouchListner, MyAddressfragment.FragmentTouchListner {
     DrawerLayout drawerLayout;
     ImageView menu_img, settings,back_btn,logo_image;
-    MyTextView header,home_tv,my_acc_tv,about_tv,what_tv,contact_tv,tc_tv;
+    MyTextView header,home_tv,my_acc_tv,about_tv,what_tv,contact_tv,tc_tv,copy_right;
     FrameLayout container;
     FragmentManager fragmentManager;
     public  static final long DURATION=500;
@@ -72,6 +72,8 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         mDrawerList1 = (ListView) findViewById(R.id.mdrawerlist1);
         mDrawerList1.setAdapter(new NavigationListAdapter(this, prgmImages, prgmTitles));
         header = (MyTextView) findViewById(R.id.tv_header);
+        copy_right = (MyTextView) findViewById(R.id.copyright);
+        copy_right.setText(Settings.getword(this, "copyright_2016"));
         home_tv = (MyTextView) findViewById(R.id.nav_home);
         home_tv.setText(Settings.getword(this, "home"));
         my_acc_tv = (MyTextView) findViewById(R.id.nav_myaccount);
