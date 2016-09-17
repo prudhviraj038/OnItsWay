@@ -49,7 +49,7 @@ public class MyAccountFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View v = getView();
-        head=String.valueOf("My Account");
+        head=Settings.getword(getActivity(), "my_account");
         mCallBack.text_back_butt(head);
         logout=(LinearLayout)v.findViewById(R.id.my_acc_logout_ll);
         my_address=(LinearLayout)v.findViewById(R.id.my_acc_address_ll);

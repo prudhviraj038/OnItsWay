@@ -60,9 +60,9 @@ public class PickupDropoffAddressFragment extends Fragment implements PickUpFrag
         p_img = (ImageView) view.findViewById(R.id.p_img);
         d_img = (ImageView) view.findViewById(R.id.d_img);
          p_address = (MyTextView) view.findViewById(R.id.pickup);
-        p_address.setText(Settings.getword(getActivity(),"pick_up"));
+        p_address.setText(Settings.getword(getActivity(),"pickup_address"));
          d_address = (MyTextView) view.findViewById(R.id.dropoff);
-        d_address.setText(Settings.getword(getActivity(), "drop_off"));
+        d_address.setText(Settings.getword(getActivity(), "drop_address"));
         final FrameLayout pick_container = (FrameLayout) view.findViewById(R.id.pickup_container);
 
         p_address.setOnClickListener(new View.OnClickListener() {

@@ -154,7 +154,7 @@ public class SummaryFragment extends Fragment {
         drop_tv.setText(Settings.getword(getActivity(), "drop_off"));
 
         cash_pop_heading = (MyTextView) v.findViewById(R.id.cod_pop_heading);
-        cash_pop_heading.setText(Settings.getword(getActivity(),"when_will_you_pay?"));
+        cash_pop_heading.setText(Settings.getword(getActivity(),"when_will_you_pay"));
 
         pick_img=(ImageView)v.findViewById(R.id.pick_img);
         drop_img=(ImageView)v.findViewById(R.id.drop_img);

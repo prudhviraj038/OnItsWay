@@ -51,14 +51,17 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         prgmImages = new ArrayList<>();
         prgmTitles = new ArrayList<>();
         prgmImages.add(R.drawable.home);
-        prgmImages.add(R.drawable.person_img);
+
         prgmImages.add(R.drawable.aboutus_img);
         prgmImages.add(R.drawable.whatwe_img);
         prgmImages.add(R.drawable.mobile_img);
         prgmImages.add(R.drawable.book);
 //        prgmImages.add(R.drawable.book);
         prgmTitles.add(Settings.getword(this, "home"));
-        prgmTitles.add(Settings.getword(this, "my_account"));
+        if(Settings.getcomUserid(this).equals("-1")) {
+            prgmImages.add(R.drawable.person_img);
+            prgmTitles.add(Settings.getword(this, "my_account"));
+        }
         prgmTitles.add(Settings.getword(this, "about_us"));
         prgmTitles.add(Settings.getword(this, "what_we_do"));
         prgmTitles.add(Settings.getword(this, "contact_us"));
