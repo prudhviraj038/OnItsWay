@@ -58,7 +58,8 @@ public class CompanyStatusAdapter extends BaseAdapter  implements Filterable {
 
     public class Holder
     {
-        MyTextView tv,status_tv,pick_tim,pick_dat,drop_tim,drop_dat,compa_name,sta_ord_id,sta_status,sta_pick_time,sta_drop_time,sta_company;
+        MyTextView tv,status_tv,pick_tim,pick_dat,drop_tim,drop_dat,compa_name,sta_ord_id,sta_status,sta_pick_time,sta_drop_time,sta_company,
+                sta_p_area,p_area,sta_d_area,d_area;
         ImageView img;
     }
     @Override
@@ -77,6 +78,11 @@ public class CompanyStatusAdapter extends BaseAdapter  implements Filterable {
         holder.sta_drop_time.setText(Settings.getword(context,"time_dropoff"));
         holder.sta_company=(MyTextView) rowView.findViewById(R.id.c_company);
         holder.sta_company.setText(Settings.getword(context,"company"));
+
+        holder.sta_p_area = (MyTextView) rowView.findViewById(R.id.c_p_s_a_tv);
+        holder.sta_p_area.setText(Settings.getword(context, "pickup_area"));
+        holder.sta_d_area = (MyTextView)rowView. findViewById(R.id.c_d_s_a_tv);
+        holder.sta_d_area.setText(Settings.getword(context, "drop_area"));
         holder.tv=(MyTextView) rowView.findViewById(R.id.c_order_number);
         holder.status_tv=(MyTextView) rowView.findViewById(R.id.c_order_status_dis);
         holder.pick_tim=(MyTextView) rowView.findViewById(R.id.c_order_pickup_time);
@@ -84,6 +90,8 @@ public class CompanyStatusAdapter extends BaseAdapter  implements Filterable {
         holder.drop_tim=(MyTextView) rowView.findViewById(R.id.c_order_dropoff_time);
         holder.drop_dat=(MyTextView) rowView.findViewById(R.id.c_order_dropoff_date);
         holder.compa_name=(MyTextView) rowView.findViewById(R.id.c_order_company_name);
+        holder.p_area=(MyTextView) rowView.findViewById(R.id.c_p_a_tv);
+        holder.d_area=(MyTextView) rowView.findViewById(R.id.c_d_a_tv);
            holder.tv.setText(orderDetailses.get(position).order_id);
         holder.status_tv.setText(orderDetailses.get(position).status);
         holder.pick_tim.setText(orderDetailses.get(position).p_time);
@@ -91,6 +99,8 @@ public class CompanyStatusAdapter extends BaseAdapter  implements Filterable {
         holder.drop_tim.setText(orderDetailses.get(position).d_time);
         holder.drop_dat.setText(orderDetailses.get(position).d_date);
         holder.compa_name.setText(orderDetailses.get(position).get_com_name(context));
+        holder.p_area.setText(orderDetailses.get(position).p_area+Settings.get_lan(context));
+        holder.d_area.setText(orderDetailses.get(position).d_area+Settings.get_lan(context));
         //  holder.tv.setText(result[position]);
         // holder.img.setImageResource(imageId[position]);
 

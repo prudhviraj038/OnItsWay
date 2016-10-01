@@ -224,7 +224,7 @@ public class LoginSignupFragment extends Fragment {
             }
         });
     }
-
+    public  void reg() {viewFlipper.setDisplayedChild(1);}
     private void register() {
          fname = et_fname.getText().toString();
          lname = et_lname.getText().toString();
@@ -247,7 +247,7 @@ public class LoginSignupFragment extends Fragment {
             Toast.makeText(getActivity(), Settings.getword(getActivity(),"empty_password"), Toast.LENGTH_SHORT).show();
         else if (password.length() < 5)
             Toast.makeText(getActivity(), Settings.getword(getActivity(),"password_lenth"), Toast.LENGTH_SHORT).show();
-        else if (re_password.equals(password))
+        else if (!re_password.equals(password))
             Toast.makeText(getActivity(), Settings.getword(getActivity(),"same_password"), Toast.LENGTH_SHORT).show();
         else {
             viewFlipper.setDisplayedChild(2);

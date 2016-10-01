@@ -9,13 +9,15 @@ import android.view.View;
 
 
 public class LanguageActvity extends Activity {
- MyTextView english,arabic;
+    MyTextView english;
+    MyTextViewArabic arabic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Settings.forceRTLIfSupported(this);
         setContentView(R.layout.langage_screen);
         english=(MyTextView)findViewById(R.id.lng_english);
-        arabic=(MyTextView)findViewById(R.id.lag_arb);
+        arabic=(MyTextViewArabic)findViewById(R.id.lag_arb);
         english.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

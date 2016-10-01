@@ -20,6 +20,7 @@ import org.json.JSONException;
 
 public class AdvertisementActivity extends Activity {
     ImageView img;
+    MyTextView button;
     private final Handler handler = new Handler();
 
     private final Runnable startActivityRunnable = new Runnable() {
@@ -35,6 +36,8 @@ public class AdvertisementActivity extends Activity {
         img = (ImageView) findViewById (R.id.splash_image);
         LinearLayout skip_btn = (LinearLayout) findViewById(R.id.skip_btn);
         getAdvertisements();
+        button=(MyTextView)findViewById(R.id.enter_but);
+        button.setText(Settings.getword(AdvertisementActivity.this,"enter_word"));
         skip_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "221378622524",
+    "firebase_url": "https://onitsway-af883.firebaseio.com",
+    "project_id": "onitsway-af883",
+    "storage_bucket": "onitsway-af883.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221378622524:android:f5c3ee5fe7c8a4a0",
+        "android_client_info": {
+          "package_name": "com.yellowsoft.onitsway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "221378622524-vgf9tad41rt1uco0u4na6pdf638kc8ov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEUl8wvyVRHZJaacAaTQftwgadsX6YxIs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

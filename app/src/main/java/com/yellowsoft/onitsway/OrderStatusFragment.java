@@ -248,7 +248,7 @@ public class OrderStatusFragment extends Fragment {
                     rate_ll.setVisibility(View.GONE);
                     accept_ll.setVisibility(View.GONE);
                     di_ll.setVisibility(View.GONE);
-                } else if (orders.get(i).status.equals("Reshceduled")) {
+                } else if (orders.get(i).status.equals("Reshceduled Pickup")||orders.get(i).status.equals("Reshceduled Dropoff")) {
                     cancel_ll.setVisibility(View.VISIBLE);
                     accept_ll.setVisibility(View.VISIBLE);
                     di_ll.setVisibility(View.VISIBLE);

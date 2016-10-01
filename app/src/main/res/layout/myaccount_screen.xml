@@ -7,77 +7,94 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@drawable/company_details_screen_divider"
-        android:showDividers="middle"
-        android:gravity="center"
-        android:padding="30dp">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/imageView27"
+            android:src="@drawable/logo_big"
+            android:adjustViewBounds="false"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/field_background"
+            android:divider="@drawable/company_details_screen_divider"
+            android:showDividers="middle"
             android:gravity="center"
-            android:id="@+id/my_acc_ord_ll">
+            android:padding="15dp"
+            android:layout_marginTop="20dp">
 
-            <com.yellowsoft.onitsway.MyTextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My Orderrs"
-                android:id="@+id/my_acc_ord_tv"
-                android:textColor="@color/black_text"
-                android:textSize="15sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/field_background"
-            android:gravity="center"
-            android:id="@+id/my_acc_address_ll">
+                android:background="@drawable/field_background"
+                android:gravity="center"
+                android:id="@+id/my_acc_ord_ll">
 
-            <com.yellowsoft.onitsway.MyTextView
-                android:layout_width="wrap_content"
+                <com.yellowsoft.onitsway.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Orderrs"
+                    android:id="@+id/my_acc_ord_tv"
+                    android:textColor="@color/black_text"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My Orderrs"
-                android:id="@+id/my_acc_address_tv"
-                android:textColor="@color/black_text"
-                android:textSize="15sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/field_background"
-            android:gravity="center"
-            android:id="@+id/my_acc_lang_ll"
-            android:visibility="gone">
+                android:background="@drawable/field_background"
+                android:gravity="center"
+                android:id="@+id/my_acc_address_ll">
 
-            <com.yellowsoft.onitsway.MyTextView
-                android:layout_width="wrap_content"
+                <com.yellowsoft.onitsway.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Orderrs"
+                    android:id="@+id/my_acc_address_tv"
+                    android:textColor="@color/black_text"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Language"
-                android:id="@+id/my_acc_lang_tv"
-                android:textColor="@color/black_text"
-                android:textSize="15dp" />
-        </LinearLayout>
+                android:background="@drawable/field_background"
+                android:gravity="center"
+                android:id="@+id/my_acc_lang_ll"
+                android:visibility="gone">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/field_background"
-            android:gravity="center"
-            android:id="@+id/my_acc_logout_ll" >
+                <com.yellowsoft.onitsway.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Language"
+                    android:id="@+id/my_acc_lang_tv"
+                    android:textColor="@color/black_text"
+                    android:textSize="15dp" />
+            </LinearLayout>
 
-            <com.yellowsoft.onitsway.MyTextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Logout"
-                android:id="@+id/my_acc_logout_tv"
-                android:textColor="@color/black_text"
-                android:textSize="15sp" />
+                android:background="@drawable/field_background_color"
+                android:gravity="center"
+                android:id="@+id/my_acc_logout_ll" >
+
+                <com.yellowsoft.onitsway.MyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:id="@+id/my_acc_logout_tv"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

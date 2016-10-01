@@ -50,12 +50,13 @@ public class CompanyActvity extends Activity {
     ViewFlipper viewFlipper;
     ArrayList<OrderDetails> orders;
     ArrayList<OrderDetails> orders_ll;
-    String area_name,time1="0",date1="0",th="0",tm="0",dy="0",dm="0",dd="0";
+    String area_name,time1="0",date1="0",th="0",tm="0",dy="0",dm="0",dd="0",pd="0",pt="0",dd1="0",dt="0";
     private int mYear, mMonth, mDay, mHour, mMinute;
     CompanyStatusAdapter orderStatusAdapter;
     LinearLayout cancel_ll,logout,status_ll,res_ll,res_pop,res_time,res_date,res_title_ll,pick_res_ll,pd_res_pop,drop_res_ll;
     String ord_id,sta,wt_status,res="pick";
     ArrayList<String> status_list;
+    ImageView close;
     MyTextView sta_o_summary, sta_o_id, sta_o_time, sta_p_time, sta_d_time, sta_o_status, sta_com_details, sta_p_add, sta_d_add, sta_total, sta_total_cost,
             o_id, o_time, o_status, o_p_time, o_d_time, p_add4, p_add5, p_add6,p_add1, p_add2, p_add3, d_add4, d_add5, d_add6,d_add1, d_add2, d_add3, com_name, cost, o_item, sta_o_item, cancel_tv
             ,sta_user_details,sta_user_name,sta_user_phone,sta_user_email,user_name,user_email,user_phone,logout_tv,title_orders,res_tv,res_sta,res_time_tv,res_date_tv,res_pop_tv;
@@ -114,6 +115,8 @@ public class CompanyActvity extends Activity {
         orderStatusAdapter = new CompanyStatusAdapter(this, orders);
         gridView = (GridView) findViewById(R.id.c_orders_status_list);
         gridView.setAdapter(orderStatusAdapter);
+
+        close=(ImageView)findViewById(R.id.close_reshedul);
         title_orders = (MyTextView) findViewById(R.id.order_com_tv);
         title_orders.setText(Settings.getword(this, "my_orders"));
         sta_o_summary = (MyTextView) findViewById(R.id.c_sta_order_summary);
@@ -203,6 +206,7 @@ public class CompanyActvity extends Activity {
         user_email = (MyTextView) findViewById(R.id.user_email);
         user_phone= (MyTextView) findViewById(R.id.user_phone);
 
+
         logoo = (ImageView) findViewById(R.id.c_com_logo_or);
         back = (ImageView) findViewById(R.id.c_back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -254,7 +258,18 @@ public class CompanyActvity extends Activity {
         res_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pd_res_pop.setVisibility(View.VISIBLE);
+                if(pd_res_pop.getVisibility()==View.VISIBLE){
+                    pd_res_pop.setVisibility(View.GONE);
+                }else{
+                    pd_res_pop.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                res_pop.setVisibility(View.GONE);
             }
         });
         pick_res_ll.setOnClickListener(new View.OnClickListener() {
@@ -318,6 +333,12 @@ public class CompanyActvity extends Activity {
                         String time1 = new StringBuilder().append(hour).append(':')
                                 .append(min ).append(" ").append(timeSet).toString();
                         res_time_tv.setText(time1);
+                        if(res.equals("pick")){
+                            pt=time1;
+                        }else{
+                            dt=time1;
+                        }
+
                     }
                 }, mHour, mMinute, false);
                 timePickerDialog.show();
@@ -345,6 +366,11 @@ public class CompanyActvity extends Activity {
                         dd=temp1;
                         date1 = temp1 + "-" + temp + "-" +year;
                         res_date_tv.setText(date1);
+                        if(res.equals("pick")){
+                            pd=date1;
+                        }else{
+                            dd1=date1;
+                        }
                     }
                 }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -360,11 +386,7 @@ public class CompanyActvity extends Activity {
 //                        Toast.makeText(getActivity(), Settings.getword(getActivity(),"empty_date"), Toast.LENGTH_SHORT).show();
                     alert.showAlertDialog(CompanyActvity.this, "Info", Settings.getword(CompanyActvity.this, "empty_date"), false);
                 else{
-                   if(res.equals("pick")){
-                       get_cancel(ord_id,"10");
-                   }else{
                        get_cancel(ord_id,"7");
-                   }
                }
             }
         });
@@ -422,6 +444,10 @@ public class CompanyActvity extends Activity {
                 o_item.setText(orders.get(i).get_item_name(CompanyActvity.this));
                 o_p_time.setText(orders.get(i).p_date + "  " + orders.get(i).p_time);
                 o_d_time.setText(orders.get(i).d_date + "  " + orders.get(i).d_time);
+                pd=orders.get(i).p_date;
+                pt=orders.get(i).p_time;
+                dd1=orders.get(i).d_date;
+                dt=orders.get(i).d_time;
                 o_status.setText(orders.get(i).status);
                 p_add1.setText(orders.get(i).pick_fname);
                 p_add2.setText(orders.get(i).get_p_area_name(CompanyActvity.this));
@@ -540,9 +566,10 @@ public class CompanyActvity extends Activity {
     public void get_cancel(String id, final String sta_id){
         String url = null;
         try {
-            if(sta_id.equals("7")||sta_id.equals("10")){
+            if(sta_id.equals("7")){
                 url = Settings.SERVERURL + "order-status.php?"+"invoice_id="+ URLEncoder.encode(id,"utf-8")+"&status="+ URLEncoder.encode(sta_id,"utf-8")
-                        +"&drop_time="+ URLEncoder.encode(res_time_tv.getText().toString(),"utf-8")+"&drop_date="+ URLEncoder.encode(res_date_tv.getText().toString(),"utf-8");
+                        +"&drop_time="+ URLEncoder.encode(dt,"utf-8")+"&drop_date="+ URLEncoder.encode(dd1,"utf-8")
+                        +"&pick_time="+ URLEncoder.encode(pt,"utf-8")+"&pick_date="+ URLEncoder.encode(pd,"utf-8");
                 Log.e("url",url);
             }else {
                 url = Settings.SERVERURL + "order-status.php?" + "invoice_id=" + URLEncoder.encode(id, "utf-8") + "&status=" + URLEncoder.encode(sta_id, "utf-8");

@@ -175,7 +175,7 @@ public class PickUpFragment extends Fragment {
             }
         });
         weight = (MyEditText) v.findViewById(R.id.pickup_weight);
-        weight.setText(Settings.getword(getActivity(),"weight"));
+        weight.setHint(Settings.getword(getActivity(),"weight"));
         Log.e("weight", Settings.get_weight(getActivity()));
 //        weight.setText(Settings.get_weight(getActivity()));
         item = (LinearLayout) v.findViewById(R.id.item_type);

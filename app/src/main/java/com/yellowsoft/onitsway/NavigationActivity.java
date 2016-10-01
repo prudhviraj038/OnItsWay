@@ -51,7 +51,9 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         prgmImages = new ArrayList<>();
         prgmTitles = new ArrayList<>();
         prgmImages.add(R.drawable.home);
-
+        if(Settings.getcomUserid(this).equals("-1")) {
+            prgmImages.add(R.drawable.person_img);
+        }
         prgmImages.add(R.drawable.aboutus_img);
         prgmImages.add(R.drawable.whatwe_img);
         prgmImages.add(R.drawable.mobile_img);
@@ -59,9 +61,8 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
 //        prgmImages.add(R.drawable.book);
         prgmTitles.add(Settings.getword(this, "home"));
         if(Settings.getcomUserid(this).equals("-1")) {
-            prgmImages.add(R.drawable.person_img);
             prgmTitles.add(Settings.getword(this, "my_account"));
-        }
+            }
         prgmTitles.add(Settings.getword(this, "about_us"));
         prgmTitles.add(Settings.getword(this, "what_we_do"));
         prgmTitles.add(Settings.getword(this, "contact_us"));
@@ -134,7 +135,15 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                drawerLayout.closeDrawer(GravityCompat.START);
-
+                int temp=0;
+                if(prgmTitles.size()==6){
+                    temp=0;
+                }else{
+                    temp=1;
+                }
+                if(position>0){
+                    position = position+temp;
+                }
                     switch (position) {
                         case 0:
                             animation_direction = true;
@@ -232,10 +241,10 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
     }
     @Override
     public void after_login() {
-//         FragmentManager fragmentManager =getSupportFragmentManager();
-//         PickUpFragment pickUpFragment = new PickUpFragment();
-//         fragmentManager.beginTransaction().replace(R.id.container_main, pickUpFragment).commit();
-        onBackPressed();
+          animation_direction=true;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        HomeFragment homeFragment = new HomeFragment();
+        fragmentManager.beginTransaction().replace(R.id.container_main, homeFragment).commit();
     }
     @Override
     public void after_logout() {
@@ -432,11 +441,12 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         menu_img.setVisibility(View.VISIBLE);
     }
     @Override
-    public void setting_page_back() {
+    public void setting_page_back(String head) {
         settings.setVisibility(View.GONE);
         back_btn.setVisibility(View.VISIBLE);
         logo_image.setVisibility(View.GONE);
-//        header.setVisibility(View.GONE);
+        header.setVisibility(View.VISIBLE);
+        header.setText(head);
         menu_img.setVisibility(View.VISIBLE);
     }
 

@@ -215,7 +215,8 @@
                             android:textColor="@color/grey_textcolor"
                             android:textSize="15sp"
                             android:singleLine="true"
-                            android:textColorHint="@color/grey_textcolor" />
+                            android:textColorHint="@color/grey_textcolor"
+                            android:maxLength="6" />
                         <com.yellowsoft.onitsway.MyEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -228,7 +229,8 @@
                             android:textColor="@color/grey_textcolor"
                             android:textSize="15sp"
                             android:singleLine="true"
-                            android:textColorHint="@color/grey_textcolor" />
+                            android:textColorHint="@color/grey_textcolor"
+                            android:maxLength="6" />
                     </LinearLayout>
                 </ScrollView>
             </LinearLayout>

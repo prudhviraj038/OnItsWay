@@ -38,17 +38,18 @@ public class AllApis {
          this.email=email;
          this.password=password;
         final ProgressDialog progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage(Settings.getword(context,"please_wait"));
+        progressDialog.setMessage(Settings.getword(context, "please_wait"));
         progressDialog.show();
         progressDialog.setCancelable(false);
-        String url = Settings.SERVERURL+"add-member.php?";
-
+        String url = Settings.SERVERURL+"add-member.php";
+        Log.e("url",url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if(progressDialog!=null)
                             progressDialog.dismiss();
+                        Log.e("response",response);
                         try {
                             JSONObject jsonObject=new JSONObject(response);
                             String reply=jsonObject.getString("status");
@@ -56,13 +57,14 @@ public class AllApis {
                                 String msg = jsonObject.getString("message");
 //                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                                 alert.showAlertDialog(context, "Info", msg, false);
+//                                LoginSignupFragment.reg();
 
                             }
                             else {
                                 String mem_id=jsonObject.getString("member_id");
                                 String msg = jsonObject.getString("message");
 //                                String name=jsonObject.getString("name");
-//                                Settings.setUserid(context, mem_id, name,msg);
+//                                Settings.setUserid(context, mem_id, "",msg);
 //                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                                 alert.showAlertDialog(context, "Info", msg, false);
 //                                update_gcm(mem_id, context);;

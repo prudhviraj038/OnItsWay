@@ -51,14 +51,14 @@ public class NavigationListAdapter extends BaseAdapter{
         // TODO Auto-generated method stub
         Holder holder=new Holder();
         View rowView;
-        if(convertView==null)
         rowView = inflater.inflate(R.layout.menu_item, parent,false);
-        else
-        rowView = convertView;
+
+
         holder.tv=(MyTextView)rowView.findViewById(R.id.title);
         holder.img=(ImageView) rowView.findViewById(R.id.icon);
         holder.tv.setText(titles.get(position));
         holder.img.setImageResource(images.get(position));
+
         return rowView;
     }
 

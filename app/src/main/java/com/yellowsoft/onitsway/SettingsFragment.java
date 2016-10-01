@@ -42,11 +42,12 @@ public class SettingsFragment extends Fragment {
     String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     String write,fname,lname,phone,email,password,first_name, last_name, mobile, email_id;
     ViewFlipper viewFlipper;
+    String head;
     ProgressBar progressBar;
     AlertDialogManager alert = new AlertDialogManager();
     FragmentTouchListner mCallBack;
     public interface FragmentTouchListner {
-        public void setting_page_back();
+        public void setting_page_back(String head);
         public void lang();
         public void notification_page();
         public  Animation get_animation(Boolean enter);
@@ -75,13 +76,14 @@ public class SettingsFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View view = getView();
-        mCallBack.setting_page_back();
+        head=Settings.getword(getActivity(),"settings");
+        mCallBack.setting_page_back(head);
         progressBar=(ProgressBar)view.findViewById(R.id.progressBar2);
         get_user_details();
         viewFlipper=(ViewFlipper)view.findViewById(R.id.viewFlipper4);
         language=(LinearLayout)view.findViewById(R.id.sett_lang_ll);
         lang_tv=(MyTextView)view.findViewById(R.id.sett_lang_tv);
-        lang_tv.setText(Settings.getword(getActivity(),"language"));
+        lang_tv.setText(Settings.getword(getActivity(),"change_language"));
         et_fname = (MyEditText) view.findViewById(R.id.edit_firstname);
         et_fname.setHint(Settings.getword(getActivity(), "first_name"));
         et_lname = (MyEditText) view.findViewById(R.id.edit_lastname);
@@ -111,7 +113,7 @@ public class SettingsFragment extends Fragment {
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    viewFlipper.setDisplayedChild(1);
+//                    viewFlipper.setDisplayedChild(1);
             }
         });
         change_pass=(LinearLayout)view.findViewById(R.id.change_pass_ll);

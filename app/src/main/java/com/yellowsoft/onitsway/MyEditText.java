@@ -25,7 +25,7 @@ public class MyEditText extends android.widget.EditText {
 
         if (!isInEditMode()) {
                 if (Settings.get_user_language(context).equals("ar")) {
-                    Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GE_Flow_Regular.otf");
+                    Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Hacen-Tunisia.ttf");
                     setTypeface(tf);
                 } else {
                     Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Lato-Regular.ttf");

@@ -30,6 +30,7 @@ public class HomeFragment extends Fragment {
     LinearLayout pro_pop,ok;
     ImageView pro_img;
     String image,id,title;
+    int temp=0;
     AlertDialogManager alert = new AlertDialogManager();
     FragmentTouchListner mCallBack;
     public interface FragmentTouchListner {
@@ -66,7 +67,10 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         View view = getView();
         mCallBack.home();
-        get_promo();
+        temp=0;
+        if(temp==0) {
+            get_promo();
+        }
         Settings.set_order_json(getActivity(), "-1");
         pro_pop=(LinearLayout)view.findViewById(R.id.pro_pop);
         ok=(LinearLayout)view.findViewById(R.id.ok_ll);
@@ -141,7 +145,11 @@ public class HomeFragment extends Fragment {
 //                        alert.showAlertDialog(getActivity(), "Info",msg, false);
 //                        pay_type=sta;
 //                        free_status_ll.setVisibility(View.GONE);
-                        pro_pop.setVisibility(View.VISIBLE);
+                        if(Settings.getUserid(getActivity()).equals("-1")){
+                            pro_pop.setVisibility(View.GONE);
+                        }else {
+                            pro_pop.setVisibility(View.VISIBLE);
+                        }
                     }
                     else {
                         String msg = jsonObject.getString("message");
@@ -171,6 +179,7 @@ public class HomeFragment extends Fragment {
 
     }
     public void get_promo(){
+        temp=1;
         String url = Settings.SERVERURL+"promotions.php";
         Log.e("url--->", url);
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
@@ -187,7 +196,7 @@ public class HomeFragment extends Fragment {
 
                     JSONObject jsonObject=jsonArray.getJSONObject(0);
                     id=jsonObject.getString("id");
-                    title=jsonObject.getString("title");
+                    title=jsonObject.getString("title"+Settings.get_lan(getActivity()));
                     image=jsonObject.getString("image");
                     pro_tv.setText(title);
                     Picasso.with(getActivity()).load(image).into(pro_img);
