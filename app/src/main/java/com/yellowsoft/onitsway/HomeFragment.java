@@ -30,7 +30,9 @@ public class HomeFragment extends Fragment {
     LinearLayout pro_pop,ok;
     ImageView pro_img;
     String image,id,title;
+    String type;
     int temp=0;
+    int t=0;
     AlertDialogManager alert = new AlertDialogManager();
     FragmentTouchListner mCallBack;
     public interface FragmentTouchListner {
@@ -67,8 +69,13 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         View view = getView();
         mCallBack.home();
-        temp=0;
-        if(temp==0) {
+        Bundle args = getArguments();
+        type = (String)args.getSerializable("type");
+        Log.e("type",type);
+//        if(temp==0) {
+//            get_promo();
+//        }
+        if(type.equals("1")&&t==0){
             get_promo();
         }
         Settings.set_order_json(getActivity(), "-1");
@@ -92,18 +99,23 @@ public class HomeFragment extends Fragment {
         LinearLayout dropoff_deli_ll = (LinearLayout) view.findViewById(R.id.dropoff_deliveryy);
         courier_ll.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {mCallBack.courier_order("courier");
+            public void onClick(View v) {
+
+                mCallBack.courier_order("courier");
             }
         });
         order_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 mCallBack.courier_order("order");
             }
         });
+
         pickup_deliv_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Settings.set_type(getActivity(),"pick");
                 Settings.set_order_json(getActivity(),"-1");
                 mCallBack.pick_drop("pick");
@@ -112,6 +124,7 @@ public class HomeFragment extends Fragment {
         dropoff_deli_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Settings.set_type(getActivity(), "drop");
 //                Settings.set_order_json(getActivity(), "-1");
                 mCallBack.pick_drop("drop");
@@ -142,18 +155,14 @@ public class HomeFragment extends Fragment {
                     if(sta.equals("Free")) {
                         String msg = jsonObject.getString("message");
 //                            Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
-//                        alert.showAlertDialog(getActivity(), "Info",msg, false);
+                        alert.showAlertDialog(getActivity(), "Info", msg, false);
 //                        pay_type=sta;
 //                        free_status_ll.setVisibility(View.GONE);
-                        if(Settings.getUserid(getActivity()).equals("-1")){
-                            pro_pop.setVisibility(View.GONE);
-                        }else {
-                            pro_pop.setVisibility(View.VISIBLE);
-                        }
+
                     }
                     else {
                         String msg = jsonObject.getString("message");
-                        pro_pop.setVisibility(View.GONE);
+//                        pro_pop.setVisibility(View.GONE);
 //                            Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
                     }
 
@@ -179,7 +188,7 @@ public class HomeFragment extends Fragment {
 
     }
     public void get_promo(){
-        temp=1;
+        temp=1;t=1;
         String url = Settings.SERVERURL+"promotions.php";
         Log.e("url--->", url);
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
@@ -200,7 +209,9 @@ public class HomeFragment extends Fragment {
                     image=jsonObject.getString("image");
                     pro_tv.setText(title);
                     Picasso.with(getActivity()).load(image).into(pro_img);
-                    free_status();
+//                    free_status();
+
+                        pro_pop.setVisibility(View.VISIBLE);
 
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -68,6 +68,7 @@ public class AllApis {
 //                                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                                 alert.showAlertDialog(context, "Info", msg, false);
 //                                update_gcm(mem_id, context);;
+
                                 mcallback.signup_to_login();
                             }
 
@@ -134,6 +135,7 @@ public class AllApis {
                         Toast.makeText(context, name, Toast.LENGTH_SHORT).show();
 //                        alert.showAlertDialog(context, "Info", name, false);
 //                        update_gcm(mem_id, context);
+
                         mCallback.after_login();
                     }
 

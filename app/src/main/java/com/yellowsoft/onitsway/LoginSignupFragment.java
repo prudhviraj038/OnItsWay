@@ -23,8 +23,11 @@ import android.widget.ViewFlipper;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,11 +35,13 @@ import org.json.JSONObject;
 public class LoginSignupFragment extends Fragment {
     MyEditText et_fname, et_lname, et_phone, et_email, et_password,etl_email,etl_password,et_re_password;
     LinearLayout login_ll,signup_ll,submit_ll,bar_ll;
-    MyTextView signup,login,fpassword,sign_up_tv,login_tv,title_tc,title_descrp,submit;
+    MyTextView signup,login,fpassword,sign_up_tv,login_tv,title_tc,title_descrp,submit,pro_tv;
     ViewFlipper viewFlipper;
     String write,fname,lname,phone,email,password,re_password;
-    ImageView logo_login;
+    ImageView logo_login,pro_img;
+    LinearLayout pro_pop,ok;
     CheckBox checkBox;
+    String image,id,title;
     AllApis allApis = new AllApis();
     String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     FragmentTouchListner mCallBack;
@@ -76,6 +81,11 @@ public class LoginSignupFragment extends Fragment {
         mCallBack.setting_butt();
         String head=Settings.getword(getActivity(), "login");
         mCallBack.text_back_butt(head);
+        get_promo();
+        pro_pop=(LinearLayout)view.findViewById(R.id.pro_pop_login);
+        ok=(LinearLayout)view.findViewById(R.id.ok_ll_login);
+        pro_tv=(MyTextView)view.findViewById(R.id.pro_tv_home_login);
+        pro_img=(ImageView)view.findViewById(R.id.pro_img_home_login);
         viewFlipper=(ViewFlipper)view.findViewById(R.id.viewFlipper);
         login = (MyTextView) view.findViewById(R.id.login_main);
         login.setText(Settings.getword(getActivity(), "login"));
@@ -124,7 +134,12 @@ public class LoginSignupFragment extends Fragment {
                 register();
             }
         });
-
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pro_pop.setVisibility(View.GONE);
+            }
+        });
         title_tc = (MyTextView) view.findViewById(R.id.title_tc_signup);
         title_descrp = (MyTextView) view.findViewById(R.id.title_descr_signup);
         try {
@@ -224,6 +239,58 @@ public class LoginSignupFragment extends Fragment {
             }
         });
     }
+    public void get_promo1(){
+        pro_pop.setVisibility(View.VISIBLE);
+    }
+
+    public void get_promo(){
+
+        String url = Settings.SERVERURL+"promotions.php";
+        Log.e("url--->", url);
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Please wait....");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest( url, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray jsonArray) {
+                progressDialog.dismiss();
+                Log.e("response is: ", jsonArray.toString());
+                try {
+
+                    JSONObject jsonObject=jsonArray.getJSONObject(0);
+                    id=jsonObject.getString("id");
+                    title=jsonObject.getString("title"+Settings.get_lan(getActivity()));
+                    image=jsonObject.getString("image");
+                    pro_tv.setText(title);
+                    Picasso.with(getActivity()).load(image).into(pro_img);
+//                    free_status();
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO Auto-generated method stub
+                Log.e("response is:", error.toString());
+                Toast.makeText(getActivity(), "Server not connected", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+
+        });
+
+// Access the RequestQueue through your singleton class.
+        AppController.getInstance().addToRequestQueue(jsonArrayRequest);
+
+    }
+
     public  void reg() {viewFlipper.setDisplayedChild(1);}
     private void register() {
          fname = et_fname.getText().toString();

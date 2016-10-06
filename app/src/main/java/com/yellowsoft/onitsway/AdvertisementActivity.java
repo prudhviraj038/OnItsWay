@@ -63,7 +63,7 @@ public class AdvertisementActivity extends Activity {
     }
     public  void newone(){
                 Intent mainIntent = new Intent(getApplicationContext(), NavigationActivity.class);
-//                mainIntent.putExtra("order","");
+                mainIntent.putExtra("type","1");
                 startActivity(mainIntent);
                 finish();
         }

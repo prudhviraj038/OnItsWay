@@ -41,6 +41,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
     ArrayList<String> prgmTitles;
     private ListView mDrawerList1;
     int current_position=0;
+    String type="0";
     AlertDialogManager alert = new AlertDialogManager();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +104,9 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         container = (FrameLayout) findViewById(R.id.container_main);
         fragmentManager = getSupportFragmentManager();
         HomeFragment fragment = new HomeFragment();
+        final Bundle bundle = new Bundle();
+        bundle.putSerializable("type", "1");
+        fragment.setArguments(bundle);
         fragmentManager.beginTransaction().replace(R.id.container_main, fragment).commit();
 
         settings.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +131,7 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 onBackPressed();
             }
         });
@@ -149,6 +154,9 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
                             animation_direction = true;
                             drawerLayout.closeDrawer(GravityCompat.END);
                             HomeFragment fragment = new HomeFragment();
+                            final Bundle bundle = new Bundle();
+                            bundle.putSerializable("type", "0");
+                            fragment.setArguments(bundle);
                             fragmentManager.beginTransaction().replace(R.id.container_main, fragment).addToBackStack(null).commit();
                             break;
                         case 1:
@@ -244,6 +252,9 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
           animation_direction=true;
         FragmentManager fragmentManager = getSupportFragmentManager();
         HomeFragment homeFragment = new HomeFragment();
+        final Bundle bundle = new Bundle();
+        bundle.putSerializable("type", "1");
+        homeFragment.setArguments(bundle);
         fragmentManager.beginTransaction().replace(R.id.container_main, homeFragment).commit();
     }
     @Override
@@ -251,6 +262,9 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         animation_direction=true;
         FragmentManager fragmentManager =getSupportFragmentManager();
         HomeFragment homeFragment = new HomeFragment();
+        final Bundle bundle = new Bundle();
+        bundle.putSerializable("type", "0");
+        homeFragment.setArguments(bundle);
         fragmentManager.beginTransaction().replace(R.id.container_main, homeFragment).commit();
         // onBackPressed();
     }
@@ -268,6 +282,9 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         animation_direction=true;
         FragmentManager fragmentManager = getSupportFragmentManager();
         HomeFragment homeFragment = new HomeFragment();
+        final Bundle bundle = new Bundle();
+        bundle.putSerializable("type", "1");
+        homeFragment.setArguments(bundle);
         fragmentManager.beginTransaction().replace(R.id.container_main, homeFragment).commit();
 
     }
@@ -491,6 +508,9 @@ public class NavigationActivity extends FragmentActivity implements ContactUsFra
         animation_direction=true;
 //        FragmentManager fragmentManager = this.getSupportFragmentManager();
         HomeFragment homeFragment = new HomeFragment();
+        final Bundle bundle = new Bundle();
+        bundle.putSerializable("type", "0");
+        homeFragment.setArguments(bundle);
         fragmentManager.beginTransaction().replace(R.id.container_main, homeFragment).addToBackStack(null).commit();
     }
 
